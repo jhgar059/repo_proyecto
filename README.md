@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Sistema inteligente de detección de malware basado en Machine Learning
 
 Trabajo de grado — Universidad Católica de Colombia, Facultad de Ingeniería, Programa de Ingeniería de Sistemas y Computación.
@@ -69,3 +70,7 @@ Los datasets no se incluyen en este repositorio por su tamaño (varios GB). Ver 
 ## Licencia
 
 Proyecto académico — Universidad Católica de Colombia, 2026.
+=======
+# repo_proyecto
+trabajo de grado
+>>>>>>> 086c69f5c82162acefcee95823d6d85a8e779753
