@@ -1,0 +1,19 @@
+# Datasets pesados (no se versionan, ver instrucciones de descarga en el README)
+*.parquet
+*.tar.bz2
+*.dat
+ember2018/
+
+# Python
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Modelos entrenados grandes (opcional, evaluar segun tamano real)
+*.joblib
+*.keras
+*.h5
+
+# Entorno
+.env
+venv/
