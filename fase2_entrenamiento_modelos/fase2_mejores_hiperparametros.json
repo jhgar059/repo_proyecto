@@ -1,0 +1,14 @@
+{
+  "random_forest": {
+    "n_estimators": 250,
+    "min_samples_leaf": 4,
+    "max_depth": 20
+  },
+  "xgboost": {
+    "subsample": 1.0,
+    "n_estimators": 250,
+    "max_depth": 8,
+    "learning_rate": 0.2
+  },
+  "modelo_recomendado": "Random Forest"
+}

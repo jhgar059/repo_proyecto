@@ -1,0 +1,4 @@
+modelo,accuracy,precision,recall,f1_score,auc_roc,fpr,tiempo_entrenamiento_s,tiempo_inferencia_ms_por_archivo
+Random Forest,0.9197,0.9095,0.9322,0.9207,0.9778,0.0927,3209.4,0.114
+XGBoost,0.9154,0.9156,0.9153,0.9154,0.9771,0.0844,249.3,0.013
+Dense Neural Network,0.8492,0.8381,0.8656,0.8517,0.9335,0.1672,100.6,0.002
