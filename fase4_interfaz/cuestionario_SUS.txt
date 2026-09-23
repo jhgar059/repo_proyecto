@@ -1,0 +1,14 @@
+CUESTIONARIO SUS (1 = totalmente en desacuerdo ... 5 = totalmente de acuerdo)
+
+P1. Creo que me gustaría usar este sistema con frecuencia.
+P2. Encontré el sistema innecesariamente complejo.
+P3. Pensé que el sistema era fácil de usar.
+P4. Creo que necesitaría el apoyo de una persona técnica para poder usar este sistema.
+P5. Encontré que las diversas funciones del sistema estaban bien integradas.
+P6. Pensé que había demasiada inconsistencia en este sistema.
+P7. Imagino que la mayoría de las personas aprenderían a usar este sistema muy rápidamente.
+P8. Encontré el sistema muy engorroso de usar.
+P9. Me sentí muy seguro(a) usando el sistema.
+P10. Necesité aprender muchas cosas antes de poder empezar a usar el sistema.
+
+Pregunta adicional: ¿Entendió por qué el sistema clasificó el archivo como lo hizo? (Sí / Parcialmente / No)

@@ -1,0 +1,8 @@
+Indicador,Meta,Resultado,Cumple
+Reducción de dimensionalidad,>= 90.0 %,99.42 %,True
+F1 conservado tras la selección,>= 95.0 %,95.45 %,True
+F1-score (prueba temporal),>= 0.95,0.9251361573513851,False
+Tasa de falsos positivos,<= 5 %,7.41 %,False
+Cobertura de explicaciones,100 %,100.0 %,True
+"Latencia por archivo (p95, 20 MB)",< 10 s,20.95 s,False
+Usabilidad SUS,>= 70,pendiente,

@@ -1,0 +1,103 @@
+{
+  "pruebas_funcionales": [
+    {
+      "codigo": "PF-01",
+      "descripcion": "PE válido: veredicto, probabilidad y factores",
+      "resultado": "PASA",
+      "detalle": "veredicto=MALICIOSO p=0.673 factores=5"
+    },
+    {
+      "codigo": "PF-02",
+      "descripcion": "PE con indicadores sospechosos se analiza sin error",
+      "resultado": "PASA",
+      "detalle": "p=0.673 riesgo=MEDIO"
+    },
+    {
+      "codigo": "PF-03",
+      "descripcion": "Archivo no PE: se analiza y se advierte",
+      "resultado": "PASA",
+      "detalle": "El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejec"
+    },
+    {
+      "codigo": "PF-04",
+      "descripcion": "Archivo vacío: error controlado",
+      "resultado": "PASA",
+      "detalle": "El archivo está vacío. Seleccione un archivo válido."
+    },
+    {
+      "codigo": "PF-05",
+      "descripcion": "Archivo mayor al límite: rechazo controlado",
+      "resultado": "PASA",
+      "detalle": "El archivo supera el límite de 50 MB permitido para el análisis."
+    },
+    {
+      "codigo": "PF-06",
+      "descripcion": "Determinismo: mismo archivo, mismo resultado",
+      "resultado": "PASA",
+      "detalle": ""
+    },
+    {
+      "codigo": "PF-07",
+      "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
+      "resultado": "PASA",
+      "detalle": "4387.9 ms"
+    },
+    {
+      "codigo": "PF-08",
+      "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (informativa)",
+      "resultado": "PASA",
+      "detalle": "5/6 coinciden con la etiqueta real"
+    },
+    {
+      "codigo": "PF-09",
+      "descripcion": "La interfaz Gradio se construye sin errores",
+      "resultado": "PASA",
+      "detalle": "Blocks"
+    }
+  ],
+  "n_pasan": 9,
+  "n_total": 9,
+  "rendimiento": [
+    {
+      "tamano": "0.1 MB",
+      "extraccion_ms_p50": 76.7,
+      "prediccion_ms_p50": 20.2,
+      "total_ms_p50": 98.1,
+      "total_ms_p95": 112.1,
+      "total_ms_max": 118.2,
+      "cumple_meta": true
+    },
+    {
+      "tamano": "1 MB",
+      "extraccion_ms_p50": 783.6,
+      "prediccion_ms_p50": 19.9,
+      "total_ms_p50": 807.2,
+      "total_ms_p95": 1503.5,
+      "total_ms_max": 1509.6,
+      "cumple_meta": true
+    },
+    {
+      "tamano": "5 MB",
+      "extraccion_ms_p50": 4285.9,
+      "prediccion_ms_p50": 20.9,
+      "total_ms_p50": 4309.2,
+      "total_ms_p95": 6050.6,
+      "total_ms_max": 6217.6,
+      "cumple_meta": true
+    },
+    {
+      "tamano": "20 MB",
+      "extraccion_ms_p50": 18383.5,
+      "prediccion_ms_p50": 20.2,
+      "total_ms_p50": 18403.6,
+      "total_ms_p95": 20953.1,
+      "total_ms_max": 25672.7,
+      "cumple_meta": false
+    }
+  ],
+  "repeticiones": 20,
+  "meta_latencia_s": 10.0,
+  "entorno": "Google Colab (CPU)",
+  "modelo_evaluado": "Random Forest",
+  "n_caracteristicas": 15
+}

@@ -1,0 +1,13 @@
+{
+  "mejores_hiperparametros": {
+    "subsample": 1.0,
+    "n_estimators": 400,
+    "max_depth": 6,
+    "learning_rate": 0.1,
+    "colsample_bytree": 1.0
+  },
+  "f1_cv": 0.922,
+  "tiempo_entrenamiento_s": 316.8,
+  "archivo_modelo": "xgboost.joblib",
+  "tamano_modelo_mb": 0.56
+}

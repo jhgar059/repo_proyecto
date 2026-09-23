@@ -1,0 +1,16 @@
+columna,nombre,grupo,shap_medio_abs,shap_medio
+f739,header.characteristics.DLL,header,0.23610032254276464,-0.0138170362804414
+f2478,authenticode.latest_signing_time,authenticode,0.09327863492873666,0.00720760967848509
+f2477,authenticode.chain_max_depth,authenticode,0.0798352689247035,0.0023310551374747827
+f518,byteentropy.entropia15_byte15,byteentropy,0.07175060222808131,-0.003142305895322823
+f2547,pefilewarnings.w67_Suspicious flags set for section,pefilewarnings,0.06753497263098131,-0.000155687327341523
+f993,section.overlay.entropy,section,0.05093078857159854,0.002397740295924954
+f2276,exports.has_exports,exports,0.03260648851451644,0.0036499259332307397
+f726,header.characteristics.RELOCS_STRIPPED,header,0.012179647329442612,-0.0011294348533863168
+f728,header.characteristics.LINE_NUMS_STRIPPED,header,0.01208970816587997,0.00040311318891009923
+f2437,datadirectories.has_relocs,datadirectories,0.011706838761215635,0.0014978036201078262
+f752,header.dll_characteristics.TERMINAL_SERVER_AWARE,header,0.010250128336435453,-0.00011051230623170544
+f743,header.dll_characteristics.DYNAMIC_BASE,header,0.00988878317414098,0.0003115240616321575
+f2546,pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE,pefilewarnings,0.009346912913449646,-0.0033512140191684814
+f2474,authenticode.empty_program_name,authenticode,0.0059610912743045166,0.0007348865826341315
+f745,header.dll_characteristics.NX_COMPAT,header,0.005239647936823002,-6.528416763510734e-05

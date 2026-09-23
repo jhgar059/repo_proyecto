@@ -1,0 +1,4 @@
+archivo,bytes,sha256
+pe_minimo.exe,2048,e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23
+pe_sospechoso.exe,2048,07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23
+pe_5mb.exe,5244928,daa6b0538dbd4f30ee5a841a38d18224af7c3d4dc8bfce935aebd74e9f8b0dd3

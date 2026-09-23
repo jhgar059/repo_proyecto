@@ -1,0 +1,5 @@
+tamano,extraccion_ms_p50,prediccion_ms_p50,total_ms_p50,total_ms_p95,total_ms_max,cumple_meta
+0.1 MB,76.7,20.2,98.1,112.1,118.2,True
+1 MB,783.6,19.9,807.2,1503.5,1509.6,True
+5 MB,4285.9,20.9,4309.2,6050.6,6217.6,True
+20 MB,18383.5,20.2,18403.6,20953.1,25672.7,False

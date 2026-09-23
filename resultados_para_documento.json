@@ -1,0 +1,716 @@
+{
+  "generado": "2026-09-22 23:29:20",
+  "dataset": {
+    "por_split_y_tipo": [
+      {
+        "split": "challenge",
+        "file_type": "Dot_Net",
+        "benignos": 0,
+        "maliciosos": 829,
+        "total": 829
+      },
+      {
+        "split": "challenge",
+        "file_type": "Win32",
+        "benignos": 0,
+        "maliciosos": 3225,
+        "total": 3225
+      },
+      {
+        "split": "challenge",
+        "file_type": "Win64",
+        "benignos": 0,
+        "maliciosos": 814,
+        "total": 814
+      },
+      {
+        "split": "test",
+        "file_type": "Dot_Net",
+        "benignos": 60000,
+        "maliciosos": 60000,
+        "total": 120000
+      },
+      {
+        "split": "test",
+        "file_type": "Win32",
+        "benignos": 360000,
+        "maliciosos": 360000,
+        "total": 720000
+      },
+      {
+        "split": "test",
+        "file_type": "Win64",
+        "benignos": 120000,
+        "maliciosos": 120000,
+        "total": 240000
+      },
+      {
+        "split": "train",
+        "file_type": "Dot_Net",
+        "benignos": 32476,
+        "maliciosos": 32511,
+        "total": 64987
+      },
+      {
+        "split": "train",
+        "file_type": "Win32",
+        "benignos": 195651,
+        "maliciosos": 194841,
+        "total": 390492
+      },
+      {
+        "split": "train",
+        "file_type": "Win64",
+        "benignos": 64820,
+        "maliciosos": 65072,
+        "total": 129892
+      }
+    ],
+    "totales": {
+      "challenge": 4868,
+      "test": 1080000,
+      "train": 585371
+    },
+    "fraccion_train": 0.125,
+    "fraccion_test": 1.0,
+    "n_caracteristicas": 2568,
+    "tipos_pe": [
+      "Win32",
+      "Win64",
+      "Dot_Net"
+    ]
+  },
+  "fase1": {
+    "n_train_muestreado_fase1a": 585371,
+    "n_muestra_seleccion": 147634,
+    "n_muestra_entrenamiento": 110725,
+    "n_muestra_validacion": 36909,
+    "distribucion_muestra": {
+      "benignos": 73986,
+      "maliciosos": 73648
+    },
+    "duplicados_eliminados": 2339,
+    "no_finitos_corregidos": 0,
+    "n_caracteristicas_originales": 2568,
+    "columnas_constantes_eliminadas": 29,
+    "n_caracteristicas_limpias": 2539,
+    "candidatos_tras_correlacion": 180,
+    "f1_referencia_todas": 0.9535,
+    "K": 15,
+    "f1_K": 0.9102,
+    "pct_f1_conservado": 95.45,
+    "pct_reduccion": 99.42,
+    "cumple_meta_f1_conservado": true,
+    "cumple_meta_reduccion": true,
+    "max_correlacion_abs_entre_seleccionadas": 0.8678,
+    "columnas_seleccionadas": [
+      "f739",
+      "f2478",
+      "f2276",
+      "f2547",
+      "f2474",
+      "f2437",
+      "f743",
+      "f745",
+      "f993",
+      "f2477",
+      "f2546",
+      "f726",
+      "f728",
+      "f518",
+      "f752"
+    ],
+    "nombres_seleccionados": [
+      "header.characteristics.DLL",
+      "authenticode.latest_signing_time",
+      "exports.has_exports",
+      "pefilewarnings.w67_Suspicious flags set for section",
+      "authenticode.empty_program_name",
+      "datadirectories.has_relocs",
+      "header.dll_characteristics.DYNAMIC_BASE",
+      "header.dll_characteristics.NX_COMPAT",
+      "section.overlay.entropy",
+      "authenticode.chain_max_depth",
+      "pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE",
+      "header.characteristics.RELOCS_STRIPPED",
+      "header.characteristics.LINE_NUMS_STRIPPED",
+      "byteentropy.entropia15_byte15",
+      "header.dll_characteristics.TERMINAL_SERVER_AWARE"
+    ],
+    "grupos_en_seleccion": {
+      "header": 6,
+      "authenticode": 3,
+      "pefilewarnings": 2,
+      "exports": 1,
+      "datadirectories": 1,
+      "section": 1,
+      "byteentropy": 1
+    },
+    "curva": [
+      {
+        "K": 5,
+        "f1": 0.8866,
+        "pct_reduccion": 99.81,
+        "pct_f1_conservado": 92.98,
+        "tiempo_s": 6.3
+      },
+      {
+        "K": 10,
+        "f1": 0.8977,
+        "pct_reduccion": 99.61,
+        "pct_f1_conservado": 94.14,
+        "tiempo_s": 7.6
+      },
+      {
+        "K": 15,
+        "f1": 0.9102,
+        "pct_reduccion": 99.42,
+        "pct_f1_conservado": 95.45,
+        "tiempo_s": 11.7
+      },
+      {
+        "K": 20,
+        "f1": 0.9191,
+        "pct_reduccion": 99.22,
+        "pct_f1_conservado": 96.39,
+        "tiempo_s": 16.1
+      },
+      {
+        "K": 30,
+        "f1": 0.9327,
+        "pct_reduccion": 98.83,
+        "pct_f1_conservado": 97.82,
+        "tiempo_s": 23.4
+      },
+      {
+        "K": 40,
+        "f1": 0.9395,
+        "pct_reduccion": 98.44,
+        "pct_f1_conservado": 98.53,
+        "tiempo_s": 27.2
+      },
+      {
+        "K": 50,
+        "f1": 0.9449,
+        "pct_reduccion": 98.05,
+        "pct_f1_conservado": 99.09,
+        "tiempo_s": 33.9
+      },
+      {
+        "K": 75,
+        "f1": 0.9484,
+        "pct_reduccion": 97.08,
+        "pct_f1_conservado": 99.46,
+        "tiempo_s": 37.6
+      },
+      {
+        "K": 100,
+        "f1": 0.951,
+        "pct_reduccion": 96.11,
+        "pct_f1_conservado": 99.73,
+        "tiempo_s": 51.8
+      },
+      {
+        "K": 150,
+        "f1": 0.953,
+        "pct_reduccion": 94.16,
+        "pct_f1_conservado": 99.94,
+        "tiempo_s": 69.1
+      }
+    ],
+    "datasets_reducidos": {
+      "train": {
+        "filas": 548997,
+        "duplicados_eliminados": 36374,
+        "no_finitos_corregidos": 0
+      },
+      "test": {
+        "filas": 539940,
+        "duplicados_eliminados": 540060,
+        "no_finitos_corregidos": 0
+      },
+      "challenge": {
+        "filas": 4868,
+        "duplicados_eliminados": 0,
+        "no_finitos_corregidos": 0
+      }
+    },
+    "tiempo_ranking_s": 963.9,
+    "tiempo_fase_s": 1370.9
+  },
+  "fase2": {
+    "K": 15,
+    "columnas": [
+      "f739",
+      "f2478",
+      "f2276",
+      "f2547",
+      "f2474",
+      "f2437",
+      "f743",
+      "f745",
+      "f993",
+      "f2477",
+      "f2546",
+      "f726",
+      "f728",
+      "f518",
+      "f752"
+    ],
+    "n_train": 548997,
+    "n_test": 539940,
+    "n_challenge": 4868,
+    "balance_train_pct_maliciosos": 49.97,
+    "balance_test_pct_maliciosos": 50.01,
+    "n_folds": 3,
+    "n_iter_busqueda": 5,
+    "resultados": {
+      "Random Forest": {
+        "modelo": "Random Forest",
+        "accuracy": 0.9251787235618772,
+        "precision": 0.9257657630927965,
+        "recall": 0.9245074074074074,
+        "f1": 0.9251361573513851,
+        "auc_roc": 0.9780891902933162,
+        "pr_auc": 0.9781791757805747,
+        "fpr": 0.07414981106912648,
+        "fnr": 0.0754925925925926,
+        "tpr_al_1pct_fpr": 0.6985111111111111,
+        "umbral_1pct_fpr": 0.9043804182978106,
+        "tn": 249924,
+        "fp": 20016,
+        "fn": 20383,
+        "tp": 249617,
+        "recall_challenge": 0.5729252259654889,
+        "auc_challenge": 0.9069560384671747,
+        "pr_auc_challenge": 0.2952440904532611,
+        "tiempo_entrenamiento_s": 2788.4,
+        "inferencia_ms_por_archivo_lote": 0.053280673875019904,
+        "latencia_ms_un_archivo_mediana": 17.072558403015137,
+        "latencia_ms_un_archivo_p95": 22.122025489807122,
+        "f1_cv": 0.928,
+        "hiperparametros": {
+          "n_estimators": 250,
+          "min_samples_leaf": 2,
+          "max_features": 0.5,
+          "max_depth": 25
+        },
+        "tamano_modelo_mb": 138.03,
+        "f1_por_tipo": {
+          "Win32": 0.9244038220001727,
+          "Win64": 0.9290060186627744,
+          "Dot_Net": 0.9215699658703072
+        },
+        "f1_por_semana": {
+          "52": 0.9337859264387325,
+          "53": 0.9369028263435711,
+          "54": 0.9348746046594503,
+          "55": 0.9353499011704088,
+          "56": 0.936329088605907,
+          "57": 0.9221583567259279,
+          "58": 0.9208170056262177,
+          "59": 0.9179297432239658,
+          "60": 0.9130096309971307,
+          "61": 0.9181129308237594,
+          "62": 0.9182024068564324,
+          "63": 0.914181948616778
+        },
+        "recall_challenge_por_tipo": {
+          "Win32": 0.528062015503876,
+          "Win64": 0.5368550368550369,
+          "Dot_Net": 0.7828709288299156
+        }
+      },
+      "XGBoost": {
+        "modelo": "XGBoost",
+        "accuracy": 0.9218968774308256,
+        "precision": 0.9186693961857788,
+        "recall": 0.9257703703703704,
+        "f1": 0.92220621413168,
+        "auc_roc": 0.9772084563785095,
+        "pr_auc": 0.9770280792858845,
+        "fpr": 0.08197747647625399,
+        "fnr": 0.07422962962962963,
+        "tpr_al_1pct_fpr": 0.6732444444444444,
+        "umbral_1pct_fpr": 0.9051740169525146,
+        "tn": 247811,
+        "fp": 22129,
+        "fn": 20042,
+        "tp": 249958,
+        "recall_challenge": 0.5184880854560394,
+        "auc_challenge": 0.8977179847750945,
+        "pr_auc_challenge": 0.15124316882806577,
+        "tiempo_entrenamiento_s": 316.8,
+        "inferencia_ms_por_archivo_lote": 0.008807984370586894,
+        "latencia_ms_un_archivo_mediana": 3.5527944564819336,
+        "latencia_ms_un_archivo_p95": 11.384558677673338,
+        "f1_cv": 0.922,
+        "hiperparametros": {
+          "subsample": 1.0,
+          "n_estimators": 400,
+          "max_depth": 6,
+          "learning_rate": 0.1,
+          "colsample_bytree": 1.0
+        },
+        "tamano_modelo_mb": 0.56,
+        "f1_por_tipo": {
+          "Win32": 0.9209332989842077,
+          "Win64": 0.9265945628022481,
+          "Dot_Net": 0.920882192527952
+        },
+        "f1_por_semana": {
+          "52": 0.9304332354772707,
+          "53": 0.9348597799077032,
+          "54": 0.9334573808258019,
+          "55": 0.9325221238938053,
+          "56": 0.9339470248500807,
+          "57": 0.9195091098732829,
+          "58": 0.9174315927177586,
+          "59": 0.914325032183602,
+          "60": 0.9116598383346252,
+          "61": 0.9156802766325309,
+          "62": 0.9108070051922907,
+          "63": 0.9119268102197925
+        },
+        "recall_challenge_por_tipo": {
+          "Win32": 0.4489922480620155,
+          "Win64": 0.5171990171990172,
+          "Dot_Net": 0.7901085645355851
+        }
+      },
+      "Red Neuronal Densa": {
+        "modelo": "Red Neuronal Densa",
+        "accuracy": 0.9094454939437715,
+        "precision": 0.918577443244635,
+        "recall": 0.8985592592592593,
+        "f1": 0.9084580877562177,
+        "auc_roc": 0.97147820248807,
+        "pr_auc": 0.9716881817387133,
+        "fpr": 0.07966585167074165,
+        "fnr": 0.10144074074074073,
+        "tpr_al_1pct_fpr": 0.6240407407407408,
+        "umbral_1pct_fpr": 0.8776459097862244,
+        "tn": 248435,
+        "fp": 21505,
+        "fn": 27389,
+        "tp": 242611,
+        "recall_challenge": 0.36421528348397697,
+        "auc_challenge": 0.872801281839374,
+        "pr_auc_challenge": 0.09809142031172605,
+        "tiempo_entrenamiento_s": 145.6,
+        "inferencia_ms_por_archivo_lote": 0.005235927486550381,
+        "latencia_ms_un_archivo_mediana": 84.3970775604248,
+        "latencia_ms_un_archivo_p95": 114.72203731536861,
+        "f1_cv": null,
+        "hiperparametros": {
+          "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
+          "optimizador": "Adam lr=1e-3",
+          "batch_size": 1024,
+          "epocas_efectivas": 24,
+          "early_stopping": "val_auc, paciencia 8"
+        },
+        "tamano_modelo_mb": 0.18,
+        "f1_por_tipo": {
+          "Win32": 0.9102170136696441,
+          "Win64": 0.9088761137779848,
+          "Dot_Net": 0.8967002431399792
+        },
+        "f1_por_semana": {
+          "52": 0.9114829827223115,
+          "53": 0.9179240814669464,
+          "54": 0.9152626362735382,
+          "55": 0.9209694415173867,
+          "56": 0.9220448141687911,
+          "57": 0.906751254190007,
+          "58": 0.9047640150675825,
+          "59": 0.9036182438498833,
+          "60": 0.8965734612094196,
+          "61": 0.9021247892074199,
+          "62": 0.9034495100890341,
+          "63": 0.8964752224209359
+        },
+        "recall_challenge_por_tipo": {
+          "Win32": 0.3789147286821705,
+          "Win64": 0.527027027027027,
+          "Dot_Net": 0.1471652593486128
+        }
+      }
+    },
+    "modelo_seleccionado": "Random Forest",
+    "criterio_seleccion": "ninguno cumple FPR -> mayor F1",
+    "metas": {
+      "f1_minimo": 0.95,
+      "fpr_maximo": 0.05,
+      "latencia_maxima_s": 10.0,
+      "sus_minimo": 70.0,
+      "reduccion_dimensionalidad_minima_pct": 90.0
+    },
+    "cumplimiento_metas_modelo_seleccionado": {
+      "f1": false,
+      "fpr": false,
+      "latencia": true
+    },
+    "tiempo_fase_s": 3325.9
+  },
+  "fase3": {
+    "modelo_explicado": "Random Forest",
+    "tecnica_principal": "SHAP (TreeExplainer)",
+    "tecnica_contraste": "LIME (LimeTabularExplainer)",
+    "escala_shap": "probabilidad",
+    "n_archivos_explicados": 2000,
+    "shap_aproximado": true,
+    "cobertura_explicacion_pct": 100.0,
+    "error_fidelidad_shap": 0.0,
+    "ms_por_explicacion_shap": 1.313,
+    "ms_por_explicacion_lime_mediana": 375.5,
+    "acuerdo_shap_lime_jaccard_top5": 0.677,
+    "n_instancias_acuerdo": 100,
+    "top_10_global": [
+      {
+        "columna": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "shap_medio_abs": 0.2361
+      },
+      {
+        "columna": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "shap_medio_abs": 0.09328
+      },
+      {
+        "columna": "f2477",
+        "nombre": "authenticode.chain_max_depth",
+        "grupo": "authenticode",
+        "shap_medio_abs": 0.07984
+      },
+      {
+        "columna": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "shap_medio_abs": 0.07175
+      },
+      {
+        "columna": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "shap_medio_abs": 0.06753
+      },
+      {
+        "columna": "f993",
+        "nombre": "section.overlay.entropy",
+        "grupo": "section",
+        "shap_medio_abs": 0.05093
+      },
+      {
+        "columna": "f2276",
+        "nombre": "exports.has_exports",
+        "grupo": "exports",
+        "shap_medio_abs": 0.03261
+      },
+      {
+        "columna": "f726",
+        "nombre": "header.characteristics.RELOCS_STRIPPED",
+        "grupo": "header",
+        "shap_medio_abs": 0.01218
+      },
+      {
+        "columna": "f728",
+        "nombre": "header.characteristics.LINE_NUMS_STRIPPED",
+        "grupo": "header",
+        "shap_medio_abs": 0.01209
+      },
+      {
+        "columna": "f2437",
+        "nombre": "datadirectories.has_relocs",
+        "grupo": "datadirectories",
+        "shap_medio_abs": 0.01171
+      }
+    ],
+    "aporte_por_grupo": {
+      "header": 0.28575,
+      "authenticode": 0.17907,
+      "pefilewarnings": 0.07688,
+      "byteentropy": 0.07175,
+      "section": 0.05093,
+      "exports": 0.03261,
+      "datadirectories": 0.01171
+    },
+    "valor_base": 0.500063868739011,
+    "ejemplo_malicioso": {
+      "indice_prueba": 404471,
+      "probabilidad": 0.9967585763186491,
+      "explicacion": [
+        "campos del encabezado del ejecutable (characteristics.DLL) → AUMENTA la sospecha de malware (aporte SHAP +0.171).",
+        "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → AUMENTA la sospecha de malware (aporte SHAP +0.162).",
+        "las funciones que exporta (has_exports) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.092).",
+        "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → AUMENTA la sospecha de malware (aporte SHAP +0.075).",
+        "su firma digital Authenticode (latest_signing_time) → AUMENTA la sospecha de malware (aporte SHAP +0.071)."
+      ]
+    },
+    "ejemplo_benigno": {
+      "indice_prueba": 157877,
+      "probabilidad": 0.007243754361820887,
+      "explicacion": [
+        "campos del encabezado del ejecutable (characteristics.DLL) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.237).",
+        "su firma digital Authenticode (latest_signing_time) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.106).",
+        "su firma digital Authenticode (chain_max_depth) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.093).",
+        "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.016).",
+        "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.014)."
+      ]
+    },
+    "acierto_en_muestra_explicada": 0.9325
+  },
+  "fase4_pruebas": {
+    "pruebas_funcionales": [
+      {
+        "codigo": "PF-01",
+        "descripcion": "PE válido: veredicto, probabilidad y factores",
+        "resultado": "PASA",
+        "detalle": "veredicto=MALICIOSO p=0.673 factores=5"
+      },
+      {
+        "codigo": "PF-02",
+        "descripcion": "PE con indicadores sospechosos se analiza sin error",
+        "resultado": "PASA",
+        "detalle": "p=0.673 riesgo=MEDIO"
+      },
+      {
+        "codigo": "PF-03",
+        "descripcion": "Archivo no PE: se analiza y se advierte",
+        "resultado": "PASA",
+        "detalle": "El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejec"
+      },
+      {
+        "codigo": "PF-04",
+        "descripcion": "Archivo vacío: error controlado",
+        "resultado": "PASA",
+        "detalle": "El archivo está vacío. Seleccione un archivo válido."
+      },
+      {
+        "codigo": "PF-05",
+        "descripcion": "Archivo mayor al límite: rechazo controlado",
+        "resultado": "PASA",
+        "detalle": "El archivo supera el límite de 50 MB permitido para el análisis."
+      },
+      {
+        "codigo": "PF-06",
+        "descripcion": "Determinismo: mismo archivo, mismo resultado",
+        "resultado": "PASA",
+        "detalle": ""
+      },
+      {
+        "codigo": "PF-07",
+        "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
+        "resultado": "PASA",
+        "detalle": "4387.9 ms"
+      },
+      {
+        "codigo": "PF-08",
+        "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (informativa)",
+        "resultado": "PASA",
+        "detalle": "5/6 coinciden con la etiqueta real"
+      },
+      {
+        "codigo": "PF-09",
+        "descripcion": "La interfaz Gradio se construye sin errores",
+        "resultado": "PASA",
+        "detalle": "Blocks"
+      }
+    ],
+    "n_pasan": 9,
+    "n_total": 9,
+    "rendimiento": [
+      {
+        "tamano": "0.1 MB",
+        "extraccion_ms_p50": 76.7,
+        "prediccion_ms_p50": 20.2,
+        "total_ms_p50": 98.1,
+        "total_ms_p95": 112.1,
+        "total_ms_max": 118.2,
+        "cumple_meta": true
+      },
+      {
+        "tamano": "1 MB",
+        "extraccion_ms_p50": 783.6,
+        "prediccion_ms_p50": 19.9,
+        "total_ms_p50": 807.2,
+        "total_ms_p95": 1503.5,
+        "total_ms_max": 1509.6,
+        "cumple_meta": true
+      },
+      {
+        "tamano": "5 MB",
+        "extraccion_ms_p50": 4285.9,
+        "prediccion_ms_p50": 20.9,
+        "total_ms_p50": 4309.2,
+        "total_ms_p95": 6050.6,
+        "total_ms_max": 6217.6,
+        "cumple_meta": true
+      },
+      {
+        "tamano": "20 MB",
+        "extraccion_ms_p50": 18383.5,
+        "prediccion_ms_p50": 20.2,
+        "total_ms_p50": 18403.6,
+        "total_ms_p95": 20953.1,
+        "total_ms_max": 25672.7,
+        "cumple_meta": false
+      }
+    ],
+    "repeticiones": 20,
+    "meta_latencia_s": 10.0,
+    "entorno": "Google Colab (CPU)",
+    "modelo_evaluado": "Random Forest",
+    "n_caracteristicas": 15
+  },
+  "fase4_sus": {
+    "n_participantes": 0,
+    "estado": "pendiente: sin respuestas reales"
+  },
+  "configuracion": {
+    "RANDOM_STATE": 42,
+    "TIPOS_PE": [
+      "Win32",
+      "Win64",
+      "Dot_Net"
+    ],
+    "FRACCION_TRAIN": 0.125,
+    "FRACCION_TEST": 1.0,
+    "FRACCION_CHALLENGE": 1.0,
+    "BORRAR_ZIP_TRAS_PROCESAR": true,
+    "RUTA_ZIPS_LOCAL": null,
+    "N_MUESTRA_SELECCION": 150000,
+    "TOP_PRELIMINAR": 200,
+    "UMBRAL_CORRELACION": 0.9,
+    "VALORES_K": [
+      5,
+      10,
+      15,
+      20,
+      30,
+      40,
+      50,
+      75,
+      100,
+      150
+    ],
+    "META_F1_CONSERVADO": 95.0,
+    "N_FOLDS": 3,
+    "N_ITER_BUSQUEDA": 5,
+    "N_JOBS": 2,
+    "METAS": {
+      "f1_minimo": 0.95,
+      "fpr_maximo": 0.05,
+      "latencia_maxima_s": 10.0,
+      "sus_minimo": 70.0,
+      "reduccion_dimensionalidad_minima_pct": 90.0
+    },
+    "N_MUESTRA_SHAP": 2000,
+    "N_INSTANCIAS_ACUERDO": 100,
+    "FILAS_MUESTRA_CSV": 5000,
+    "EXPORTAR_CSV_COMPLETO": false,
+    "LIMITE_MB_MODELO_EN_ZIP": 150,
+    "LOTE_FILAS_LECTURA": 10000
+  }
+}

@@ -1,0 +1,13 @@
+grupo,nombre,n_variables,indice_inicial,descripcion
+general,Información general,7,0,"Tamaño, entropía global, si es PE y los 4 primeros bytes del archivo"
+histogram,Histograma de bytes,256,7,Frecuencia normalizada de cada valor de byte (0x00-0xFF)
+byteentropy,Histograma byte-entropía,256,263,Distribución conjunta de valor de byte y entropía local en ventanas de 2 KB; detecta empaquetado/cifrado
+strings,Cadenas de texto,177,519,"Estadísticas de cadenas imprimibles y conteo de 77 patrones (URLs, IPs, rutas, PowerShell, base64, palabras clave)"
+header,Encabezados PE,74,696,"Campos de los encabezados COFF, opcional y DOS (timestamp, máquina, subsistema, tamaños, banderas)"
+section,Secciones,224,770,"Número, tamaños, entropía y permisos de las secciones (hashing) y datos del overlay"
+imports,Importaciones,1282,994,Librerías y funciones del sistema importadas (hashing trick)
+exports,Exportaciones,129,2276,Funciones exportadas por el archivo (hashing trick)
+datadirectories,Directorios de datos,34,2405,"Tamaño y dirección virtual de los 16 directorios de datos del PE, reubicaciones"
+richheader,Rich header,33,2439,Herramientas y versiones del compilador/enlazador registradas en el Rich header (hashing)
+authenticode,Firma Authenticode,8,2472,"Número de certificados, autofirma, contrafirma, profundidad de la cadena y tiempos de firma"
+pefilewarnings,Advertencias de formato,88,2480,Anomalías estructurales detectadas por pefile al analizar el archivo (87 advertencias + conteo)

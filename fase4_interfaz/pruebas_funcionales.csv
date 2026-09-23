@@ -1,0 +1,10 @@
+codigo,descripcion,resultado,detalle
+PF-01,"PE válido: veredicto, probabilidad y factores",PASA,veredicto=MALICIOSO p=0.673 factores=5
+PF-02,PE con indicadores sospechosos se analiza sin error,PASA,p=0.673 riesgo=MEDIO
+PF-03,Archivo no PE: se analiza y se advierte,PASA,El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejec
+PF-04,Archivo vacío: error controlado,PASA,El archivo está vacío. Seleccione un archivo válido.
+PF-05,Archivo mayor al límite: rechazo controlado,PASA,El archivo supera el límite de 50 MB permitido para el análisis.
+PF-06,"Determinismo: mismo archivo, mismo resultado",PASA,
+PF-07,Latencia extremo a extremo < 10 s (archivo de 5 MB),PASA,4387.9 ms
+PF-08,Coherencia con ejemplos etiquetados de EMBER2024 (informativa),PASA,5/6 coinciden con la etiqueta real
+PF-09,La interfaz Gradio se construye sin errores,PASA,Blocks

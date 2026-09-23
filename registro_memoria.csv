@@ -1,0 +1,26 @@
+fecha_hora,punto,ram_proceso_gb,ram_disponible_gb,ram_total_gb
+2026-09-22 20:37:48,inicio,0.456,11.000,12.671
+2026-09-22 21:05:48,fase1a tras Win32_train.zip,0.503,10.609,12.671
+2026-09-22 21:31:49,fase1a tras Win32_test.zip,0.508,10.564,12.671
+2026-09-22 21:43:41,fase1a tras Win64_train.zip,0.502,10.514,12.671
+2026-09-22 21:54:05,fase1a tras Win64_test.zip,0.540,10.474,12.671
+2026-09-22 21:57:25,fase1a tras Dot_Net_train.zip,0.538,10.525,12.671
+2026-09-22 22:01:09,fase1a tras Dot_Net_test.zip,0.548,10.486,12.671
+2026-09-22 22:01:27,fase1a tras challenge.zip,0.552,10.504,12.671
+2026-09-22 22:01:32,fase1a fin,0.951,10.128,12.671
+2026-09-22 22:01:32,fase1b inicio,0.951,10.128,12.671
+2026-09-22 22:02:43,fase1b muestra cargada,2.004,9.221,12.671
+2026-09-22 22:02:50,fase1b tras partición (matriz original liberada),1.979,9.241,12.671
+2026-09-22 22:24:21,fase1b tras datasets reducidos,2.280,9.457,12.671
+2026-09-22 22:24:23,fase1b fin,0.888,10.813,12.671
+2026-09-22 22:24:23,fase2 inicio,0.892,10.812,12.671
+2026-09-22 22:24:25,fase2 matrices listas (DataFrames liberados),1.245,10.467,12.671
+2026-09-22 23:11:05,fase2 tras Random Forest,2.159,9.575,12.671
+2026-09-22 23:16:22,fase2 tras XGBoost,2.150,9.585,12.671
+2026-09-22 23:18:48,fase2 tras red neuronal,2.326,9.790,12.671
+2026-09-22 23:19:50,fase2 fin (modelos liberados),1.535,10.530,12.671
+2026-09-22 23:19:57,fase3 modelo cargado,2.489,9.587,12.671
+2026-09-22 23:20:49,fase3 fin (modelo y explicadores liberados),1.528,10.465,12.671
+2026-09-22 23:20:57,fase4a analizador listo,2.997,9.036,12.671
+2026-09-22 23:29:18,fase4b pruebas fin,2.940,9.069,12.671
+2026-09-22 23:29:55,exportación fin,2.811,9.131,12.671

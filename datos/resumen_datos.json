@@ -1,0 +1,80 @@
+{
+  "por_split_y_tipo": [
+    {
+      "split": "challenge",
+      "file_type": "Dot_Net",
+      "benignos": 0,
+      "maliciosos": 829,
+      "total": 829
+    },
+    {
+      "split": "challenge",
+      "file_type": "Win32",
+      "benignos": 0,
+      "maliciosos": 3225,
+      "total": 3225
+    },
+    {
+      "split": "challenge",
+      "file_type": "Win64",
+      "benignos": 0,
+      "maliciosos": 814,
+      "total": 814
+    },
+    {
+      "split": "test",
+      "file_type": "Dot_Net",
+      "benignos": 60000,
+      "maliciosos": 60000,
+      "total": 120000
+    },
+    {
+      "split": "test",
+      "file_type": "Win32",
+      "benignos": 360000,
+      "maliciosos": 360000,
+      "total": 720000
+    },
+    {
+      "split": "test",
+      "file_type": "Win64",
+      "benignos": 120000,
+      "maliciosos": 120000,
+      "total": 240000
+    },
+    {
+      "split": "train",
+      "file_type": "Dot_Net",
+      "benignos": 32476,
+      "maliciosos": 32511,
+      "total": 64987
+    },
+    {
+      "split": "train",
+      "file_type": "Win32",
+      "benignos": 195651,
+      "maliciosos": 194841,
+      "total": 390492
+    },
+    {
+      "split": "train",
+      "file_type": "Win64",
+      "benignos": 64820,
+      "maliciosos": 65072,
+      "total": 129892
+    }
+  ],
+  "totales": {
+    "challenge": 4868,
+    "test": 1080000,
+    "train": 585371
+  },
+  "fraccion_train": 0.125,
+  "fraccion_test": 1.0,
+  "n_caracteristicas": 2568,
+  "tipos_pe": [
+    "Win32",
+    "Win64",
+    "Dot_Net"
+  ]
+}

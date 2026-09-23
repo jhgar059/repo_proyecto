@@ -1,0 +1,14 @@
+{
+  "mejores_hiperparametros": {
+    "n_estimators": 250,
+    "min_samples_leaf": 2,
+    "max_features": 0.5,
+    "max_depth": 25
+  },
+  "f1_cv": 0.928,
+  "tiempo_entrenamiento_s": 2788.4,
+  "archivo_modelo": "random_forest.joblib",
+  "tamano_modelo_mb": 138.03,
+  "n_arboles": 250,
+  "n_nodos_total": 6347250
+}

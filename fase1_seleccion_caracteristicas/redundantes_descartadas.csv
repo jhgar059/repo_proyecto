@@ -1,0 +1,21 @@
+columna_descartada,nombre,grupo,redundante_con,nombre_conservada,r_abs
+f2480,pefilewarnings.w00_AddressOfEntryPoint lies outside the sec,pefilewarnings,f2546,pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE,0.9734
+f729,header.characteristics.LOCAL_SYMS_STRIPPED,header,f728,header.characteristics.LINE_NUMS_STRIPPED,0.9571
+f517,byteentropy.entropia15_byte14,byteentropy,f518,byteentropy.entropia15_byte15,0.9711
+f515,byteentropy.entropia15_byte12,byteentropy,f518,byteentropy.entropia15_byte15,0.9674
+f507,byteentropy.entropia15_byte04,byteentropy,f518,byteentropy.entropia15_byte15,0.9528
+f514,byteentropy.entropia15_byte11,byteentropy,f518,byteentropy.entropia15_byte15,0.9698
+f513,byteentropy.entropia15_byte10,byteentropy,f518,byteentropy.entropia15_byte15,0.9621
+f508,byteentropy.entropia15_byte05,byteentropy,f518,byteentropy.entropia15_byte15,0.9565
+f504,byteentropy.entropia15_byte01,byteentropy,f518,byteentropy.entropia15_byte15,0.9339
+f512,byteentropy.entropia15_byte09,byteentropy,f518,byteentropy.entropia15_byte15,0.9649
+f511,byteentropy.entropia15_byte08,byteentropy,f518,byteentropy.entropia15_byte15,0.9658
+f505,byteentropy.entropia15_byte02,byteentropy,f518,byteentropy.entropia15_byte15,0.9237
+f506,byteentropy.entropia15_byte03,byteentropy,f518,byteentropy.entropia15_byte15,0.9152
+f516,byteentropy.entropia15_byte13,byteentropy,f518,byteentropy.entropia15_byte15,0.9673
+f509,byteentropy.entropia15_byte06,byteentropy,f518,byteentropy.entropia15_byte15,0.916
+f510,byteentropy.entropia15_byte07,byteentropy,f518,byteentropy.entropia15_byte15,0.964
+f471,byteentropy.entropia13_byte00,byteentropy,f479,byteentropy.entropia13_byte08,0.9192
+f7,histogram.byte_0x00,histogram,f1,general.entropy,0.9092
+f2559,pefilewarnings.w79_PointerToRawData points beyond the end o,pefilewarnings,f2561,pefilewarnings.w81_SizeOfRawData is larger than file.,0.9081
+f923,section.entropy_hash_42,section,f947,section.props_hash_16,0.9093

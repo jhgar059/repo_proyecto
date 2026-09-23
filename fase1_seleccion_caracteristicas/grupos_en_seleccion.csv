@@ -1,0 +1,8 @@
+grupo,nombre_grupo,n_seleccionadas,n_en_el_vector
+header,Encabezados PE,6,74
+authenticode,Firma Authenticode,3,8
+pefilewarnings,Advertencias de formato,2,88
+exports,Exportaciones,1,129
+datadirectories,Directorios de datos,1,34
+section,Secciones,1,224
+byteentropy,Histograma byte-entropía,1,256

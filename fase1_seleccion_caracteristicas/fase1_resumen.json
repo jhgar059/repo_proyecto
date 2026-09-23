@@ -1,0 +1,158 @@
+{
+  "n_train_muestreado_fase1a": 585371,
+  "n_muestra_seleccion": 147634,
+  "n_muestra_entrenamiento": 110725,
+  "n_muestra_validacion": 36909,
+  "distribucion_muestra": {
+    "benignos": 73986,
+    "maliciosos": 73648
+  },
+  "duplicados_eliminados": 2339,
+  "no_finitos_corregidos": 0,
+  "n_caracteristicas_originales": 2568,
+  "columnas_constantes_eliminadas": 29,
+  "n_caracteristicas_limpias": 2539,
+  "candidatos_tras_correlacion": 180,
+  "f1_referencia_todas": 0.9535,
+  "K": 15,
+  "f1_K": 0.9102,
+  "pct_f1_conservado": 95.45,
+  "pct_reduccion": 99.42,
+  "cumple_meta_f1_conservado": true,
+  "cumple_meta_reduccion": true,
+  "max_correlacion_abs_entre_seleccionadas": 0.8678,
+  "columnas_seleccionadas": [
+    "f739",
+    "f2478",
+    "f2276",
+    "f2547",
+    "f2474",
+    "f2437",
+    "f743",
+    "f745",
+    "f993",
+    "f2477",
+    "f2546",
+    "f726",
+    "f728",
+    "f518",
+    "f752"
+  ],
+  "nombres_seleccionados": [
+    "header.characteristics.DLL",
+    "authenticode.latest_signing_time",
+    "exports.has_exports",
+    "pefilewarnings.w67_Suspicious flags set for section",
+    "authenticode.empty_program_name",
+    "datadirectories.has_relocs",
+    "header.dll_characteristics.DYNAMIC_BASE",
+    "header.dll_characteristics.NX_COMPAT",
+    "section.overlay.entropy",
+    "authenticode.chain_max_depth",
+    "pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE",
+    "header.characteristics.RELOCS_STRIPPED",
+    "header.characteristics.LINE_NUMS_STRIPPED",
+    "byteentropy.entropia15_byte15",
+    "header.dll_characteristics.TERMINAL_SERVER_AWARE"
+  ],
+  "grupos_en_seleccion": {
+    "header": 6,
+    "authenticode": 3,
+    "pefilewarnings": 2,
+    "exports": 1,
+    "datadirectories": 1,
+    "section": 1,
+    "byteentropy": 1
+  },
+  "curva": [
+    {
+      "K": 5,
+      "f1": 0.8866,
+      "pct_reduccion": 99.81,
+      "pct_f1_conservado": 92.98,
+      "tiempo_s": 6.3
+    },
+    {
+      "K": 10,
+      "f1": 0.8977,
+      "pct_reduccion": 99.61,
+      "pct_f1_conservado": 94.14,
+      "tiempo_s": 7.6
+    },
+    {
+      "K": 15,
+      "f1": 0.9102,
+      "pct_reduccion": 99.42,
+      "pct_f1_conservado": 95.45,
+      "tiempo_s": 11.7
+    },
+    {
+      "K": 20,
+      "f1": 0.9191,
+      "pct_reduccion": 99.22,
+      "pct_f1_conservado": 96.39,
+      "tiempo_s": 16.1
+    },
+    {
+      "K": 30,
+      "f1": 0.9327,
+      "pct_reduccion": 98.83,
+      "pct_f1_conservado": 97.82,
+      "tiempo_s": 23.4
+    },
+    {
+      "K": 40,
+      "f1": 0.9395,
+      "pct_reduccion": 98.44,
+      "pct_f1_conservado": 98.53,
+      "tiempo_s": 27.2
+    },
+    {
+      "K": 50,
+      "f1": 0.9449,
+      "pct_reduccion": 98.05,
+      "pct_f1_conservado": 99.09,
+      "tiempo_s": 33.9
+    },
+    {
+      "K": 75,
+      "f1": 0.9484,
+      "pct_reduccion": 97.08,
+      "pct_f1_conservado": 99.46,
+      "tiempo_s": 37.6
+    },
+    {
+      "K": 100,
+      "f1": 0.951,
+      "pct_reduccion": 96.11,
+      "pct_f1_conservado": 99.73,
+      "tiempo_s": 51.8
+    },
+    {
+      "K": 150,
+      "f1": 0.953,
+      "pct_reduccion": 94.16,
+      "pct_f1_conservado": 99.94,
+      "tiempo_s": 69.1
+    }
+  ],
+  "datasets_reducidos": {
+    "train": {
+      "filas": 548997,
+      "duplicados_eliminados": 36374,
+      "no_finitos_corregidos": 0
+    },
+    "test": {
+      "filas": 539940,
+      "duplicados_eliminados": 540060,
+      "no_finitos_corregidos": 0
+    },
+    "challenge": {
+      "filas": 4868,
+      "duplicados_eliminados": 0,
+      "no_finitos_corregidos": 0
+    }
+  },
+  "tiempo_ranking_s": 963.9,
+  "tiempo_fase_s": 1370.9
+}

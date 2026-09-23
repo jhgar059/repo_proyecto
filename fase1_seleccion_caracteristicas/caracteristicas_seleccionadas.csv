@@ -1,0 +1,16 @@
+posicion,columna,nombre,grupo,importancia_extratrees,posicion_ranking_extratrees
+1,f739,header.characteristics.DLL,header,0.06496775356812605,1
+2,f2478,authenticode.latest_signing_time,authenticode,0.04855311158757211,2
+3,f2276,exports.has_exports,exports,0.03431840049041498,3
+4,f2547,pefilewarnings.w67_Suspicious flags set for section,pefilewarnings,0.03299980762411691,4
+5,f2474,authenticode.empty_program_name,authenticode,0.018374027464454826,5
+6,f2437,datadirectories.has_relocs,datadirectories,0.018314616400226833,6
+7,f743,header.dll_characteristics.DYNAMIC_BASE,header,0.014419534448174553,7
+8,f745,header.dll_characteristics.NX_COMPAT,header,0.01379564982660338,8
+9,f993,section.overlay.entropy,section,0.01362454116563032,9
+10,f2477,authenticode.chain_max_depth,authenticode,0.01271377821194057,10
+11,f2546,pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE,pefilewarnings,0.010939572149707593,11
+12,f726,header.characteristics.RELOCS_STRIPPED,header,0.010128556616783572,12
+13,f728,header.characteristics.LINE_NUMS_STRIPPED,header,0.008712471675295066,13
+14,f518,byteentropy.entropia15_byte15,byteentropy,0.008203884780944293,15
+15,f752,header.dll_characteristics.TERMINAL_SERVER_AWARE,header,0.007470504176044666,17

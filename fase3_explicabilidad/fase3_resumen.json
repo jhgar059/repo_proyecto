@@ -1,0 +1,109 @@
+{
+  "modelo_explicado": "Random Forest",
+  "tecnica_principal": "SHAP (TreeExplainer)",
+  "tecnica_contraste": "LIME (LimeTabularExplainer)",
+  "escala_shap": "probabilidad",
+  "n_archivos_explicados": 2000,
+  "shap_aproximado": true,
+  "cobertura_explicacion_pct": 100.0,
+  "error_fidelidad_shap": 0.0,
+  "ms_por_explicacion_shap": 1.313,
+  "ms_por_explicacion_lime_mediana": 375.5,
+  "acuerdo_shap_lime_jaccard_top5": 0.677,
+  "n_instancias_acuerdo": 100,
+  "top_10_global": [
+    {
+      "columna": "f739",
+      "nombre": "header.characteristics.DLL",
+      "grupo": "header",
+      "shap_medio_abs": 0.2361
+    },
+    {
+      "columna": "f2478",
+      "nombre": "authenticode.latest_signing_time",
+      "grupo": "authenticode",
+      "shap_medio_abs": 0.09328
+    },
+    {
+      "columna": "f2477",
+      "nombre": "authenticode.chain_max_depth",
+      "grupo": "authenticode",
+      "shap_medio_abs": 0.07984
+    },
+    {
+      "columna": "f518",
+      "nombre": "byteentropy.entropia15_byte15",
+      "grupo": "byteentropy",
+      "shap_medio_abs": 0.07175
+    },
+    {
+      "columna": "f2547",
+      "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+      "grupo": "pefilewarnings",
+      "shap_medio_abs": 0.06753
+    },
+    {
+      "columna": "f993",
+      "nombre": "section.overlay.entropy",
+      "grupo": "section",
+      "shap_medio_abs": 0.05093
+    },
+    {
+      "columna": "f2276",
+      "nombre": "exports.has_exports",
+      "grupo": "exports",
+      "shap_medio_abs": 0.03261
+    },
+    {
+      "columna": "f726",
+      "nombre": "header.characteristics.RELOCS_STRIPPED",
+      "grupo": "header",
+      "shap_medio_abs": 0.01218
+    },
+    {
+      "columna": "f728",
+      "nombre": "header.characteristics.LINE_NUMS_STRIPPED",
+      "grupo": "header",
+      "shap_medio_abs": 0.01209
+    },
+    {
+      "columna": "f2437",
+      "nombre": "datadirectories.has_relocs",
+      "grupo": "datadirectories",
+      "shap_medio_abs": 0.01171
+    }
+  ],
+  "aporte_por_grupo": {
+    "header": 0.28575,
+    "authenticode": 0.17907,
+    "pefilewarnings": 0.07688,
+    "byteentropy": 0.07175,
+    "section": 0.05093,
+    "exports": 0.03261,
+    "datadirectories": 0.01171
+  },
+  "valor_base": 0.500063868739011,
+  "ejemplo_malicioso": {
+    "indice_prueba": 404471,
+    "probabilidad": 0.9967585763186491,
+    "explicacion": [
+      "campos del encabezado del ejecutable (characteristics.DLL) → AUMENTA la sospecha de malware (aporte SHAP +0.171).",
+      "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → AUMENTA la sospecha de malware (aporte SHAP +0.162).",
+      "las funciones que exporta (has_exports) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.092).",
+      "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → AUMENTA la sospecha de malware (aporte SHAP +0.075).",
+      "su firma digital Authenticode (latest_signing_time) → AUMENTA la sospecha de malware (aporte SHAP +0.071)."
+    ]
+  },
+  "ejemplo_benigno": {
+    "indice_prueba": 157877,
+    "probabilidad": 0.007243754361820887,
+    "explicacion": [
+      "campos del encabezado del ejecutable (characteristics.DLL) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.237).",
+      "su firma digital Authenticode (latest_signing_time) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.106).",
+      "su firma digital Authenticode (chain_max_depth) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.093).",
+      "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.016).",
+      "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.014)."
+    ]
+  },
+  "acierto_en_muestra_explicada": 0.9325
+}

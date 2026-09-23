@@ -1,0 +1,16 @@
+modelo,clase,precision,recall,f1-score,support
+Random Forest,benigno,0.924593,0.92585,0.925221,269940.0
+Random Forest,malicioso,0.925766,0.924507,0.925136,270000.0
+Random Forest,accuracy,,,0.925179,539940.0
+Random Forest,macro avg,0.925179,0.925179,0.925179,539940.0
+Random Forest,weighted avg,0.92518,0.925179,0.925179,539940.0
+XGBoost,benigno,0.925175,0.918023,0.921585,269940.0
+XGBoost,malicioso,0.918669,0.92577,0.922206,270000.0
+XGBoost,accuracy,,,0.921897,539940.0
+XGBoost,macro avg,0.921922,0.921896,0.921896,539940.0
+XGBoost,weighted avg,0.921922,0.921897,0.921896,539940.0
+Red Neuronal Densa,benigno,0.900701,0.920334,0.910412,269940.0
+Red Neuronal Densa,malicioso,0.918577,0.898559,0.908458,270000.0
+Red Neuronal Densa,accuracy,,,0.909445,539940.0
+Red Neuronal Densa,macro avg,0.909639,0.909447,0.909435,539940.0
+Red Neuronal Densa,weighted avg,0.90964,0.909445,0.909435,539940.0

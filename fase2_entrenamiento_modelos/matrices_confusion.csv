@@ -1,0 +1,4 @@
+modelo,verdaderos_negativos,falsos_positivos,falsos_negativos,verdaderos_positivos,n_test,fpr_pct,fnr_pct,accuracy_pct
+Random Forest,249924,20016,20383,249617,539940,7.415,7.5493,92.5179
+XGBoost,247811,22129,20042,249958,539940,8.1977,7.423,92.1897
+Red Neuronal Densa,248435,21505,27389,242611,539940,7.9666,10.1441,90.9445

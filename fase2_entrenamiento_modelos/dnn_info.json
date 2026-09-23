@@ -1,0 +1,13 @@
+{
+  "mejores_hiperparametros": {
+    "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
+    "optimizador": "Adam lr=1e-3",
+    "batch_size": 1024,
+    "epocas_efectivas": 24,
+    "early_stopping": "val_auc, paciencia 8"
+  },
+  "f1_cv": null,
+  "tiempo_entrenamiento_s": 145.6,
+  "archivo_modelo": "dnn.keras",
+  "tamano_modelo_mb": 0.18
+}

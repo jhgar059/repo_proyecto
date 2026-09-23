@@ -1,0 +1,8 @@
+grupo,nombre_grupo,n_caracteristicas_en_seleccion,suma_shap_medio_abs,pct_del_total
+header,Encabezados PE,6,0.28574823748548667,40.32
+authenticode,Firma Authenticode,3,0.17907499512774466,25.27
+pefilewarnings,Advertencias de formato,2,0.07688188554443096,10.85
+byteentropy,Histograma byte-entropía,1,0.07175060222808131,10.12
+section,Secciones,1,0.05093078857159854,7.19
+exports,Exportaciones,1,0.03260648851451644,4.6
+datadirectories,Directorios de datos,1,0.011706838761215635,1.65

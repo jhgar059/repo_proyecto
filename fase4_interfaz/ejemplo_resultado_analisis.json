@@ -1,0 +1,55 @@
+{
+  "ejemplo": "Prueba – malicioso 1 (Win64)",
+  "sha256": "7e2359a69e804fbafc133a2867297fee8490b12a8b7de39af69877ff7bdda433",
+  "label_real": 1,
+  "resultado": {
+    "probabilidad_malware": 0.91,
+    "veredicto": "MALICIOSO",
+    "nivel_riesgo": "ALTO",
+    "recomendacion": "No abra ni ejecute este archivo. Elimínelo y, si lo recibió por correo o mensajería, reporte al remitente como sospechoso.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.1907,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": 0.1043,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0884,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "aporte_shap": 0.0757,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (latest_signing_time) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2477",
+        "nombre": "authenticode.chain_max_depth",
+        "grupo": "authenticode",
+        "aporte_shap": 0.061,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (chain_max_depth) aumenta la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 35.4
+  }
+}

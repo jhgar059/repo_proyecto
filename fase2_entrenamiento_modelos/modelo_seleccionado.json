@@ -1,0 +1,23 @@
+{
+  "modelo": "Random Forest",
+  "criterio": "ninguno cumple FPR -> mayor F1",
+  "umbral": 0.5,
+  "K": 15,
+  "columnas": [
+    "f739",
+    "f2478",
+    "f2276",
+    "f2547",
+    "f2474",
+    "f2437",
+    "f743",
+    "f745",
+    "f993",
+    "f2477",
+    "f2546",
+    "f726",
+    "f728",
+    "f518",
+    "f752"
+  ]
+}

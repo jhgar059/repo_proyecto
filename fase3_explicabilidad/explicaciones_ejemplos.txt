@@ -1,0 +1,14 @@
+--- Ejemplo malicioso (sha256 53a5bda479041e22267e6177996826536ebf8a861d4889d37d2457331468ed57, Win64, índice de prueba 404471): probabilidad de malware = 0.997, riesgo ALTO ---
+  • campos del encabezado del ejecutable (characteristics.DLL) → AUMENTA la sospecha de malware (aporte SHAP +0.171).
+  • anomalías estructurales del formato PE (w67_Suspicious flags set for section) → AUMENTA la sospecha de malware (aporte SHAP +0.162).
+  • las funciones que exporta (has_exports) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.092).
+  • la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → AUMENTA la sospecha de malware (aporte SHAP +0.075).
+  • su firma digital Authenticode (latest_signing_time) → AUMENTA la sospecha de malware (aporte SHAP +0.071).
+
+--- Ejemplo benigno (sha256 38652415cff3bd6a5a3d516d6fde6183f4f893aedc319de0738f920a5086a446, Win32, índice de prueba 157877): probabilidad de malware = 0.007, riesgo MUY BAJO ---
+  • campos del encabezado del ejecutable (characteristics.DLL) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.237).
+  • su firma digital Authenticode (latest_signing_time) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.106).
+  • su firma digital Authenticode (chain_max_depth) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.093).
+  • la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.016).
+  • anomalías estructurales del formato PE (w67_Suspicious flags set for section) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.014).
+

@@ -1,0 +1,290 @@
+{
+  "PF-01": {
+    "probabilidad_malware": 0.673,
+    "veredicto": "MALICIOSO",
+    "nivel_riesgo": "MEDIO",
+    "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.2265,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": -0.1296,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f993",
+        "nombre": "section.overlay.entropy",
+        "grupo": "section",
+        "aporte_shap": -0.0839,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La estructura de sus secciones de código y datos (overlay.entropy) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0811,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "aporte_shap": 0.0765,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (latest_signing_time) aumenta la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 32.2,
+    "nombre_archivo": "pe_minimo.exe",
+    "tamano_bytes": 2048,
+    "es_pe": true,
+    "sha256": "e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23",
+    "advertencias": [],
+    "latencia_total_ms": 46.5
+  },
+  "PF-02": {
+    "probabilidad_malware": 0.673,
+    "veredicto": "MALICIOSO",
+    "nivel_riesgo": "MEDIO",
+    "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.2265,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": -0.1296,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f993",
+        "nombre": "section.overlay.entropy",
+        "grupo": "section",
+        "aporte_shap": -0.0839,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La estructura de sus secciones de código y datos (overlay.entropy) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0811,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "aporte_shap": 0.0765,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (latest_signing_time) aumenta la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 31.5,
+    "nombre_archivo": "pe_sospechoso.exe",
+    "tamano_bytes": 2048,
+    "es_pe": true,
+    "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
+    "advertencias": [],
+    "latencia_total_ms": 38.9
+  },
+  "PF-03": {
+    "probabilidad_malware": 0.4096,
+    "veredicto": "BENIGNO",
+    "nivel_riesgo": "BAJO",
+    "recomendacion": "El archivo parece legítimo, pero mantenga su antivirus activo y descárguelo solo de fuentes oficiales.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.2268,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": -0.1508,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0929,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f728",
+        "nombre": "header.characteristics.LINE_NUMS_STRIPPED",
+        "grupo": "header",
+        "aporte_shap": -0.0844,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.LINE_NUMS_STRIPPED) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f993",
+        "nombre": "section.overlay.entropy",
+        "grupo": "section",
+        "aporte_shap": -0.0825,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La estructura de sus secciones de código y datos (overlay.entropy) reduce la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 34.5,
+    "nombre_archivo": "notas.txt",
+    "tamano_bytes": 5900,
+    "es_pe": false,
+    "sha256": "d4db3bb0b48bb398c4ba76426102a81ea0b3b593ab2094d30968c72bbd9fd675",
+    "advertencias": [
+      "El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejecutables PE, por lo que el resultado para este tipo de archivo es solo orientativo."
+    ],
+    "latencia_total_ms": 1047.9
+  },
+  "PF-04": {
+    "error": "El archivo está vacío. Seleccione un archivo válido."
+  },
+  "PF-05": {
+    "error": "El archivo supera el límite de 50 MB permitido para el análisis."
+  },
+  "PF-06": {
+    "probabilidad_malware": 0.673,
+    "veredicto": "MALICIOSO",
+    "nivel_riesgo": "MEDIO",
+    "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.2265,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": -0.1296,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f993",
+        "nombre": "section.overlay.entropy",
+        "grupo": "section",
+        "aporte_shap": -0.0839,
+        "efecto": "reduce la sospecha",
+        "explicacion": "La estructura de sus secciones de código y datos (overlay.entropy) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0811,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "aporte_shap": 0.0765,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (latest_signing_time) aumenta la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 36.5,
+    "nombre_archivo": "pe_sospechoso.exe",
+    "tamano_bytes": 2048,
+    "es_pe": true,
+    "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
+    "advertencias": [],
+    "latencia_total_ms": 44.9
+  },
+  "PF-07": {
+    "probabilidad_malware": 0.8823,
+    "veredicto": "MALICIOSO",
+    "nivel_riesgo": "ALTO",
+    "recomendacion": "No abra ni ejecute este archivo. Elimínelo y, si lo recibió por correo o mensajería, reporte al remitente como sospechoso.",
+    "factores": [
+      {
+        "caracteristica": "f739",
+        "nombre": "header.characteristics.DLL",
+        "grupo": "header",
+        "aporte_shap": 0.1867,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Campos del encabezado del ejecutable (characteristics.DLL) aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f518",
+        "nombre": "byteentropy.entropia15_byte15",
+        "grupo": "byteentropy",
+        "aporte_shap": 0.1752,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "La entropía local del contenido (entropia15_byte15), típica de código empaquetado o cifrado aumenta la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2437",
+        "nombre": "datadirectories.has_relocs",
+        "grupo": "datadirectories",
+        "aporte_shap": -0.1198,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Los directorios de datos del formato PE (has_relocs) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2547",
+        "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+        "grupo": "pefilewarnings",
+        "aporte_shap": -0.0864,
+        "efecto": "reduce la sospecha",
+        "explicacion": "Anomalías estructurales del formato PE (w67_Suspicious flags set for section) reduce la sospecha de malware."
+      },
+      {
+        "caracteristica": "f2478",
+        "nombre": "authenticode.latest_signing_time",
+        "grupo": "authenticode",
+        "aporte_shap": 0.0825,
+        "efecto": "aumenta la sospecha",
+        "explicacion": "Su firma digital Authenticode (latest_signing_time) aumenta la sospecha de malware."
+      }
+    ],
+    "modelo": "Random Forest",
+    "latencia_ms": 23.8,
+    "nombre_archivo": "pe_5mb.exe",
+    "tamano_bytes": 5244928,
+    "es_pe": true,
+    "sha256": "daa6b0538dbd4f30ee5a841a38d18224af7c3d4dc8bfce935aebd74e9f8b0dd3",
+    "advertencias": [],
+    "latencia_total_ms": 4387.9
+  }
+}

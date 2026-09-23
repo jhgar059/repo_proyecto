@@ -1,0 +1,30 @@
+columna,nombre,grupo,valor_constante
+f631,strings.count_Start-process,strings,0.0
+f776,section.min_entropy,section,0.0
+f778,section.min_size_ratio,section,0.0
+f780,section.min_vsize_ratio,section,0.0
+f2435,datadirectories.RESERVED.size,datadirectories,0.0
+f2436,datadirectories.RESERVED.rva,datadirectories,0.0
+f2495,pefilewarnings.w15_Error parsing the import table. Entries ,pefilewarnings,0.0
+f2498,pefilewarnings.w18_Error parsing the resources directory. E,pefilewarnings,0.0
+f2500,pefilewarnings.w20_Error parsing the resources directory. T,pefilewarnings,0.0
+f2501,pefilewarnings.w21_Error parsing the resources directory. E,pefilewarnings,0.0
+f2503,"pefilewarnings.w23_Error parsing the resources directory, a",pefilewarnings,0.0
+f2505,"pefilewarnings.w25_Error parsing the version information, a",pefilewarnings,0.0
+f2506,"pefilewarnings.w26_Error parsing the version information, a",pefilewarnings,0.0
+f2507,"pefilewarnings.w27_Error parsing the version information, a",pefilewarnings,0.0
+f2508,"pefilewarnings.w28_Error parsing the version information, a",pefilewarnings,0.0
+f2509,"pefilewarnings.w29_Error parsing the version information, a",pefilewarnings,0.0
+f2510,"pefilewarnings.w30_Error parsing the version information, t",pefilewarnings,0.0
+f2512,pefilewarnings.w32_Export directory contains more than 10 r,pefilewarnings,0.0
+f2514,"pefilewarnings.w34_Failed rendering pascal string, attempti",pefilewarnings,0.0
+f2515,"pefilewarnings.w35_Failed rendering unicode string, attempt",pefilewarnings,0.0
+f2521,pefilewarnings.w41_Invalid bdd dynamic relocation,pefilewarnings,0.0
+f2522,pefilewarnings.w42_Invalid bdd info,pefilewarnings,0.0
+f2524,pefilewarnings.w44_Invalid function override header,pefilewarnings,0.0
+f2525,pefilewarnings.w45_Invalid function override info,pefilewarnings,0.0
+f2539,pefilewarnings.w59_Relocating image but PE does not have (o,pefilewarnings,0.0
+f2541,pefilewarnings.w61_Rich Header is malformed,pefilewarnings,0.0
+f2554,pefilewarnings.w74_Too many sections,pefilewarnings,0.0
+f2562,pefilewarnings.w82_VirtualSize is extremely large > 256MiB,pefilewarnings,0.0
+f2563,pefilewarnings.w83_VirtualAddress is beyond 0x10000000,pefilewarnings,0.0
