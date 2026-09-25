@@ -1,0 +1,5 @@
+archivo,origen,bytes,sha256,naturaleza_real,veredicto,probabilidad_malware,nivel_riesgo,tiempo_analisis_ms,resultado,factor_principal,aporte_shap_principal
+muestra_A.exe,Pythonwin.exe (paquete pywin32 312 para Python 3.11 win_amd64; sin firma Authenticode),58880,c294dbee980dd15dfae4251cf748c0370cc9f0e2005cb50a88a1d406f3ee75a3,benigno,MALICIOSO,0.734,MEDIO,41.7,falso positivo,header.characteristics.DLL,+0.2295
+muestra_B.dll,pythoncom311.dll (paquete pywin32 312; con exportaciones),680960,f20794876cd77d37d893512bdd8f2112bb791e134ebf2697c9034fa32eb93c11,benigno,BENIGNO,0.063,MUY BAJO,374.2,acierto,header.characteristics.DLL,-0.3603
+muestra_C.exe,PE32 minimo sintetico generado por el notebook (pruebas funcionales; sin codigo funcional),2048,e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23,benigno,MALICIOSO,0.673,MEDIO,10.4,falso positivo,header.characteristics.DLL,+0.2265
+muestra_D.exe,pythonservice.exe (paquete pywin32 312; sin firma Authenticode),21504,c70f3d47097d0d8cfbe8740571c601ccc56a07d07aba298141563a516593fbd9,benigno,MALICIOSO,0.734,MEDIO,25.9,falso positivo,header.characteristics.DLL,+0.2295
