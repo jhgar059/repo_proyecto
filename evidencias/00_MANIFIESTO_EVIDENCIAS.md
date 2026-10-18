@@ -1,8 +1,8 @@
 # Manifiesto de evidencias — Trabajo de grado: detección de malware con ML y XAI (EMBER2024)
 
-Generado: 2026-09-22 23:29:29 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
+Generado: 2026-10-18 21:43:11 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
 
-Archivos presentes: **90** · pendientes: **4** · omitidos del zip por tamaño: **0**
+Archivos presentes: **91** · pendientes: **4** · omitidos del zip por tamaño: **0**
 
 Resumen de la corrida: {"K_seleccionado": 15, "pct_reduccion": 99.42, "modelo_seleccionado": "Random Forest", "f1_prueba_temporal": 0.9251361573513851, "fpr": 0.07414981106912648, "recall_challenge": 0.5729252259654889, "n_train": 548997, "n_test": 539940, "n_challenge": 4868}
 
@@ -13,8 +13,8 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | Archivo | Estado | Tamaño (MB) | Descripción |
 |---|---|---|---|
 | `cuadro_cumplimiento_metas.csv` | presente | 0.000 | Cuadro de cumplimiento de las metas del anteproyecto. |
-| `registro_memoria.csv` | presente | 0.002 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
-| `resultados_para_documento.json` | presente | 0.020 | Consolidado de los resúmenes de todas las fases + configuración usada. |
+| `registro_memoria.csv` | presente | 0.017 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
+| `resultados_para_documento.json` | presente | 0.027 | Consolidado de los resúmenes de todas las fases + configuración usada. |
 
 ## 01_dataset
 
@@ -24,7 +24,7 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `diccionario_grupos.csv` | presente | 0.001 | Diccionario de datos por grupo: los 12 grupos del vector EMBER2024, n.º de variables y descripción. |
 | `distribucion_por_semana.csv` | presente | 0.016 | Número de archivos por semana y clase en cada split (cobertura temporal del muestreo). |
 | `resumen_datos.csv` | presente | 0.000 | Composición del dataset construido: archivos por split (train/test/challenge), tipo PE y clase, con rango de semanas. |
-| `resumen_datos.json` | presente | 0.001 | Igual que el CSV, con totales, fracciones de muestreo y número de características. |
+| `resumen_datos.json` | presente | 0.002 | Igual que el CSV, con totales, fracciones de muestreo y número de características. |
 
 ## 02_seleccion_caracteristicas
 
@@ -82,28 +82,29 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 |---|---|---|---|
 | `acuerdo_shap_lime_por_instancia.csv` | presente | 0.014 | Acuerdo SHAP-LIME por archivo: los 5 factores de cada técnica, coincidencias, índice de Jaccard y tiempo de LIME. |
 | `explicaciones_ejemplos.txt` | presente | 0.002 | Explicaciones en lenguaje natural de los ejemplos malicioso y benigno usados en las figuras. |
-| `fase3_resumen.json` | presente | 0.004 | Indicadores de explicabilidad: cobertura, fidelidad de SHAP, acuerdo SHAP-LIME, tiempos, top-10 global y ejemplos explicados. |
+| `fase3_resumen.json` | presente | 0.011 | Indicadores de explicabilidad: cobertura, fidelidad de SHAP, acuerdo SHAP-LIME, tiempos, top-10 global y ejemplos explicados. |
 | `lime_ejemplo_malicioso.html` | presente | 1.175 | Explicación LIME interactiva (HTML) del ejemplo malicioso. |
-| `muestra_explicada.csv` | presente | 1.680 | Muestra explicada archivo por archivo: clase real, probabilidad, veredicto, nivel de riesgo y explicación en lenguaje natural. |
+| `muestra_explicada.csv` | presente | 1.567 | Muestra explicada archivo por archivo: clase real, probabilidad, veredicto, nivel de riesgo y explicación en lenguaje natural. |
 | `shap_importancia_global.csv` | presente | 0.001 | Importancia global SHAP (media de |SHAP| y SHAP medio) de cada característica seleccionada, con nombre y grupo. |
 | `shap_importancia_por_grupo.csv` | presente | 0.000 | Aporte de cada grupo de características a las decisiones del modelo (suma de |SHAP| medio). |
 | `shap_valores_muestra.parquet` | presente | 0.253 | Valores SHAP de cada archivo de la muestra explicada (una columna por característica) + sha256, clase y probabilidad. |
-| `xai_config.joblib` | presente | 0.001 | Configuración de explicabilidad usada por la interfaz (plantillas por grupo, valor base, escala). |
+| `traduccion_amigable.py` | presente | 0.013 | Capa de traducción a lenguaje sencillo: nombre corto, observación según el valor y glosario de cada característica (la misma que incorpora app_malware.py). |
+| `xai_config.joblib` | presente | 0.002 | Configuración de explicabilidad usada por la interfaz (referencia a la capa de traducción, glosario, valor base, escala). |
 
 ## 05_interfaz_y_pruebas
 
 | Archivo | Estado | Tamaño (MB) | Descripción |
 |---|---|---|---|
-| `app_malware.py` | presente | 0.012 | Código fuente de la aplicación (motor AnalizadorMalware + interfaz Gradio). |
+| `app_malware.py` | presente | 0.026 | Código fuente de la aplicación (motor AnalizadorMalware + interfaz Gradio). |
 | `archivos_de_prueba.csv` | presente | 0.000 | Identificación (tamaño y SHA-256) de los ejecutables sintéticos usados en las pruebas. |
 | `cuestionario_SUS.txt` | presente | 0.001 | Cuestionario SUS aplicado a los participantes. |
-| `ejemplo_resultado_analisis.json` | presente | 0.002 | Respuesta completa del motor de análisis para un ejemplo (veredicto, probabilidad, riesgo, factores y frases). |
+| `ejemplo_resultado_analisis.json` | presente | 0.005 | Respuesta completa del motor de análisis para un ejemplo (veredicto, probabilidad, riesgo, factores y frases). |
 | `ejemplos_demo.parquet` | presente | 0.011 | Archivos de ejemplo cargados en la interfaz (vectores reducidos, etiqueta real, tipo y sha256). |
 | `fase4_pruebas.json` | presente | 0.003 | Resumen JSON de las pruebas funcionales y de rendimiento. |
 | `fase4_sus.json` | presente | 0.000 | Resumen SUS: promedio, desviación, IC 95 %, calificación y cumplimiento de la meta (o estado pendiente). |
 | `fig_interfaz_gradio.png` | PENDIENTE (aún no generado) |  | Captura de pantalla de la interfaz (la toma el usuario al lanzar la app). |
 | `pruebas_funcionales.csv` | presente | 0.001 | Pruebas funcionales PF-01 a PF-09: descripción, resultado PASA/FALLA y detalle. |
-| `pruebas_funcionales_detalle.json` | presente | 0.011 | Respuesta completa del analizador en cada prueba funcional. |
+| `pruebas_funcionales_detalle.json` | presente | 0.020 | Respuesta completa del analizador en cada prueba funcional. |
 | `pruebas_rendimiento.csv` | presente | 0.000 | Latencia de extremo a extremo por tamaño de archivo: p50, p95, máximo, desglose extracción/predicción y cumplimiento de la meta. |
 | `pruebas_rendimiento_detalle.csv` | presente | 0.003 | Todas las mediciones individuales de las pruebas de rendimiento (una fila por repetición). |
 | `sus_puntajes_por_participante.csv` | PENDIENTE (aún no generado) |  | Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales). |
@@ -116,7 +117,7 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_acuerdo_shap_lime.png` | presente | 0.057 | Distribución del índice de Jaccard entre los top-5 de SHAP y LIME. |
 | `fig_busqueda_hiperparametros.png` | presente | 0.121 | F1 de validación cruzada de cada combinación probada en la búsqueda de hiperparámetros. |
 | `fig_comparacion_modelos.png` | presente | 0.080 | Comparación de F1, recall, precisión, AUC-ROC y recall en el desafío de los tres modelos. |
-| `fig_composicion_dataset.png` | presente | 0.086 | Composición del subconjunto PE de EMBER2024 por split, tipo y clase. |
+| `fig_composicion_dataset.png` | presente | 0.090 | Composición del subconjunto PE de EMBER2024 por split, tipo y clase. |
 | `fig_correlacion_seleccionadas.png` | presente | 0.132 | Mapa de calor de la correlación entre las K características seleccionadas. |
 | `fig_curva_k_vs_f1.png` | presente | 0.103 | Curva K vs. % del F1 de referencia conservado, con la meta y el K seleccionado. |
 | `fig_desempeno_por_tipo.png` | presente | 0.062 | F1 por tipo de archivo y recall por tipo en el conjunto de desafío. |
@@ -135,7 +136,7 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_shap_local_malicioso.png` | presente | 0.208 | Explicación local SHAP (waterfall) de un archivo malicioso. |
 | `fig_shap_por_grupo.png` | presente | 0.078 | Aporte de cada grupo de características a las decisiones (SHAP). |
 | `fig_sus_resultados.png` | PENDIENTE (aún no generada) |  | Puntajes SUS por participante y promedio por ítem (con respuestas reales). |
-| `fig_tiempos_modelos.png` | presente | 0.052 | Tiempo de entrenamiento y latencia de predicción por modelo. |
+| `fig_tiempos_modelos.png` | presente | 0.048 | Tiempo de entrenamiento y latencia de predicción por modelo. |
 
 ## Pendientes
 

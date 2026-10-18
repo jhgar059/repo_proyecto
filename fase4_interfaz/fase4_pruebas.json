@@ -14,9 +14,9 @@
     },
     {
       "codigo": "PF-03",
-      "descripcion": "Archivo no PE: se analiza y se advierte",
+      "descripcion": "Archivo no PE: se rechaza por extensión y por contenido",
       "resultado": "PASA",
-      "detalle": "El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejec"
+      "detalle": "No se admite el tipo de archivo '.txt'. El sistema solo anal | El contenido del archivo no corresponde a un ejecutable de W"
     },
     {
       "codigo": "PF-04",
@@ -40,7 +40,7 @@
       "codigo": "PF-07",
       "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
       "resultado": "PASA",
-      "detalle": "4387.9 ms"
+      "detalle": "2643.6 ms"
     },
     {
       "codigo": "PF-08",
@@ -60,38 +60,38 @@
   "rendimiento": [
     {
       "tamano": "0.1 MB",
-      "extraccion_ms_p50": 76.7,
-      "prediccion_ms_p50": 20.2,
-      "total_ms_p50": 98.1,
-      "total_ms_p95": 112.1,
-      "total_ms_max": 118.2,
+      "extraccion_ms_p50": 49.3,
+      "prediccion_ms_p50": 14.2,
+      "total_ms_p50": 63.4,
+      "total_ms_p95": 69.7,
+      "total_ms_max": 78.0,
       "cumple_meta": true
     },
     {
       "tamano": "1 MB",
-      "extraccion_ms_p50": 783.6,
-      "prediccion_ms_p50": 19.9,
-      "total_ms_p50": 807.2,
-      "total_ms_p95": 1503.5,
-      "total_ms_max": 1509.6,
+      "extraccion_ms_p50": 516.2,
+      "prediccion_ms_p50": 14.3,
+      "total_ms_p50": 530.9,
+      "total_ms_p95": 882.8,
+      "total_ms_max": 915.3,
       "cumple_meta": true
     },
     {
       "tamano": "5 MB",
-      "extraccion_ms_p50": 4285.9,
-      "prediccion_ms_p50": 20.9,
-      "total_ms_p50": 4309.2,
-      "total_ms_p95": 6050.6,
-      "total_ms_max": 6217.6,
+      "extraccion_ms_p50": 2535.6,
+      "prediccion_ms_p50": 14.0,
+      "total_ms_p50": 2549.5,
+      "total_ms_p95": 3482.3,
+      "total_ms_max": 3506.1,
       "cumple_meta": true
     },
     {
       "tamano": "20 MB",
-      "extraccion_ms_p50": 18383.5,
-      "prediccion_ms_p50": 20.2,
-      "total_ms_p50": 18403.6,
-      "total_ms_p95": 20953.1,
-      "total_ms_max": 25672.7,
+      "extraccion_ms_p50": 11121.6,
+      "prediccion_ms_p50": 14.0,
+      "total_ms_p50": 11135.3,
+      "total_ms_p95": 11404.6,
+      "total_ms_max": 14125.0,
       "cumple_meta": false
     }
   ],

@@ -1,14 +1,20 @@
-CUESTIONARIO SUS (1 = totalmente en desacuerdo ... 5 = totalmente de acuerdo)
+CUESTIONARIO SUS - versión de ítems positivos (Sauro y Lewis, 2011)
+Escala: 1 = totalmente en desacuerdo, 2 = en desacuerdo, 3 = ni de acuerdo ni en desacuerdo, 4 = de acuerdo, 5 = totalmente de acuerdo
 
-P1. Creo que me gustaría usar este sistema con frecuencia.
-P2. Encontré el sistema innecesariamente complejo.
-P3. Pensé que el sistema era fácil de usar.
-P4. Creo que necesitaría el apoyo de una persona técnica para poder usar este sistema.
-P5. Encontré que las diversas funciones del sistema estaban bien integradas.
-P6. Pensé que había demasiada inconsistencia en este sistema.
-P7. Imagino que la mayoría de las personas aprenderían a usar este sistema muy rápidamente.
-P8. Encontré el sistema muy engorroso de usar.
-P9. Me sentí muy seguro(a) usando el sistema.
-P10. Necesité aprender muchas cosas antes de poder empezar a usar el sistema.
+P1. Me gustaría usar este sistema con frecuencia.
+P2. El sistema es sencillo: tiene solo los pasos y las opciones necesarios.
+P3. El sistema me pareció fácil de usar (pude hacer lo que quería sin esfuerzo ni confusión).
+P4. Podría usar este sistema sin la ayuda de una persona con conocimientos técnicos.
+P5. Las distintas funciones del sistema están bien integradas (subir el archivo, ver el resultado y leer la explicación funcionan bien juntas).
+P6. El sistema es consistente (se comporta siempre de la misma manera, sin contradicciones).
+P7. La mayoría de las personas aprenderían a usar este sistema muy rápido.
+P8. El sistema me pareció muy intuitivo (se entiende sin que nadie lo explique).
+P9. Me sentí seguro(a) usando el sistema.
+P10. Pude usar el sistema sin tener que aprender nada nuevo.
 
-Pregunta adicional: ¿Entendió por qué el sistema clasificó el archivo como lo hizo? (Sí / Parcialmente / No)
+Pregunta adicional (E1): ¿Entendió por qué el sistema clasificó el archivo como lo hizo? (Sí / Parcialmente / No)
+
+Módulo opcional para participantes con formación técnica (misma escala 1-5; no entra en el SUS):
+F1. Los factores que muestra la explicación corresponden a indicadores reconocidos en el análisis estático de malware.
+F2. La información que presenta el sistema es suficiente para una evaluación preliminar del archivo.
+F3. Recomendaría este sistema como apoyo (segunda opinión) para personas sin formación técnica.

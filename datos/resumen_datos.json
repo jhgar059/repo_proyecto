@@ -69,6 +69,17 @@
     "test": 1080000,
     "train": 585371
   },
+  "nota": "conteos de archivos únicos por SHA-256 (los .zip de EMBER2024 traen cada registro dos veces)",
+  "duplicados_omitidos_por_zip": {},
+  "duplicados_entre_archivos_del_mismo_split": {
+    "train_Win32.parquet": 0,
+    "test_Win32.parquet": 0,
+    "train_Win64.parquet": 0,
+    "test_Win64.parquet": 0,
+    "train_Dot_Net.parquet": 0,
+    "test_Dot_Net.parquet": 0,
+    "challenge_PE.parquet": 0
+  },
   "fraccion_train": 0.125,
   "fraccion_test": 1.0,
   "n_caracteristicas": 2568,

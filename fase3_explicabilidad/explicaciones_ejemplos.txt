@@ -1,14 +1,14 @@
 --- Ejemplo malicioso (sha256 53a5bda479041e22267e6177996826536ebf8a861d4889d37d2457331468ed57, Win64, índice de prueba 404471): probabilidad de malware = 0.997, riesgo ALTO ---
-  • campos del encabezado del ejecutable (characteristics.DLL) → AUMENTA la sospecha de malware (aporte SHAP +0.171).
-  • anomalías estructurales del formato PE (w67_Suspicious flags set for section) → AUMENTA la sospecha de malware (aporte SHAP +0.162).
-  • las funciones que exporta (has_exports) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.092).
-  • la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → AUMENTA la sospecha de malware (aporte SHAP +0.075).
-  • su firma digital Authenticode (latest_signing_time) → AUMENTA la sospecha de malware (aporte SHAP +0.071).
+  • Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho.
+  • Una de sus partes está marcada para poder modificarse y ejecutarse al mismo tiempo, algo poco habitual en programas normales y típico de código empaquetado. Para el sistema, esto aumentó la sospecha mucho.
+  • Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas. Para el sistema, esto redujo la sospecha un poco.
+  • Alrededor del 2 % de su contenido se ve muy desordenado, como pasa con datos comprimidos o cifrados. Para el sistema, esto aumentó la sospecha un poco.
+  • No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco.
 
 --- Ejemplo benigno (sha256 38652415cff3bd6a5a3d516d6fde6183f4f893aedc319de0738f920a5086a446, Win32, índice de prueba 157877): probabilidad de malware = 0.007, riesgo MUY BAJO ---
-  • campos del encabezado del ejecutable (characteristics.DLL) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.237).
-  • su firma digital Authenticode (latest_signing_time) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.106).
-  • su firma digital Authenticode (chain_max_depth) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.093).
-  • la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.016).
-  • anomalías estructurales del formato PE (w67_Suspicious flags set for section) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.014).
+  • Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo. Para el sistema, esto redujo la sospecha mucho.
+  • Tiene firma digital con sello de fecha del 20/10/2024. Para el sistema, esto redujo la sospecha un poco.
+  • Su firma digital está respaldada por una cadena de 3 certificado(s). Para el sistema, esto redujo la sospecha un poco.
+  • Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha ligeramente.
+  • Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha ligeramente.
 

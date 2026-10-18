@@ -1,5 +1,5 @@
 {
-  "generado": "2026-09-22 23:29:20",
+  "generado": "2026-10-18 21:42:39",
   "dataset": {
     "por_split_y_tipo": [
       {
@@ -70,6 +70,17 @@
       "challenge": 4868,
       "test": 1080000,
       "train": 585371
+    },
+    "nota": "conteos de archivos únicos por SHA-256 (los .zip de EMBER2024 traen cada registro dos veces)",
+    "duplicados_omitidos_por_zip": {},
+    "duplicados_entre_archivos_del_mismo_split": {
+      "train_Win32.parquet": 0,
+      "test_Win32.parquet": 0,
+      "train_Win64.parquet": 0,
+      "test_Win64.parquet": 0,
+      "train_Dot_Net.parquet": 0,
+      "test_Dot_Net.parquet": 0,
+      "challenge_PE.parquet": 0
     },
     "fraccion_train": 0.125,
     "fraccion_test": 1.0,
@@ -221,22 +232,22 @@
     "datasets_reducidos": {
       "train": {
         "filas": 548997,
-        "duplicados_eliminados": 36374,
-        "no_finitos_corregidos": 0
+        "duplicados_eliminados": null,
+        "no_finitos_corregidos": null
       },
       "test": {
         "filas": 539940,
-        "duplicados_eliminados": 540060,
-        "no_finitos_corregidos": 0
+        "duplicados_eliminados": null,
+        "no_finitos_corregidos": null
       },
       "challenge": {
         "filas": 4868,
-        "duplicados_eliminados": 0,
-        "no_finitos_corregidos": 0
+        "duplicados_eliminados": null,
+        "no_finitos_corregidos": null
       }
     },
     "tiempo_ranking_s": 963.9,
-    "tiempo_fase_s": 1370.9
+    "tiempo_fase_s": 51.8
   },
   "fase2": {
     "K": 15,
@@ -285,9 +296,9 @@
         "auc_challenge": 0.9069560384671747,
         "pr_auc_challenge": 0.2952440904532611,
         "tiempo_entrenamiento_s": 2788.4,
-        "inferencia_ms_por_archivo_lote": 0.053280673875019904,
-        "latencia_ms_un_archivo_mediana": 17.072558403015137,
-        "latencia_ms_un_archivo_p95": 22.122025489807122,
+        "inferencia_ms_por_archivo_lote": 0.029888386045839495,
+        "latencia_ms_un_archivo_mediana": 16.493558883666992,
+        "latencia_ms_un_archivo_p95": 23.40000867843628,
         "f1_cv": 0.928,
         "hiperparametros": {
           "n_estimators": 250,
@@ -341,9 +352,9 @@
         "auc_challenge": 0.8977179847750945,
         "pr_auc_challenge": 0.15124316882806577,
         "tiempo_entrenamiento_s": 316.8,
-        "inferencia_ms_por_archivo_lote": 0.008807984370586894,
-        "latencia_ms_un_archivo_mediana": 3.5527944564819336,
-        "latencia_ms_un_archivo_p95": 11.384558677673338,
+        "inferencia_ms_por_archivo_lote": 0.005093288760752741,
+        "latencia_ms_un_archivo_mediana": 0.3587007522583008,
+        "latencia_ms_un_archivo_p95": 0.5491375923156735,
         "f1_cv": 0.922,
         "hiperparametros": {
           "subsample": 1.0,
@@ -398,9 +409,9 @@
         "auc_challenge": 0.872801281839374,
         "pr_auc_challenge": 0.09809142031172605,
         "tiempo_entrenamiento_s": 145.6,
-        "inferencia_ms_por_archivo_lote": 0.005235927486550381,
-        "latencia_ms_un_archivo_mediana": 84.3970775604248,
-        "latencia_ms_un_archivo_p95": 114.72203731536861,
+        "inferencia_ms_por_archivo_lote": 0.0011938759347759017,
+        "latencia_ms_un_archivo_mediana": 53.45439910888672,
+        "latencia_ms_un_archivo_p95": 61.7214560508728,
         "f1_cv": null,
         "hiperparametros": {
           "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
@@ -450,7 +461,7 @@
       "fpr": false,
       "latencia": true
     },
-    "tiempo_fase_s": 3325.9
+    "tiempo_fase_s": 50.0
   },
   "fase3": {
     "modelo_explicado": "Random Forest",
@@ -461,8 +472,8 @@
     "shap_aproximado": true,
     "cobertura_explicacion_pct": 100.0,
     "error_fidelidad_shap": 0.0,
-    "ms_por_explicacion_shap": 1.313,
-    "ms_por_explicacion_lime_mediana": 375.5,
+    "ms_por_explicacion_shap": 0.619,
+    "ms_por_explicacion_lime_mediana": 218.8,
     "acuerdo_shap_lime_jaccard_top5": 0.677,
     "n_instancias_acuerdo": 100,
     "top_10_global": [
@@ -541,22 +552,181 @@
       "indice_prueba": 404471,
       "probabilidad": 0.9967585763186491,
       "explicacion": [
-        "campos del encabezado del ejecutable (characteristics.DLL) → AUMENTA la sospecha de malware (aporte SHAP +0.171).",
-        "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → AUMENTA la sospecha de malware (aporte SHAP +0.162).",
-        "las funciones que exporta (has_exports) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.092).",
-        "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → AUMENTA la sospecha de malware (aporte SHAP +0.075).",
-        "su firma digital Authenticode (latest_signing_time) → AUMENTA la sospecha de malware (aporte SHAP +0.071)."
+        "Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho.",
+        "Una de sus partes está marcada para poder modificarse y ejecutarse al mismo tiempo, algo poco habitual en programas normales y típico de código empaquetado. Para el sistema, esto aumentó la sospecha mucho.",
+        "Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas. Para el sistema, esto redujo la sospecha un poco.",
+        "Alrededor del 2 % de su contenido se ve muy desordenado, como pasa con datos comprimidos o cifrados. Para el sistema, esto aumentó la sospecha un poco.",
+        "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco."
+      ],
+      "factores": [
+        {
+          "caracteristica": "f739",
+          "nombre": "header.characteristics.DLL",
+          "grupo": "header",
+          "valor": 0.0,
+          "aporte_shap": 0.1708,
+          "efecto": "aumenta la sospecha",
+          "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+          "observacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL).",
+          "efecto_corto": "hace desconfiar",
+          "peso": "mucho",
+          "termino": "biblioteca (DLL)",
+          "explicacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho."
+        },
+        {
+          "caracteristica": "f2547",
+          "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+          "grupo": "pefilewarnings",
+          "valor": 1.0,
+          "aporte_shap": 0.1619,
+          "efecto": "aumenta la sospecha",
+          "nombre_amigable": "Una parte se puede modificar y ejecutar a la vez",
+          "observacion": "Una de sus partes está marcada para poder modificarse y ejecutarse al mismo tiempo, algo poco habitual en programas normales y típico de código empaquetado.",
+          "efecto_corto": "hace desconfiar",
+          "peso": "mucho",
+          "termino": "sección",
+          "explicacion": "Una de sus partes está marcada para poder modificarse y ejecutarse al mismo tiempo, algo poco habitual en programas normales y típico de código empaquetado. Para el sistema, esto aumentó la sospecha mucho."
+        },
+        {
+          "caracteristica": "f2276",
+          "nombre": "exports.has_exports",
+          "grupo": "exports",
+          "valor": 128.0,
+          "aporte_shap": -0.0921,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Funciones que ofrece a otros programas",
+          "observacion": "Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas.",
+          "efecto_corto": "hace confiar",
+          "peso": "un poco",
+          "termino": "exportaciones",
+          "explicacion": "Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas. Para el sistema, esto redujo la sospecha un poco."
+        },
+        {
+          "caracteristica": "f518",
+          "nombre": "byteentropy.entropia15_byte15",
+          "grupo": "byteentropy",
+          "valor": 0.02157202921807766,
+          "aporte_shap": 0.0746,
+          "efecto": "aumenta la sospecha",
+          "nombre_amigable": "Contenido que parece comprimido o cifrado",
+          "observacion": "Alrededor del 2 % de su contenido se ve muy desordenado, como pasa con datos comprimidos o cifrados.",
+          "efecto_corto": "hace desconfiar",
+          "peso": "un poco",
+          "termino": "entropía",
+          "explicacion": "Alrededor del 2 % de su contenido se ve muy desordenado, como pasa con datos comprimidos o cifrados. Para el sistema, esto aumentó la sospecha un poco."
+        },
+        {
+          "caracteristica": "f2478",
+          "nombre": "authenticode.latest_signing_time",
+          "grupo": "authenticode",
+          "valor": 0.0,
+          "aporte_shap": 0.0711,
+          "efecto": "aumenta la sospecha",
+          "nombre_amigable": "Firma digital (fecha de la firma)",
+          "observacion": "No tiene firma digital (o su firma no tiene sello de fecha).",
+          "efecto_corto": "hace desconfiar",
+          "peso": "un poco",
+          "termino": "firma digital",
+          "explicacion": "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco."
+        }
       ]
     },
     "ejemplo_benigno": {
       "indice_prueba": 157877,
       "probabilidad": 0.007243754361820887,
       "explicacion": [
-        "campos del encabezado del ejecutable (characteristics.DLL) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.237).",
-        "su firma digital Authenticode (latest_signing_time) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.106).",
-        "su firma digital Authenticode (chain_max_depth) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.093).",
-        "la entropía local del contenido (entropia15_byte15), asociada a código empaquetado o cifrado → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.016).",
-        "anomalías estructurales del formato PE (w67_Suspicious flags set for section) → REDUCE la sospecha (comportamiento típico de software legítimo) (aporte SHAP -0.014)."
+        "Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo. Para el sistema, esto redujo la sospecha mucho.",
+        "Tiene firma digital con sello de fecha del 20/10/2024. Para el sistema, esto redujo la sospecha un poco.",
+        "Su firma digital está respaldada por una cadena de 3 certificado(s). Para el sistema, esto redujo la sospecha un poco.",
+        "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha ligeramente.",
+        "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha ligeramente."
+      ],
+      "factores": [
+        {
+          "caracteristica": "f739",
+          "nombre": "header.characteristics.DLL",
+          "grupo": "header",
+          "valor": 1.0,
+          "aporte_shap": -0.2369,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+          "observacion": "Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo.",
+          "efecto_corto": "hace confiar",
+          "peso": "mucho",
+          "termino": "biblioteca (DLL)",
+          "explicacion": "Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo. Para el sistema, esto redujo la sospecha mucho."
+        },
+        {
+          "caracteristica": "f2478",
+          "nombre": "authenticode.latest_signing_time",
+          "grupo": "authenticode",
+          "valor": 1729394944.0,
+          "aporte_shap": -0.1063,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Firma digital (fecha de la firma)",
+          "observacion": "Tiene firma digital con sello de fecha del 20/10/2024.",
+          "efecto_corto": "hace confiar",
+          "peso": "un poco",
+          "termino": "firma digital",
+          "explicacion": "Tiene firma digital con sello de fecha del 20/10/2024. Para el sistema, esto redujo la sospecha un poco."
+        },
+        {
+          "caracteristica": "f2477",
+          "nombre": "authenticode.chain_max_depth",
+          "grupo": "authenticode",
+          "valor": 3.0,
+          "aporte_shap": -0.0926,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Firma digital (certificados que la respaldan)",
+          "observacion": "Su firma digital está respaldada por una cadena de 3 certificado(s).",
+          "efecto_corto": "hace confiar",
+          "peso": "un poco",
+          "termino": "firma digital",
+          "explicacion": "Su firma digital está respaldada por una cadena de 3 certificado(s). Para el sistema, esto redujo la sospecha un poco."
+        },
+        {
+          "caracteristica": "f518",
+          "nombre": "byteentropy.entropia15_byte15",
+          "grupo": "byteentropy",
+          "valor": 0.002177470363676548,
+          "aporte_shap": -0.0163,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Contenido que parece comprimido o cifrado",
+          "observacion": "Casi nada de su contenido se ve comprimido o cifrado.",
+          "efecto_corto": "hace confiar",
+          "peso": "ligeramente",
+          "termino": "entropía",
+          "explicacion": "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha ligeramente."
+        },
+        {
+          "caracteristica": "f2547",
+          "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+          "grupo": "pefilewarnings",
+          "valor": 0.0,
+          "aporte_shap": -0.0137,
+          "efecto": "reduce la sospecha",
+          "nombre_amigable": "Una parte se puede modificar y ejecutar a la vez",
+          "observacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal.",
+          "efecto_corto": "hace confiar",
+          "peso": "ligeramente",
+          "termino": "sección",
+          "explicacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha ligeramente."
+        }
+      ]
+    },
+    "traduccion": {
+      "modulo": "fase3/traduccion_amigable.py",
+      "caracteristicas_con_ficha": 15,
+      "terminos_glosario": [
+        "biblioteca (DLL)",
+        "datos añadidos (overlay)",
+        "encabezado",
+        "entropía",
+        "exportaciones",
+        "firma digital",
+        "protecciones del sistema (ASLR/DEP)",
+        "reubicaciones",
+        "sección"
       ]
     },
     "acierto_en_muestra_explicada": 0.9325
@@ -577,9 +747,9 @@
       },
       {
         "codigo": "PF-03",
-        "descripcion": "Archivo no PE: se analiza y se advierte",
+        "descripcion": "Archivo no PE: se rechaza por extensión y por contenido",
         "resultado": "PASA",
-        "detalle": "El archivo no es un ejecutable de Windows (PE); el modelo fue entrenado con ejec"
+        "detalle": "No se admite el tipo de archivo '.txt'. El sistema solo anal | El contenido del archivo no corresponde a un ejecutable de W"
       },
       {
         "codigo": "PF-04",
@@ -603,7 +773,7 @@
         "codigo": "PF-07",
         "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
         "resultado": "PASA",
-        "detalle": "4387.9 ms"
+        "detalle": "2643.6 ms"
       },
       {
         "codigo": "PF-08",
@@ -623,38 +793,38 @@
     "rendimiento": [
       {
         "tamano": "0.1 MB",
-        "extraccion_ms_p50": 76.7,
-        "prediccion_ms_p50": 20.2,
-        "total_ms_p50": 98.1,
-        "total_ms_p95": 112.1,
-        "total_ms_max": 118.2,
+        "extraccion_ms_p50": 49.3,
+        "prediccion_ms_p50": 14.2,
+        "total_ms_p50": 63.4,
+        "total_ms_p95": 69.7,
+        "total_ms_max": 78.0,
         "cumple_meta": true
       },
       {
         "tamano": "1 MB",
-        "extraccion_ms_p50": 783.6,
-        "prediccion_ms_p50": 19.9,
-        "total_ms_p50": 807.2,
-        "total_ms_p95": 1503.5,
-        "total_ms_max": 1509.6,
+        "extraccion_ms_p50": 516.2,
+        "prediccion_ms_p50": 14.3,
+        "total_ms_p50": 530.9,
+        "total_ms_p95": 882.8,
+        "total_ms_max": 915.3,
         "cumple_meta": true
       },
       {
         "tamano": "5 MB",
-        "extraccion_ms_p50": 4285.9,
-        "prediccion_ms_p50": 20.9,
-        "total_ms_p50": 4309.2,
-        "total_ms_p95": 6050.6,
-        "total_ms_max": 6217.6,
+        "extraccion_ms_p50": 2535.6,
+        "prediccion_ms_p50": 14.0,
+        "total_ms_p50": 2549.5,
+        "total_ms_p95": 3482.3,
+        "total_ms_max": 3506.1,
         "cumple_meta": true
       },
       {
         "tamano": "20 MB",
-        "extraccion_ms_p50": 18383.5,
-        "prediccion_ms_p50": 20.2,
-        "total_ms_p50": 18403.6,
-        "total_ms_p95": 20953.1,
-        "total_ms_max": 25672.7,
+        "extraccion_ms_p50": 11121.6,
+        "prediccion_ms_p50": 14.0,
+        "total_ms_p50": 11135.3,
+        "total_ms_p95": 11404.6,
+        "total_ms_max": 14125.0,
         "cumple_meta": false
       }
     ],
@@ -666,6 +836,7 @@
   },
   "fase4_sus": {
     "n_participantes": 0,
+    "version_sus": "positiva",
     "estado": "pendiente: sin respuestas reales"
   },
   "configuracion": {

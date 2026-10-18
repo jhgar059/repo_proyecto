@@ -139,20 +139,20 @@
   "datasets_reducidos": {
     "train": {
       "filas": 548997,
-      "duplicados_eliminados": 36374,
-      "no_finitos_corregidos": 0
+      "duplicados_eliminados": null,
+      "no_finitos_corregidos": null
     },
     "test": {
       "filas": 539940,
-      "duplicados_eliminados": 540060,
-      "no_finitos_corregidos": 0
+      "duplicados_eliminados": null,
+      "no_finitos_corregidos": null
     },
     "challenge": {
       "filas": 4868,
-      "duplicados_eliminados": 0,
-      "no_finitos_corregidos": 0
+      "duplicados_eliminados": null,
+      "no_finitos_corregidos": null
     }
   },
   "tiempo_ranking_s": 963.9,
-  "tiempo_fase_s": 1370.9
+  "tiempo_fase_s": 51.8
 }
