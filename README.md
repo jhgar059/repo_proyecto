@@ -14,7 +14,11 @@ técnica de contraste) en lenguaje comprensible para usuarios sin formación en 
 **EMBER2024** (Joyce et al., KDD 2025), el benchmark público más reciente para esta tarea, usando su extractor
 oficial `thrember` (2.568 características estáticas), y se despliega en una aplicación web construida con Gradio.
 
-## Resultados principales (corrida 1, septiembre de 2026)
+## Resultados principales (versión final, octubre de 2026)
+
+Corrida de Colab del 18 de octubre de 2026 con la interfaz final. Esa corrida reutilizó por checkpoint la selección de
+características y los modelos de la corrida 1 (septiembre), así que las métricas de las fases 1 a 3 son idénticas; solo
+cambian los tiempos medidos, que dependen de la máquina que asigna Colab.
 
 | Indicador | Resultado |
 |---|---|
@@ -23,9 +27,10 @@ oficial `thrember` (2.568 características estáticas), y se despliega en una ap
 | Modelo seleccionado | **Random Forest** (250 árboles) — F1 0,9251 · recall 0,9245 · precision 0,9258 · AUC-ROC 0,978 · FPR 7,41 % |
 | Comparación | XGBoost F1 0,9222 · red neuronal densa F1 0,9085 |
 | Malware evasivo (conjunto de desafío) | recall 57,3 % · AUC-ROC 0,907 · PR-AUC 0,295 |
-| Explicabilidad | cobertura 100 % · fidelidad SHAP exacta · acuerdo SHAP-LIME (Jaccard top-5) 0,677 · 1,3 ms por explicación |
-| Interfaz y pruebas | 9/9 pruebas funcionales · latencia p95: 1,5 s (1 MB), 6,1 s (5 MB), 21 s (20 MB) |
-| Metas del anteproyecto | cumplidas: reducción ≥ 90 %, F1 conservado ≥ 95 %, cobertura 100 %; **no cumplidas:** F1 ≥ 0,95 (0,925), FPR ≤ 5 % (7,4 %), latencia < 10 s para 20 MB; SUS pendiente |
+| Explicabilidad | cobertura 100 % · fidelidad SHAP exacta · acuerdo SHAP-LIME (Jaccard top-5) 0,677 · 0,6 ms por explicación SHAP |
+| Interfaz y pruebas | 9/9 pruebas funcionales · latencia p95: 0,88 s (1 MB), 3,48 s (5 MB), 11,40 s (20 MB) |
+| Usabilidad (SUS, 10 participantes) | 86,0 (IC 95 %: 82,6 a 89,4), "Excelente" · 9 de 10 entendieron la explicación · los 5 participantes sin formación técnica necesitaron ayuda en su primer uso |
+| Metas del anteproyecto | cumplidas: reducción ≥ 90 %, F1 conservado ≥ 95 %, cobertura 100 %, SUS ≥ 70; **no cumplidas:** F1 ≥ 0,95 (0,925), FPR ≤ 5 % (7,4 %), latencia < 10 s para 20 MB (11,4 s) |
 
 El cuadro completo está en `cuadro_cumplimiento_metas.csv` y todos los resúmenes en `resultados_para_documento.json`.
 
@@ -39,11 +44,12 @@ El cuadro completo está en `cuadro_cumplimiento_metas.csv` y todos los resúmen
 │                                       métricas por umbral/tipo/semana, predicciones sobre el desafío
 ├── fase3_explicabilidad/               Importancias SHAP, muestra explicada, acuerdo SHAP-LIME, ejemplos
 ├── fase4_interfaz/                     app_malware.py (motor + interfaz Gradio), pruebas funcionales y de rendimiento,
-│                                       prueba exploratoria con archivos externos, cuestionario SUS,
+│                                       prueba exploratoria con archivos externos, resultados SUS agregados,
 │                                       ejecutar_interfaz_local.py + requisitos_interfaz.txt
 ├── figuras/                            Todas las figuras del documento (incluidas las capturas de la interfaz)
 ├── evidencias/                         Manifiesto e índice del paquete completo de evidencias (evidencias_proyecto.zip)
-├── documentos/                         Documento de trabajo de grado y entregables anteriores
+├── documentos/                         Documento final (Trabajo_de_Grado_EMBER2024_FINAL.docx), formato SUS
+│                                       (prueba_SUS/) y entregables anteriores
 ├── legacy_ember2018/                   Primera versión del proyecto (EMBER2018 y esqueleto Streamlit); solo trazabilidad
 ├── cuadro_cumplimiento_metas.csv · resultados_para_documento.json · registro_memoria.csv
 └── README.md
@@ -76,7 +82,14 @@ python ejecutar_interfaz_local.py ruta/a/evidencias_proyecto.zip
 ```
 
 El script extrae del paquete de evidencias el modelo, el escalador, la configuración de explicabilidad y los
-ejemplos, y abre la aplicación en http://127.0.0.1:7860. Requiere Python 3.10 a 3.12.
+ejemplos, y abre la aplicación en http://127.0.0.1:7860. Requiere Python 3.10 a 3.12 y scikit-learn 1.6.1 (la
+versión con la que se guardó el modelo; ya está fijada en `requisitos_interfaz.txt`).
+
+La interfaz solo admite programas y bibliotecas de Windows (.exe, .dll, .sys, .ocx, .scr, .cpl, .drv): rechaza los
+archivos vacíos, los de más de 50 MB y los que no son PE por extensión o por contenido. Muestra el resultado, la
+probabilidad, el nivel de riesgo y qué hacer; después, las cinco señales que más pesaron en frases sencillas, una
+gráfica sin ejes numéricos y un glosario; los nombres técnicos, los valores y los aportes SHAP quedan en un panel
+plegable de detalles técnicos (`figuras/fig_interfaz_gradio.png` y `figuras/fig_interfaz_falso_positivo.png`).
 
 ## Prueba exploratoria con archivos externos
 
@@ -85,7 +98,16 @@ Cuatro archivos PE benignos ajenos a EMBER2024 analizados a ciegas en un computa
 como benigna (6,3 %) y los tres ejecutables sin firma (`Pythonwin.exe`, `pythonservice.exe` y un PE sintético
 mínimo) como maliciosos (73,4 %, 73,4 % y 67,3 %). Los dos ejecutables reales comparten los valores de las 15
 características seleccionadas, lo que ilustra el costo de la reducción de dimensionalidad y dónde se concentra la
-tasa de falsos positivos del modelo: ejecutables sin firma Authenticode.
+tasa de falsos positivos del modelo: ejecutables sin firma Authenticode. El análisis se repitió con la interfaz final
+y dio los mismos resultados (`fase4_interfaz/analisis_archivos_externos.json`).
+
+## Prueba de usabilidad (SUS)
+
+10 participantes (5 con formación técnica y 5 sin ella, de 21 a 59 años), del 17 al 27 de octubre de 2026, de forma
+presencial, con el formato F-SUS-02 (versión de ítems positivos del SUS; `documentos/prueba_SUS/`). Resultados
+agregados en `fase4_interfaz/fase4_sus.json` y puntaje por participante (con código) en
+`fase4_interfaz/sus_puntajes_por_participante.csv`. Las respuestas individuales completas y los formatos firmados no
+se publican porque contienen datos personales.
 
 ## Estado del proyecto
 
@@ -95,7 +117,8 @@ tasa de falsos positivos del modelo: ejecutables sin firma Authenticode.
 | Fase 2 — Entrenamiento, comparación y selección del modelo (OE2) | ✅ Completa (metas F1/FPR no alcanzadas; análisis en el documento) |
 | Fase 3 — Integración de XAI (SHAP/LIME) (OE3) | ✅ Completa |
 | Fase 4 — Interfaz, pruebas funcionales y de rendimiento (OE3) | ✅ Completa |
-| Prueba de usabilidad SUS con usuarios | ⬜ Pendiente (plantilla y cuestionario en `fase4_interfaz/`) |
+| Prueba de usabilidad SUS con usuarios | ✅ Completa (10 participantes; SUS 86,0) |
+| Documento final del trabajo de grado | ✅ `documentos/Trabajo_de_Grado_EMBER2024_FINAL.docx` |
 
 ## Licencia
 

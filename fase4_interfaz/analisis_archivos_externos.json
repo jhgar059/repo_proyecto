@@ -1,0 +1,425 @@
+{
+ "descripcion": "Prueba exploratoria a ciegas (Tabla 16) repetida con la versión final de app_malware.py y los artefactos de la corrida del 18/10/2026",
+ "archivos": {
+  "muestra_A.exe": {
+   "probabilidad_malware": 0.7335,
+   "veredicto": "MALICIOSO",
+   "nivel_riesgo": "MEDIO",
+   "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+   "factores": [
+    {
+     "caracteristica": "f739",
+     "nombre": "header.characteristics.DLL",
+     "grupo": "header",
+     "valor": 0.0,
+     "aporte_shap": 0.2295,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+     "observacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "mucho",
+     "termino": "biblioteca (DLL)",
+     "explicacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho."
+    },
+    {
+     "caracteristica": "f518",
+     "nombre": "byteentropy.entropia15_byte15",
+     "grupo": "byteentropy",
+     "valor": 0.0,
+     "aporte_shap": -0.0954,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Contenido que parece comprimido o cifrado",
+     "observacion": "Casi nada de su contenido se ve comprimido o cifrado.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "entropía",
+     "explicacion": "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2547",
+     "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+     "grupo": "pefilewarnings",
+     "valor": 0.0,
+     "aporte_shap": -0.0774,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Una parte se puede modificar y ejecutar a la vez",
+     "observacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "sección",
+     "explicacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2478",
+     "nombre": "authenticode.latest_signing_time",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0761,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (fecha de la firma)",
+     "observacion": "No tiene firma digital (o su firma no tiene sello de fecha).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "un poco",
+     "termino": "firma digital",
+     "explicacion": "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2477",
+     "nombre": "authenticode.chain_max_depth",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0578,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (certificados que la respaldan)",
+     "observacion": "No tiene certificados de firma digital.",
+     "efecto_corto": "hace desconfiar",
+     "peso": "ligeramente",
+     "termino": "firma digital",
+     "explicacion": "No tiene certificados de firma digital. Para el sistema, esto aumentó la sospecha ligeramente."
+    }
+   ],
+   "glosario": [
+    {
+     "termino": "biblioteca (DLL)",
+     "definicion": "Archivo con funciones que otros programas usan; no se abre solo. Un programa (.exe) sí se ejecuta directamente."
+    },
+    {
+     "termino": "entropía",
+     "definicion": "Medida de qué tan 'desordenados' están los datos. Es alta cuando el contenido está comprimido o cifrado, algo que el malware usa para esconder su código, aunque algunos programas legítimos también lo hacen."
+    },
+    {
+     "termino": "sección",
+     "definicion": "Cada una de las partes en que se divide un programa (código, datos, recursos). Cada parte tiene permisos: leerse, escribirse o ejecutarse."
+    },
+    {
+     "termino": "firma digital",
+     "definicion": "Sello electrónico que el fabricante pone a su programa y que Windows puede comprobar. Mucho software legítimo lo trae; un programa sin firma no es necesariamente peligroso, pero da menos garantías."
+    }
+   ],
+   "modelo": "Random Forest",
+   "latencia_ms": 11.9,
+   "nombre_archivo": "muestra_A.exe",
+   "tamano_bytes": 58880,
+   "es_pe": true,
+   "sha256": "c294dbee980dd15dfae4251cf748c0370cc9f0e2005cb50a88a1d406f3ee75a3",
+   "advertencias": [],
+   "latencia_total_ms": 63.0
+  },
+  "muestra_B.dll": {
+   "probabilidad_malware": 0.0626,
+   "veredicto": "BENIGNO",
+   "nivel_riesgo": "MUY BAJO",
+   "recomendacion": "No se encontraron indicios de malware. Aun así, use siempre software de fuentes confiables.",
+   "factores": [
+    {
+     "caracteristica": "f739",
+     "nombre": "header.characteristics.DLL",
+     "grupo": "header",
+     "valor": 1.0,
+     "aporte_shap": -0.3603,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+     "observacion": "Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo.",
+     "efecto_corto": "hace confiar",
+     "peso": "mucho",
+     "termino": "biblioteca (DLL)",
+     "explicacion": "Es una biblioteca (DLL): un archivo que otros programas usan y que no se abre solo. Para el sistema, esto redujo la sospecha mucho."
+    },
+    {
+     "caracteristica": "f2276",
+     "nombre": "exports.has_exports",
+     "grupo": "exports",
+     "valor": 128.0,
+     "aporte_shap": -0.075,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Funciones que ofrece a otros programas",
+     "observacion": "Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas.",
+     "efecto_corto": "hace confiar",
+     "peso": "ligeramente",
+     "termino": "exportaciones",
+     "explicacion": "Ofrece funciones a otros programas (tiene exportaciones), como suelen hacerlo las bibliotecas. Para el sistema, esto redujo la sospecha ligeramente."
+    },
+    {
+     "caracteristica": "f518",
+     "nombre": "byteentropy.entropia15_byte15",
+     "grupo": "byteentropy",
+     "valor": 0.00013751293590757996,
+     "aporte_shap": -0.0662,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Contenido que parece comprimido o cifrado",
+     "observacion": "Casi nada de su contenido se ve comprimido o cifrado.",
+     "efecto_corto": "hace confiar",
+     "peso": "ligeramente",
+     "termino": "entropía",
+     "explicacion": "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha ligeramente."
+    },
+    {
+     "caracteristica": "f2477",
+     "nombre": "authenticode.chain_max_depth",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0554,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (certificados que la respaldan)",
+     "observacion": "No tiene certificados de firma digital.",
+     "efecto_corto": "hace desconfiar",
+     "peso": "ligeramente",
+     "termino": "firma digital",
+     "explicacion": "No tiene certificados de firma digital. Para el sistema, esto aumentó la sospecha ligeramente."
+    },
+    {
+     "caracteristica": "f2478",
+     "nombre": "authenticode.latest_signing_time",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0486,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (fecha de la firma)",
+     "observacion": "No tiene firma digital (o su firma no tiene sello de fecha).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "ligeramente",
+     "termino": "firma digital",
+     "explicacion": "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha ligeramente."
+    }
+   ],
+   "glosario": [
+    {
+     "termino": "biblioteca (DLL)",
+     "definicion": "Archivo con funciones que otros programas usan; no se abre solo. Un programa (.exe) sí se ejecuta directamente."
+    },
+    {
+     "termino": "exportaciones",
+     "definicion": "Funciones que un archivo ofrece a otros programas. Es típico de las bibliotecas (DLL)."
+    },
+    {
+     "termino": "entropía",
+     "definicion": "Medida de qué tan 'desordenados' están los datos. Es alta cuando el contenido está comprimido o cifrado, algo que el malware usa para esconder su código, aunque algunos programas legítimos también lo hacen."
+    },
+    {
+     "termino": "firma digital",
+     "definicion": "Sello electrónico que el fabricante pone a su programa y que Windows puede comprobar. Mucho software legítimo lo trae; un programa sin firma no es necesariamente peligroso, pero da menos garantías."
+    }
+   ],
+   "modelo": "Random Forest",
+   "latencia_ms": 11.8,
+   "nombre_archivo": "muestra_B.dll",
+   "tamano_bytes": 680960,
+   "es_pe": true,
+   "sha256": "f20794876cd77d37d893512bdd8f2112bb791e134ebf2697c9034fa32eb93c11",
+   "advertencias": [],
+   "latencia_total_ms": 715.6
+  },
+  "muestra_C.exe": {
+   "probabilidad_malware": 0.673,
+   "veredicto": "MALICIOSO",
+   "nivel_riesgo": "MEDIO",
+   "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+   "factores": [
+    {
+     "caracteristica": "f739",
+     "nombre": "header.characteristics.DLL",
+     "grupo": "header",
+     "valor": 0.0,
+     "aporte_shap": 0.2265,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+     "observacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "mucho",
+     "termino": "biblioteca (DLL)",
+     "explicacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho."
+    },
+    {
+     "caracteristica": "f518",
+     "nombre": "byteentropy.entropia15_byte15",
+     "grupo": "byteentropy",
+     "valor": 0.0,
+     "aporte_shap": -0.1296,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Contenido que parece comprimido o cifrado",
+     "observacion": "Casi nada de su contenido se ve comprimido o cifrado.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "entropía",
+     "explicacion": "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f993",
+     "nombre": "section.overlay.entropy",
+     "grupo": "section",
+     "valor": 0.0,
+     "aporte_shap": -0.0839,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Datos añadidos al final del archivo",
+     "observacion": "No tiene datos añadidos al final del archivo.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "datos añadidos (overlay)",
+     "explicacion": "No tiene datos añadidos al final del archivo. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2547",
+     "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+     "grupo": "pefilewarnings",
+     "valor": 0.0,
+     "aporte_shap": -0.0811,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Una parte se puede modificar y ejecutar a la vez",
+     "observacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "sección",
+     "explicacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2478",
+     "nombre": "authenticode.latest_signing_time",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0765,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (fecha de la firma)",
+     "observacion": "No tiene firma digital (o su firma no tiene sello de fecha).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "un poco",
+     "termino": "firma digital",
+     "explicacion": "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco."
+    }
+   ],
+   "glosario": [
+    {
+     "termino": "biblioteca (DLL)",
+     "definicion": "Archivo con funciones que otros programas usan; no se abre solo. Un programa (.exe) sí se ejecuta directamente."
+    },
+    {
+     "termino": "entropía",
+     "definicion": "Medida de qué tan 'desordenados' están los datos. Es alta cuando el contenido está comprimido o cifrado, algo que el malware usa para esconder su código, aunque algunos programas legítimos también lo hacen."
+    },
+    {
+     "termino": "datos añadidos (overlay)",
+     "definicion": "Información pegada al final del archivo, después de las partes normales del programa. Algunos instaladores la usan; el malware también la usa para esconder contenido."
+    },
+    {
+     "termino": "sección",
+     "definicion": "Cada una de las partes en que se divide un programa (código, datos, recursos). Cada parte tiene permisos: leerse, escribirse o ejecutarse."
+    },
+    {
+     "termino": "firma digital",
+     "definicion": "Sello electrónico que el fabricante pone a su programa y que Windows puede comprobar. Mucho software legítimo lo trae; un programa sin firma no es necesariamente peligroso, pero da menos garantías."
+    }
+   ],
+   "modelo": "Random Forest",
+   "latencia_ms": 11.4,
+   "nombre_archivo": "muestra_C.exe",
+   "tamano_bytes": 2048,
+   "es_pe": true,
+   "sha256": "e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23",
+   "advertencias": [],
+   "latencia_total_ms": 13.6
+  },
+  "muestra_D.exe": {
+   "probabilidad_malware": 0.7335,
+   "veredicto": "MALICIOSO",
+   "nivel_riesgo": "MEDIO",
+   "recomendacion": "Evite ejecutarlo. Verifíquelo con un segundo antivirus o en un servicio como VirusTotal antes de usarlo.",
+   "factores": [
+    {
+     "caracteristica": "f739",
+     "nombre": "header.characteristics.DLL",
+     "grupo": "header",
+     "valor": 0.0,
+     "aporte_shap": 0.2295,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Tipo de archivo (programa o biblioteca)",
+     "observacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "mucho",
+     "termino": "biblioteca (DLL)",
+     "explicacion": "Es un programa ejecutable (.exe), no una biblioteca (DLL). Para el sistema, esto aumentó la sospecha mucho."
+    },
+    {
+     "caracteristica": "f518",
+     "nombre": "byteentropy.entropia15_byte15",
+     "grupo": "byteentropy",
+     "valor": 0.0,
+     "aporte_shap": -0.0954,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Contenido que parece comprimido o cifrado",
+     "observacion": "Casi nada de su contenido se ve comprimido o cifrado.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "entropía",
+     "explicacion": "Casi nada de su contenido se ve comprimido o cifrado. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2547",
+     "nombre": "pefilewarnings.w67_Suspicious flags set for section",
+     "grupo": "pefilewarnings",
+     "valor": 0.0,
+     "aporte_shap": -0.0774,
+     "efecto": "reduce la sospecha",
+     "nombre_amigable": "Una parte se puede modificar y ejecutar a la vez",
+     "observacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal.",
+     "efecto_corto": "hace confiar",
+     "peso": "un poco",
+     "termino": "sección",
+     "explicacion": "Ninguna de sus partes está marcada para modificarse y ejecutarse a la vez, como es normal. Para el sistema, esto redujo la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2478",
+     "nombre": "authenticode.latest_signing_time",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0761,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (fecha de la firma)",
+     "observacion": "No tiene firma digital (o su firma no tiene sello de fecha).",
+     "efecto_corto": "hace desconfiar",
+     "peso": "un poco",
+     "termino": "firma digital",
+     "explicacion": "No tiene firma digital (o su firma no tiene sello de fecha). Para el sistema, esto aumentó la sospecha un poco."
+    },
+    {
+     "caracteristica": "f2477",
+     "nombre": "authenticode.chain_max_depth",
+     "grupo": "authenticode",
+     "valor": 0.0,
+     "aporte_shap": 0.0578,
+     "efecto": "aumenta la sospecha",
+     "nombre_amigable": "Firma digital (certificados que la respaldan)",
+     "observacion": "No tiene certificados de firma digital.",
+     "efecto_corto": "hace desconfiar",
+     "peso": "ligeramente",
+     "termino": "firma digital",
+     "explicacion": "No tiene certificados de firma digital. Para el sistema, esto aumentó la sospecha ligeramente."
+    }
+   ],
+   "glosario": [
+    {
+     "termino": "biblioteca (DLL)",
+     "definicion": "Archivo con funciones que otros programas usan; no se abre solo. Un programa (.exe) sí se ejecuta directamente."
+    },
+    {
+     "termino": "entropía",
+     "definicion": "Medida de qué tan 'desordenados' están los datos. Es alta cuando el contenido está comprimido o cifrado, algo que el malware usa para esconder su código, aunque algunos programas legítimos también lo hacen."
+    },
+    {
+     "termino": "sección",
+     "definicion": "Cada una de las partes en que se divide un programa (código, datos, recursos). Cada parte tiene permisos: leerse, escribirse o ejecutarse."
+    },
+    {
+     "termino": "firma digital",
+     "definicion": "Sello electrónico que el fabricante pone a su programa y que Windows puede comprobar. Mucho software legítimo lo trae; un programa sin firma no es necesariamente peligroso, pero da menos garantías."
+    }
+   ],
+   "modelo": "Random Forest",
+   "latencia_ms": 10.0,
+   "nombre_archivo": "muestra_D.exe",
+   "tamano_bytes": 21504,
+   "es_pe": true,
+   "sha256": "c70f3d47097d0d8cfbe8740571c601ccc56a07d07aba298141563a516593fbd9",
+   "advertencias": [],
+   "latencia_total_ms": 32.0
+  }
+ }
+}

@@ -1,0 +1,11 @@
+participante,perfil_tecnico,entendio_explicacion,P1,P2,P3,P4,P5,P6,P7,P8,P9,P10,sus,tarea1_sin_ayuda,tarea1_min,tarea2_sin_ayuda,tarea2_min,duracion_min
+E1,si,Si,4,5,5,5,4,4,5,5,4,4,87.5,si,2,si,1,7
+E2,si,Si,5,4,5,5,5,4,5,4,5,5,92.5,si,2,si,2,9
+E3,si,Si,4,4,5,4,4,5,5,4,4,4,82.5,si,3,si,2,9
+E4,si,Si,5,5,5,5,4,4,5,5,5,4,92.5,si,2,si,2,7
+E5,si,Si,4,4,4,5,5,4,5,4,5,3,82.5,si,3,si,2,10
+P1,no,Si,4,4,5,3,5,5,4,4,4,3,77.5,no,5,no,4,13
+P2,no,Si,4,5,4,5,4,5,4,5,4,4,85.0,no,7,no,3,13
+P3,no,Si,4,5,5,4,4,5,4,5,4,4,85.0,no,5,no,3,12
+P4,no,Parcialmente,5,5,5,4,5,4,5,4,5,4,90.0,no,4,no,2,11
+P5,no,Si,4,4,4,5,4,4,5,4,5,5,85.0,no,4,no,3,9

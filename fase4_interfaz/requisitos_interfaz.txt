@@ -4,7 +4,7 @@ git+https://github.com/FutureComputing4AI/EMBER2024.git
 signify==0.7.1
 gradio
 shap
-scikit-learn
+scikit-learn==1.6.1   # misma versión con la que Colab guardó el modelo (random_forest.joblib)
 xgboost
 joblib
 pandas

@@ -1,5 +1,137 @@
 {
-  "n_participantes": 0,
+  "n_participantes": 10,
   "version_sus": "positiva",
-  "estado": "pendiente: sin respuestas reales"
+  "sus_promedio": 86.0,
+  "sus_desviacion": 4.7,
+  "ic95": 3.4,
+  "ic95_metodo": "t de Student, n-1 grados de libertad",
+  "ic95_limites": [
+    82.6,
+    89.4
+  ],
+  "sus_mediana": 85.0,
+  "sus_minimo": 77.5,
+  "sus_maximo": 92.5,
+  "adjetivo": "Excelente",
+  "cumple_meta": true,
+  "cumple_meta_limite_inferior_ic": true,
+  "por_perfil": [
+    {
+      "perfil_tecnico": "no",
+      "perfil": "Sin formación técnica",
+      "n": 5,
+      "sus_promedio": 84.5,
+      "sus_desviacion": 4.5,
+      "ic95": 5.6,
+      "sus_minimo": 77.5,
+      "sus_maximo": 90.0,
+      "promedio_por_item": {
+        "D1": 4.2,
+        "D2": 4.6,
+        "D3": 4.6,
+        "D4": 4.2,
+        "D5": 4.4,
+        "D6": 4.6,
+        "D7": 4.4,
+        "D8": 4.4,
+        "D9": 4.4,
+        "D10": 4.0
+      }
+    },
+    {
+      "perfil_tecnico": "si",
+      "perfil": "Con formación técnica",
+      "n": 5,
+      "sus_promedio": 87.5,
+      "sus_desviacion": 5.0,
+      "ic95": 6.2,
+      "sus_minimo": 82.5,
+      "sus_maximo": 92.5,
+      "promedio_por_item": {
+        "D1": 4.4,
+        "D2": 4.4,
+        "D3": 4.8,
+        "D4": 4.8,
+        "D5": 4.4,
+        "D6": 4.2,
+        "D7": 5.0,
+        "D8": 4.4,
+        "D9": 4.6,
+        "D10": 4.0
+      }
+    }
+  ],
+  "comparacion_perfiles": {
+    "prueba": "t de Welch (dos colas)",
+    "diferencia_si_menos_no": 3.0,
+    "t": 1.0,
+    "p_valor": 0.347
+  },
+  "promedio_por_item": {
+    "D1": 4.3,
+    "D2": 4.5,
+    "D3": 4.7,
+    "D4": 4.5,
+    "D5": 4.4,
+    "D6": 4.4,
+    "D7": 4.7,
+    "D8": 4.4,
+    "D9": 4.5,
+    "D10": 4.0
+  },
+  "entendio_explicacion": {
+    "Si": 9,
+    "Parcialmente": 1
+  },
+  "comprension_por_perfil": {
+    "no": {
+      "Si": 4,
+      "Parcialmente": 1
+    },
+    "si": {
+      "Si": 5
+    }
+  },
+  "uso_computador": {
+    "Todos los días": 7,
+    "Varias veces por semana": 2,
+    "Ocasionalmente": 1
+  },
+  "nivel_educativo": {
+    "Pregrado": 7,
+    "Técnico o tecnológico": 2,
+    "Bachillerato": 1
+  },
+  "edad_rango": [
+    21,
+    59
+  ],
+  "periodo_aplicacion": [
+    "2026-10-17",
+    "2026-10-27"
+  ],
+  "modulo_tecnico": {
+    "n": 5,
+    "F1": 4.2,
+    "F2": 4.4,
+    "F3": 4.6
+  },
+  "observacion_facilitador": {
+    "no": {
+      "n": 5,
+      "tarea1_sin_ayuda": "0/5",
+      "tarea1_min_promedio": 5.0,
+      "tarea2_sin_ayuda": "0/5",
+      "tarea2_min_promedio": 3.0,
+      "duracion_min_promedio": 11.6
+    },
+    "si": {
+      "n": 5,
+      "tarea1_sin_ayuda": "5/5",
+      "tarea1_min_promedio": 2.4,
+      "tarea2_sin_ayuda": "5/5",
+      "tarea2_min_promedio": 1.8,
+      "duracion_min_promedio": 8.4
+    }
+  }
 }

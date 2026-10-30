@@ -1,6 +1,6 @@
 """
 Ejecuta en tu computador la interfaz Gradio del proyecto (la misma que describe el documento) con los
-artefactos reales de la corrida 1, tomados de evidencias_proyecto.zip.
+artefactos reales de la corrida del notebook, tomados de evidencias_proyecto.zip.
 
 Uso (en una consola, dentro de la carpeta donde está el zip):
     pip install -r requisitos_interfaz.txt
