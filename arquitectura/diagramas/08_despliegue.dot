@@ -1,0 +1,30 @@
+// 08_despliegue: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 08_despliegue.dot -o 08_despliegue.png
+digraph despliegue {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.45; nodesep=0.35; compound=true;
+    node [fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    subgraph cluster_usuario { label=<<b>Equipo del usuario</b> [nodo físico]>; style="rounded"; color="#555555";
+        nav [label="Navegador web\n(Chrome, Edge, Firefox)"]; }
+    subgraph cluster_gradio { label=<<b>Servidores de Gradio</b> [nodo externo]>; style="rounded"; color="#555555";
+        proxy [label="Proxy del enlace público\n*.gradio.live (temporal)"]; }
+    subgraph cluster_google { label=<<b>Infraestructura de Google</b> [nube]>; style="rounded"; color="#555555";
+        subgraph cluster_vm { label=<<b>Máquina virtual de Google Colab</b><br/>[CPU, Linux, sesión temporal]>; style="rounded,dashed"; color="#438DD5";
+            py [label="Proceso Python 3\nnotebook + app_malware.py (Gradio)"];
+            tmp [label="/tmp/gradio\ncaché de archivos subidos", shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"]; }
+        drv [label="Google Drive\nember2024/: datos reducidos,\nmodelos y evidencias", shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"]; }
+    subgraph cluster_github { label=<<b>GitHub</b> [nube]>; style="rounded"; color="#555555";
+        repo [label="Repositorio público\njhgar059/repo_proyecto", shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"]; }
+    subgraph cluster_local { label=<<b>Computador personal</b> [despliegue local]>; style="rounded"; color="#555555";
+        loc [label="Python 3.10 a 3.12\nejecutar_interfaz_local.py\nhttp://127.0.0.1:7860 (share=False)"]; }
+    {rank=same; nav; proxy;} {rank=same; repo; loc;}
+    nav -> proxy [label="HTTPS"];
+    proxy -> py [label="  túnel"];
+    py -> tmp; py -> drv [label="  montaje\n  de Drive"];
+    py -> repo [label="git push (celda de\nsincronización)"];
+    repo -> loc [style=dashed, label="código"];
+    drv -> loc [style=dashed, label="  evidencias_proyecto.zip\n  (modelo y artefactos)"];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="6"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">artefacto desplegado</font></td><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">almacenamiento</font></td><td align="left" colspan="2"><font point-size="8.5">recuadro: nodo de ejecución<br/>- - →: copia manual de archivos</font></td></tr></table>>];
+    loc -> leyenda [style=invis];
+}

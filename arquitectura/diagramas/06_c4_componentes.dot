@@ -1,0 +1,33 @@
+// 06_c4_componentes: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 06_c4_componentes.dot -o 06_c4_componentes.png
+digraph c4_componentes {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.38; nodesep=0.45;
+    nav [label=<<b>Interfaz web</b><br/><font point-size="8">[Contenedor: navegador]</font>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    art [label=<<b>Artefactos del modelo</b><br/><font point-size="8">[Google Drive]</font><br/><font point-size="8">modelo, escalador, columnas,<br/>diccionario (se cargan al iniciar)</font>>, shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    subgraph cluster_app {
+        label=<<b>Aplicación de análisis</b> [contenedor: Python 3 + Gradio, app_malware.py]>; style="dashed,rounded"; color="#438DD5"; penwidth=1.5;
+        ui [label=<<b>Interfaz Gradio</b><br/><font point-size="8">[construir_interfaz]</font><br/><font point-size="8">pestañas, eventos y salidas</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        val [label=<<b>Validador de entrada</b><br/><font point-size="8">[analizar_bytes]</font><br/><font point-size="8">vacío, tamaño ≤ 5 MB, extensión,<br/>firma MZ y PE reconocible</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        ext [label=<<b>Extractor de características</b><br/><font point-size="8">[thrember.PEFeatureExtractor]</font><br/><font point-size="8">vector de 2.568 valores</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        sel [label=<<b>Selector y escalador</b><br/><font point-size="8">[vector_desde_bytes, StandardScaler]</font><br/><font point-size="8">15 columnas del contrato</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        cla [label=<<b>Clasificador</b><br/><font point-size="8">[Random Forest, predict_proba]</font><br/><font point-size="8">probabilidad y veredicto (0,5)</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        xai [label=<<b>Explicador</b><br/><font point-size="8">[SHAP TreeExplainer aproximado]</font><br/><font point-size="8">aporte de cada característica</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        tra [label=<<b>Traductor a lenguaje sencillo</b><br/><font point-size="8">[traducir, nivel_riesgo, glosario_para]</font><br/><font point-size="8">frases, peso, riesgo y recomendación</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+        fmt [label=<<b>Presentación</b><br/><font point-size="8">[formatear_markdown, figura_factores,<br/>tabla_tecnica]</font><br/><font point-size="8">resultado, gráfica, glosario y detalles</font>>, fillcolor="#85BBF0", color="#5D82A8", fontcolor="black"];
+    }
+    {rank=same; nav; art;} {rank=same; ui; fmt;} {rank=same; val; tra;} {rank=same; cla; xai;}
+    nav -> ui [label="  archivo [HTTP]"];
+    ui -> val [label="  ruta del archivo"];
+    val -> ext [label="  bytes válidos"];
+    ext -> sel [label="  vector completo"];
+    sel -> cla; sel -> xai [label="  vector escalado"];
+    cla -> tra [label="probabilidad"]; xai -> tra [label="  aportes SHAP"];
+    tra -> fmt [label="  factores y riesgo"];
+    fmt -> ui [label="salidas"];
+    val -> fmt [style=dashed, label="mensaje de\nrechazo", constraint=false];
+    art -> sel [style=dashed, constraint=false]; art -> cla [style=dashed, constraint=false]; art -> xai [style=dashed, constraint=false];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="8"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#85BBF0" color="#5D82A8" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">componente<br/>(función o clase)</font></td><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">contenedor</font></td><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">almacén</font></td><td align="left" colspan="2"><font point-size="8.5">→ flujo en línea<br/>- - → carga o mensaje</font></td></tr></table>>];
+    cla -> leyenda [style=invis];
+}

@@ -1,0 +1,32 @@
+%% Secuencia del escenario ASR-01 (analizar un archivo) con los caminos de rechazo y de falla.
+%% Fuente editable (Mermaid). Renderizar: mmdc -i 09_secuencia.mmd -o 09_secuencia.png -c config_seq.json -b white -s 3
+sequenceDiagram
+    actor U as Usuario (navegador)
+    participant G as Gradio (servidor)
+    participant A as AnalizadorMalware
+    participant T as thrember
+    participant M as Random Forest y SHAP
+    participant R as Traducción
+    U->>G: Carga un .exe o .dll y pulsa «Analizar» (HTTPS)
+    G->>G: Guarda una copia en la caché temporal
+    G->>A: analizar_ruta(ruta): lee los bytes
+    alt Vacío, mayor de 5 MB, extensión no admitida o sin firma MZ
+        A-->>G: error con la causa
+        G-->>U: Mensaje: qué archivos se admiten
+    else Archivo válido
+        A->>T: feature_vector(bytes)
+        T-->>A: vector de 2.568 valores
+        alt Encabezado PE no reconocido (is_pe = 0)
+            A-->>G: error: estructura PE dañada
+            G-->>U: Mensaje de rechazo
+        else PE reconocido
+            A->>M: 15 columnas escaladas
+            M-->>A: probabilidad y aportes SHAP
+            A->>R: traducir(aportes) y nivel_riesgo(p)
+            R-->>A: 5 frases, riesgo, recomendación, glosario
+            A-->>G: veredicto, riesgo, factores, SHA-256, latencia
+            G-->>U: Resultado, explicación y detalles técnicos
+        end
+    end
+    Note over A,T: Falla no controlada: otra excepción de pefile o signify llega a Gradio como error genérico (amenaza T-04)
+    Note over U,R: Medida del ASR-01: p95 de extremo a extremo menor que 10 s (5 MB: 3,48 s). Leyenda: flecha continua = llamada · punteada = respuesta · alt = caminos alternativos

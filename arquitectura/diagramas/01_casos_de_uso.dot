@@ -1,0 +1,26 @@
+// 01_casos_de_uso: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 01_casos_de_uso.dot -o 01_casos_de_uso.png
+digraph casos_de_uso {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=LR;
+    u1 [label=<«actor»<br/><b>Usuario sin<br/>formación técnica</b>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    u2 [label=<«actor»<br/><b>Usuario con<br/>formación técnica</b>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    op [label=<«actor»<br/><b>Operador</b><br/><font point-size="8">(autores del proyecto)</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    subgraph cluster_sistema {
+        label=<<b>Sistema de detección de malware con explicaciones</b>>; style="dashed,rounded"; color="#1168BD"; penwidth=1.5;
+        node [shape=ellipse, style=filled, fillcolor=white, color="#1168BD", penwidth=1.5];
+        cu1 [label="CU-01 Analizar un\narchivo ejecutable"];
+        cu4 [label="CU-04 Probar con\nejemplos de EMBER2024"];
+        cu3 [label="CU-03 Consultar los\ndetalles técnicos"];
+        cu5 [label="CU-05 Publicar\nla aplicación"];
+        cu6 [label="CU-06 Reconstruir\nartefactos y evidencias"];
+        cu2 [label="CU-02 Leer el resultado\ny la explicación en\nlenguaje sencillo"];
+    }
+    edge [arrowhead=none];
+    u1 -> cu1; u1 -> cu4; u2 -> cu1; u2 -> cu3; u2 -> cu4; op -> cu5; op -> cu6;
+    edge [arrowhead=vee, style=dashed, fontsize=8];
+    cu1 -> cu2 [label="«include»"]; cu4 -> cu2 [label="«include»"]; cu3 -> cu2 [label="«extend»"];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="2"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#08427B" color="#052E56" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">«actor»: persona que usa el sistema</font></td></tr><tr><td bgcolor="white" color="#1168BD" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">caso de uso</font></td></tr><tr><td align="left" colspan="2"><font point-size="8.5">línea: el actor participa<br/>- - →: «include» / «extend»</font></td></tr></table>>];
+    {rank=same; cu2; leyenda;}
+}

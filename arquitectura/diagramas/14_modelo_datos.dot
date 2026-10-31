@@ -1,0 +1,36 @@
+// 14_modelo_datos: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 14_modelo_datos.dot -o 14_modelo_datos.png
+digraph modelo_datos {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; node [shape=plaintext, style=""]; ranksep=0.45; nodesep=0.25; compound=true;
+    subgraph cluster_modelos { label=<<b>modelos/</b> (Fase 2 y 3)>; style="rounded"; color="#438DD5";
+        sel [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>modelo_seleccionado.json</b></td></tr><tr><td align="left"><font point-size="8.5">modelo</font></td></tr><tr><td align="left"><font point-size="8.5">columnas [15] (clave: fNNN)</font></td></tr><tr><td align="left"><font point-size="8.5">umbral</font></td></tr></table>>];
+        rf [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>random_forest.joblib</b></td></tr><tr><td align="left"><font point-size="8.5">Random Forest serializado (138 MB)</font></td></tr></table>>];
+        sc [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>scaler.joblib</b></td></tr><tr><td align="left"><font point-size="8.5">StandardScaler (15 columnas)</font></td></tr></table>>];
+        xai [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>xai_config.joblib</b></td></tr><tr><td align="left"><font point-size="8.5">configuración de explicabilidad</font></td></tr></table>>];
+    }
+    subgraph cluster_datos { label=<<b>datos/</b> y <b>fase1/</b>>; style="rounded"; color="#438DD5";
+        dic [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>diccionario_caracteristicas.json</b></td></tr><tr><td align="left"><font point-size="8.5">nombres [2.568]</font></td></tr><tr><td align="left"><font point-size="8.5">grupos [2.568]</font></td></tr><tr><td align="left"><font point-size="7.5" color="#555555">posición i = columna f&lt;i&gt;</font></td></tr></table>>];
+        red [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>train | test | challenge_reducido.parquet</b></td></tr><tr><td align="left"><font point-size="8.5">sha256 (clave)</font></td></tr><tr><td align="left"><font point-size="8.5">15 columnas f…</font></td></tr><tr><td align="left"><font point-size="8.5">label, file_type y otros metadatos</font></td></tr></table>>];
+    }
+    subgraph cluster_fase4 { label=<<b>fase4/</b> (interfaz y pruebas)>; style="rounded"; color="#438DD5";
+        ej [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>ejemplos_demo.parquet</b></td></tr><tr><td align="left"><font point-size="8.5">sha256 (clave)</font></td></tr><tr><td align="left"><font point-size="8.5">15 columnas f…</font></td></tr><tr><td align="left"><font point-size="8.5">label, file_type, etiqueta</font></td></tr></table>>];
+        pf [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>pruebas_funcionales.csv</b></td></tr><tr><td align="left"><font point-size="8.5">codigo (clave)</font></td></tr><tr><td align="left"><font point-size="8.5">descripcion, resultado, detalle</font></td></tr></table>>];
+        con [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>contrato_artefactos.json</b></td></tr><tr><td align="left"><font point-size="8.5">version_contrato</font></td></tr><tr><td align="left"><font point-size="8.5">extractor (versión, commit, dimensión)</font></td></tr><tr><td align="left"><font point-size="8.5">seleccion, escalador, modelo (SHA-256)</font></td></tr></table>>];
+        sus [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>sus_respuestas.csv</b></td></tr><tr><td align="left"><font point-size="8.5">participante (clave: E1…P5)</font></td></tr><tr><td align="left"><font point-size="8.5">perfil, respuestas, tareas</font></td></tr><tr><td align="left"><font point-size="7.5" color="#555555">dato personal seudonimizado; acceso restringido</font></td></tr></table>>];
+    }
+    {rank=same; red; dic;} {rank=same; sel; rf;} {rank=same; sc; xai;} {rank=same; ej; con;} {rank=same; pf; sus;}
+    red -> dic [style=invis]; sel -> rf [style=invis]; sc -> xai [style=invis]; ej -> con [style=invis]; pf -> sus [style=invis];
+    sel -> sc [style=invis]; rf -> xai [style=invis];
+    edge [arrowhead=vee, fontsize=8.5, color="#444444"];
+    red -> sel [label=" mismas columnas", style=dashed];
+    sel -> dic [label=" columnas → posición", constraint=false];
+    sc -> ej [style=invis]; xai -> con [style=invis]; ej -> pf [style=invis]; con -> sus [style=invis];
+    ej -> sel [label=" mismas columnas", style=dashed, constraint=false];
+    con -> sel [label=" copia columnas y umbral", constraint=false];
+    con -> rf [label=" SHA-256", constraint=false]; con -> sc [label=" SHA-256", constraint=false];
+    xai -> rf [label=" explica", style=dashed, constraint=false];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="2"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#DCEBFA" color="#333333" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">estructura persistida (archivo) con sus campos</font></td></tr><tr><td align="left" colspan="2"><font point-size="8.5">recuadro: carpeta en Google Drive, agrupada por la fase que la produce</font></td></tr><tr><td align="left" colspan="2"><font point-size="8.5">→ referencia; - - → usa las mismas columnas</font></td></tr></table>>];
+    pf -> leyenda [style=invis];
+}

@@ -1,0 +1,7 @@
+{"theme": "base",
+ "themeVariables": {"fontFamily": "Liberation Sans, Arial, sans-serif", "fontSize": "17px", "primaryColor": "#DCEBFA",
+   "primaryBorderColor": "#438DD5", "primaryTextColor": "#111111", "lineColor": "#333333", "noteBkgColor": "#F4F4F4",
+   "noteBorderColor": "#999999", "actorBkg": "#DCEBFA", "actorBorder": "#438DD5", "signalColor": "#333333", "signalTextColor": "#111111",
+   "labelBoxBkgColor": "#FFF4CC", "labelBoxBorderColor": "#B38F00", "loopTextColor": "#111111"},
+ "sequence": {"mirrorActors": false, "wrap": true, "width": 175, "actorMargin": 30, "boxMargin": 8, "noteMargin": 8, "messageMargin": 30,
+   "actorFontSize": 17, "messageFontSize": 16, "noteFontSize": 15}}

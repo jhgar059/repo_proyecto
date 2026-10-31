@@ -1,0 +1,28 @@
+// 10_estados: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 10_estados.dot -o 10_estados.png
+digraph estados {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.32; nodesep=0.5;
+    node [fillcolor="white", color="#333333", fontcolor="black", style="filled,rounded"];
+    ini [shape=circle, style=filled, fillcolor=black, label="", width=0.18];
+    fin [shape=doublecircle, style=filled, fillcolor=black, label="", width=0.14];
+    recibido [label="Recibido"]; validado [label="Validado"]; vectorizado [label="Vectorizado"];
+    clasificado [label="Clasificado"]; explicado [label="Explicado"]; presentado [label="Presentado"];
+    rechazado [label="Rechazado\n(con su causa)", fillcolor="#F8D7DA", color="#A94442"];
+    fallido [label="Fallido\n(falla no controlada)", fillcolor="#FFF4CC", color="#B38F00"];
+    ini -> recibido [label="  el usuario carga un archivo (CU-01)"];
+    recibido -> validado [label="  pasa las validaciones de entrada"];
+    recibido -> rechazado [label="vacío o mayor de 5 MB (RN-06),\nextensión no admitida (RN-04),\nsin firma MZ (RN-05)"];
+    validado -> vectorizado [label="  thrember extrae 2.568 valores"];
+    validado -> fallido [label="excepción del\nextractor"];
+    vectorizado -> rechazado [label="encabezado PE no\nreconocido (RN-05)"];
+    vectorizado -> clasificado [label="  Random Forest, umbral 0,5 (RN-01)"];
+    clasificado -> explicado [label="  SHAP + traducción (RN-07 a RN-09)"];
+    explicado -> presentado [label="  resultado, riesgo y recomendación (RN-02, RN-03)"];
+    presentado -> fin; rechazado -> fin [label="mensaje con\nla causa"]; fallido -> fin [label="error genérico\nde Gradio"];
+    {rank=same; validado; rechazado;}
+    nota [shape=note, style=filled, fillcolor="#F4F4F4", color="#999999", fontsize=8,
+          label="Leyenda: rectángulo = estado de la entidad Análisis; flecha = transición (evento o condición y regla).\nTransiciones prohibidas: Recibido → Clasificado (sin vector no hay predicción) y\nRechazado → Vectorizado (un archivo rechazado no se procesa). Fallido = falla no controlada."];
+    fin -> nota [style=invis];
+}

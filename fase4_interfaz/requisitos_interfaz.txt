@@ -1,6 +1,6 @@
 # Dependencias para ejecutar la interfaz del proyecto en el computador (Python 3.10 a 3.12)
 #   pip install -r requisitos_interfaz.txt
-git+https://github.com/FutureComputing4AI/EMBER2024.git
+git+https://github.com/FutureComputing4AI/EMBER2024.git@0ef753e81d98bf209f71b03cd331dfc190b5b54d   # mismo extractor del entrenamiento (contrato de artefactos)
 signify==0.7.1
 gradio
 shap

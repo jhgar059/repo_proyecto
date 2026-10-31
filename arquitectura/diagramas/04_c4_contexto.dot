@@ -1,0 +1,25 @@
+// 04_c4_contexto: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 04_c4_contexto.dot -o 04_c4_contexto.png
+digraph c4_contexto {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.55;
+    u1 [label=<<b>Usuario sin formación técnica</b><br/><font point-size="8">[Persona]</font><br/><font point-size="8">Quiere saber si un ejecutable<br/>es peligroso antes de abrirlo</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    u2 [label=<<b>Usuario con formación técnica</b><br/><font point-size="8">[Persona]</font><br/><font point-size="8">Busca una segunda opinión<br/>con detalle técnico</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    op [label=<<b>Operador</b><br/><font point-size="8">[Persona]</font><br/><font point-size="8">Autores: construyen los artefactos<br/>y publican la aplicación</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    s [label=<<b>Sistema de detección de malware con explicaciones</b><br/><font point-size="8">[Sistema de software]</font><br/><font point-size="8">Analiza ejecutables PE sin ejecutarlos, los clasifica<br/>y explica la decisión en lenguaje sencillo</font>>, fillcolor="#1168BD", color="#0B4884", fontcolor="white"];
+    hf [label=<<b>Hugging Face Hub</b><br/><font point-size="8">[Sistema externo]</font><br/><font point-size="8">Publica EMBER2024</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    col [label=<<b>Google Colab y Google Drive</b><br/><font point-size="8">[Sistema externo]</font><br/><font point-size="8">Cómputo temporal y almacenamiento<br/>de datos, modelos y evidencias</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    gh [label=<<b>GitHub</b><br/><font point-size="8">[Sistema externo]</font><br/><font point-size="8">Repositorio público</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    gs [label=<<b>Enlace compartido de Gradio</b><br/><font point-size="8">[Sistema externo]</font><br/><font point-size="8">Enlace público temporal<br/>(proxy hacia la aplicación)</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    {rank=same; u1; u2; op;} {rank=same; hf; col; gh; gs;}
+    u1 -> s [label="  sube un archivo y lee\n  el resultado [HTTPS]"];
+    u2 -> s [label="  consulta los detalles\n  técnicos [HTTPS]"];
+    op -> s [label="  ejecuta el notebook\n  y lanza la aplicación"];
+    s -> hf [label="descarga los datos\n(solo al construir)"];
+    s -> col [label="  se ejecuta en; lee y\n  guarda artefactos"];
+    s -> gh [label="  publica código\n  y resultados"];
+    s -> gs [label="  expone la interfaz\n  (share=True)"];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="6"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#08427B" color="#052E56" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">persona</font></td><td bgcolor="#1168BD" color="#0B4884" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">sistema documentado</font></td><td bgcolor="#8C8C8C" color="#6B6B6B" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">sistema externo</font></td></tr></table>>];
+    hf -> leyenda [style=invis];
+}

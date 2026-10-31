@@ -1,0 +1,27 @@
+// 11_navegacion: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 11_navegacion.dot -o 11_navegacion.png
+digraph navegacion {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.3; nodesep=0.35;
+    PANT [shape=point, style=invis];
+    ini [label=<<b>Pantalla principal</b><br/>«¿Es seguro este archivo?»>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    t1 [label=<<b>Pestaña: Analizar un archivo</b>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    t2 [label=<<b>Pestaña: Probar con ejemplos<br/>de EMBER2024</b>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    node [fillcolor="#DCEBFA", color="#438DD5", fontcolor="black"];
+    a1 [label="Seleccionar archivo (.exe, .dll, .sys,\n.ocx, .scr, .cpl, .drv; máx. 5 MB)"];
+    a2 [label="Botón «Analizar»"];
+    b1 [label="Elegir un ejemplo de la lista"];
+    b2 [label="Botón «Analizar ejemplo»"];
+    d1 [label="¿Archivo válido?", shape=diamond, style=filled, fillcolor="#FFF4CC", color="#B38F00"];
+    e1 [label="Mensaje de rechazo:\ncausa y archivos admitidos", fillcolor="#F8D7DA", color="#A94442"];
+    node [fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    r1 [label=<<b>Resultado</b>: veredicto, color por riesgo,<br/>probabilidad y qué hacer>];
+    r2 [label=<<b>¿Por qué lo dice el sistema?</b><br/>5 frases, gráfica sin ejes numéricos y glosario>];
+    r3 [label=<<b>Detalles técnicos</b> (panel plegable): características,<br/>valores, aportes SHAP, SHA-256 y tiempo>];
+    ini -> t1; ini -> t2; t1 -> a1 -> a2 -> d1; d1 -> e1 [label=" No"]; e1 -> a1 [constraint=false];
+    d1 -> r1 [label=" Sí"]; t2 -> b1 -> b2 -> r1; r1 -> r2 -> r3;
+    {rank=same; t1; t2;} {rank=same; a1; b1;} {rank=same; a2; b2;}
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="8"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">pantalla o sección</font></td><td bgcolor="#DCEBFA" color="#438DD5" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">acción del usuario</font></td><td bgcolor="#FFF4CC" color="#B38F00" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">decisión</font></td><td bgcolor="#F8D7DA" color="#A94442" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">mensaje</font></td></tr></table>>];
+    r3 -> leyenda [style=invis];
+}

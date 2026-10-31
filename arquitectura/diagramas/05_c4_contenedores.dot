@@ -1,0 +1,35 @@
+// 05_c4_contenedores: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 05_c4_contenedores.dot -o 05_c4_contenedores.png
+digraph c4_contenedores {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; ranksep=0.5; nodesep=0.35;
+    u [label=<<b>Usuario</b><br/><font point-size="8">[Persona]</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    op [label=<<b>Operador</b><br/><font point-size="8">[Persona]</font>>, fillcolor="#08427B", color="#052E56", fontcolor="white"];
+    gs [label=<<b>Enlace compartido de Gradio</b><br/><font point-size="8">[Sistema externo]</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    subgraph cluster_sis {
+        label=<<b>Sistema de detección de malware con explicaciones</b>>; style="dashed,rounded"; color="#1168BD"; penwidth=1.5;
+        nav [label=<<b>Interfaz web</b><br/><font point-size="8">[Navegador, cliente Gradio]</font><br/><font point-size="8">Pestañas de análisis<br/>y de ejemplos</font>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+        app [label=<<b>Aplicación de análisis</b><br/><font point-size="8">[Python 3, Gradio, app_malware.py]</font><br/><font point-size="8">Valida, extrae, clasifica, explica<br/>y traduce en un solo proceso</font>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+        cache [label=<<b>Caché temporal de Gradio</b><br/><font point-size="8">[Sistema de archivos de la VM]</font><br/><font point-size="8">Copia del archivo subido</font>>, shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+        art [label=<<b>Artefactos del modelo</b><br/><font point-size="8">[Archivos en Google Drive]</font><br/><font point-size="8">Modelo, escalador, configuración<br/>XAI, diccionario y ejemplos</font>>, shape=cylinder, style=filled, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+        nb [label=<<b>Notebook de construcción</b><br/><font point-size="8">[Google Colab, Python 3]</font><br/><font point-size="8">Fases 1 a 4 y exportación<br/>de evidencias</font>>, fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    }
+    hf [label=<<b>Hugging Face Hub</b><br/><font point-size="8">[Sistema externo]</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    gh [label=<<b>GitHub</b><br/><font point-size="8">[Sistema externo]</font>>, fillcolor="#8C8C8C", color="#6B6B6B", fontcolor="white"];
+    {rank=same; u; op;} {rank=same; nav; nb;} {rank=same; gs; app;} {rank=same; cache; art;} {rank=same; hf; gh;}
+    cache -> hf [style=invis]; art -> gh [style=invis];
+    u -> nav [label="  usa [HTTPS]"];
+    nav -> gs [label="carga el archivo\n[HTTPS]"];
+    gs -> app [label="reenvía\n[túnel]"];
+    nav -> app [style=dashed, label="  [HTTP 127.0.0.1:7860,\n  despliegue local]"];
+    app -> cache [label="  guarda y lee el\n  archivo subido"];
+    app -> art [label="  carga al iniciar\n  [joblib, JSON, Parquet]"];
+    op -> nb [label="  ejecuta"];
+    nb -> app [label="  escribe app_malware.py\n  y la lanza"];
+    nb -> art [label="genera y\nactualiza"];
+    nb -> hf [label="descarga\nEMBER2024"];
+    nb -> gh [label="sincroniza código\ny resultados [git]"];
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="8"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#08427B" color="#052E56" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">persona</font></td><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">contenedor (proceso)</font></td><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">almacén de datos</font></td><td bgcolor="#8C8C8C" color="#6B6B6B" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">sistema externo</font></td></tr></table>>];
+    hf -> leyenda [style=invis];
+}

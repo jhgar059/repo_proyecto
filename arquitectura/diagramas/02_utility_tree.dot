@@ -1,0 +1,23 @@
+// 02_utility_tree: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 02_utility_tree.dot -o 02_utility_tree.png
+digraph utility_tree {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=LR; nodesep=0.12;
+    raiz [label="Utilidad\ndel sistema", shape=ellipse, fillcolor="#1168BD", color="#0B4884", fontcolor="white"];
+    node [fillcolor="#438DD5", color="#2E6295", fontcolor="white"];
+    a1 [label="Eficiencia de\ndesempeño"]; a2 [label="Adecuación\nfuncional"]; a3 [label="Capacidad de\ninteracción"]; a4 [label="Seguridad"];
+    node [fillcolor="#DCEBFA", color="#438DD5", fontcolor="black"];
+    s1 [label="Comportamiento\ntemporal"]; s2 [label="Completitud y\ncorrección funcional"]; s3 [label="Aprendizabilidad\ny operabilidad"];
+    s4 [label="Confidencialidad"]; s5 [label="Resistencia"];
+    node [fillcolor="white", color="#333333", fontcolor="black", style="filled", fontsize=9];
+    e1 [label=<<b>ASR-01</b> (A, A)<br/>Con el archivo más grande que admite<br/>la interfaz, el resultado llega con<br/>p95 &lt; 10 s>];
+    e4 [label=<<b>ASR-04</b> (A, M)<br/>El 100 % de las predicciones trae<br/>explicación con aditividad exacta>];
+    e5 [label=<<b>ASR-05</b> (A, M)<br/>Un usuario sin formación técnica<br/>analiza un archivo y entiende<br/>el resultado sin ayuda>];
+    e6 [label=<<b>ASR-06</b> (M, M)<br/>Un archivo subido no queda<br/>disponible para otros después<br/>del análisis>];
+    e7 [label=<<b>ASR-07</b> (M, A)<br/>Un archivo construido para agotar<br/>recursos se rechaza antes<br/>de procesarse>];
+    raiz -> a1; raiz -> a2; raiz -> a3; raiz -> a4;
+    a1 -> s1 -> e1; a2 -> s2 -> e4; a3 -> s3 -> e5; a4 -> s4 -> e6; a4 -> s5 -> e7;
+    leyenda [shape=plaintext, style="", fontcolor="black", fontsize=9, label=<<table border="1" color="#999999" cellborder="0" cellspacing="4" cellpadding="2" bgcolor="#FAFAFA"><tr><td align="left" colspan="2"><b><font point-size="9">Leyenda</font></b></td></tr><tr><td bgcolor="#438DD5" color="#2E6295" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">característica<br/>ISO/IEC 25010:2023</font></td></tr><tr><td bgcolor="#DCEBFA" color="#438DD5" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">subcaracterística</font></td></tr><tr><td bgcolor="white" color="#333333" border="1" width="22" height="14"> </td><td align="left"><font point-size="8.5">escenario ASR (VN, IA): valor de negocio e<br/>impacto arquitectónico; A = alta, M = media</font></td></tr></table>>];
+    {rank=same; e7; leyenda;} e7 -> leyenda [style=invis];
+}

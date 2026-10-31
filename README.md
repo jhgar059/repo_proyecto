@@ -28,11 +28,13 @@ cambian los tiempos medidos, que dependen de la máquina que asigna Colab.
 | Comparación | XGBoost F1 0,9222 · red neuronal densa F1 0,9085 |
 | Malware evasivo (conjunto de desafío) | recall 57,3 % · AUC-ROC 0,907 · PR-AUC 0,295 |
 | Explicabilidad | cobertura 100 % · fidelidad SHAP exacta · acuerdo SHAP-LIME (Jaccard top-5) 0,677 · 0,6 ms por explicación SHAP |
-| Interfaz y pruebas | 9/9 pruebas funcionales · latencia p95: 0,88 s (1 MB), 3,48 s (5 MB), 11,40 s (20 MB) |
+| Interfaz y pruebas | 9/9 pruebas funcionales (versión con límite de 50 MB; ver la nota) · latencia p95: 0,88 s (1 MB), 3,48 s (5 MB), 11,40 s (20 MB) |
 | Usabilidad (SUS, 10 participantes) | 86,0 (IC 95 %: 82,6 a 89,4), "Excelente" · 9 de 10 entendieron la explicación · los 5 participantes sin formación técnica necesitaron ayuda en su primer uso |
 | Metas del anteproyecto | cumplidas: reducción ≥ 90 %, F1 conservado ≥ 95 %, cobertura 100 %, SUS ≥ 70; **no cumplidas:** F1 ≥ 0,95 (0,925), FPR ≤ 5 % (7,4 %), latencia < 10 s para 20 MB (11,4 s) |
 
 El cuadro completo está en `cuadro_cumplimiento_metas.csv` y todos los resúmenes en `resultados_para_documento.json`.
+
+**Nota (observaciones del 31 de octubre de 2026).** Como la meta de 10 s solo se cumplió hasta 5 MB, la interfaz ahora admite archivos de hasta 5 MB (decisión ADR-07 en `arquitectura/adr/`) y la prueba PF-08 pasó a ser exploratoria (con seis ejemplos no permite concluir nada sobre el desempeño). Con esa versión quedan 8 pruebas con criterio de aprobación; sus resultados se registran en `fase4_interfaz/pruebas_funcionales.csv` al ejecutar la Fase 4b.
 
 ## Estructura del repositorio
 
@@ -50,6 +52,8 @@ El cuadro completo está en `cuadro_cumplimiento_metas.csv` y todos los resúmen
 ├── evidencias/                         Manifiesto e índice del paquete completo de evidencias (evidencias_proyecto.zip)
 ├── documentos/                         Documento final (Trabajo_de_Grado_EMBER2024_FINAL.docx), formato SUS
 │                                       (prueba_SUS/) y entregables anteriores
+├── arquitectura/                       Diagramas como código (Graphviz, Mermaid, matplotlib) y decisiones de
+│                                       arquitectura (ADR, formato MADR)
 ├── legacy_ember2018/                   Primera versión del proyecto (EMBER2018 y esqueleto Streamlit); solo trazabilidad
 ├── cuadro_cumplimiento_metas.csv · resultados_para_documento.json · registro_memoria.csv
 └── README.md
@@ -62,14 +66,16 @@ exportación del notebook (el Random Forest comprimido pesa 138 MB).
 ## Cómo reproducir el proyecto (Google Colab)
 
 1. Abrir `TrabajoGrado_EMBER2024.ipynb` en Google Colab y ejecutar las celdas **en orden**, empezando por la celda 0
-   (monta Google Drive e instala `thrember`, el extractor oficial de EMBER2024, con `signify==0.7.1`).
+   (monta Google Drive e instala `thrember`, el extractor oficial de EMBER2024, fijado en el commit `0ef753e` con el que se entrenó el modelo, y `signify==0.7.1`).
 2. Fase 1a descarga desde Hugging Face (`joyce8/EMBER2024`) los zip de Win32, Win64 y .NET, los lee en *streaming*
    y vectoriza por bloques (1,5–2,5 h). Fase 1b selecciona las características (≈ 25 min), Fase 2 entrena y compara
    los modelos (≈ 1 h), Fase 3 calcula las explicaciones (≈ 10 min) y Fase 4 construye la interfaz y ejecuta las
    pruebas (≈ 5 min).
 3. Cada celda deja marcas de finalización en Drive: si la sesión se cae, basta con volver a correr desde la celda 0.
 4. La celda de exportación genera `entregables_documento.zip` (figuras y tablas) y `evidencias_proyecto.zip`
-   (paquete completo con un manifiesto que describe cada archivo).
+   (paquete completo con un manifiesto que describe cada archivo), además del registro de versiones
+   `entorno_versiones.json` y del contrato de artefactos `fase4_interfaz/contrato_artefactos.json` (commit del
+   extractor, columnas y huellas SHA-256 del escalador y del modelo que deben coincidir con el entrenamiento).
 
 Semilla fija (42) en todas las operaciones aleatorias; el notebook está diseñado para no superar ~4 GB de RAM.
 
@@ -86,14 +92,14 @@ ejemplos, y abre la aplicación en http://127.0.0.1:7860. Requiere Python 3.10 a
 versión con la que se guardó el modelo; ya está fijada en `requisitos_interfaz.txt`).
 
 La interfaz solo admite programas y bibliotecas de Windows (.exe, .dll, .sys, .ocx, .scr, .cpl, .drv): rechaza los
-archivos vacíos, los de más de 50 MB y los que no son PE por extensión o por contenido. Muestra el resultado, la
+archivos vacíos, los de más de 5 MB (el mayor tamaño con el que se cumple la meta de 10 s) y los que no son PE por extensión o por contenido. Muestra el resultado, la
 probabilidad, el nivel de riesgo y qué hacer; después, las cinco señales que más pesaron en frases sencillas, una
 gráfica sin ejes numéricos y un glosario; los nombres técnicos, los valores y los aportes SHAP quedan en un panel
 plegable de detalles técnicos (`figuras/fig_interfaz_gradio.png` y `figuras/fig_interfaz_falso_positivo.png`).
 
 ## Prueba exploratoria con archivos externos
 
-Cuatro archivos PE benignos ajenos a EMBER2024 analizados a ciegas en un computador personal
+Cuatro archivos PE benignos ajenos a EMBER2024 analizados en un computador personal (prueba exploratoria: se sabía de antemano que eran benignos, así que no estima una tasa de errores)
 (`fase4_interfaz/prueba_exploratoria_archivos_externos.csv`): la biblioteca `pythoncom311.dll` fue clasificada
 como benigna (6,3 %) y los tres ejecutables sin firma (`Pythonwin.exe`, `pythonservice.exe` y un PE sintético
 mínimo) como maliciosos (73,4 %, 73,4 % y 67,3 %). Los dos ejecutables reales comparten los valores de las 15
@@ -119,6 +125,7 @@ se publican porque contienen datos personales.
 | Fase 4 — Interfaz, pruebas funcionales y de rendimiento (OE3) | ✅ Completa |
 | Prueba de usabilidad SUS con usuarios | ✅ Completa (10 participantes; SUS 86,0) |
 | Documento final del trabajo de grado | ✅ `documentos/Trabajo_de_Grado_EMBER2024_FINAL.docx` |
+| Correcciones por las observaciones del 31-oct-2026 (límite de 5 MB, PF-08 exploratoria, capítulo de arquitectura) | 🔄 Pendiente la corrida de verificación de la Fase 4b |
 
 ## Licencia
 

@@ -1,0 +1,22 @@
+// 07_clases: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 07_clases.dot -o 07_clases.png
+digraph clases {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; node [shape=plaintext, style=""]; ranksep=0.5; nodesep=0.3;
+    pres [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>presentación (funciones)</b></td></tr><tr><td align="left" balign="left"><font point-size="8"> </font></td></tr><tr><td align="left" balign="left"><font point-size="8">+formatear_markdown(res): str<br/>+formatear_glosario(res): str<br/>+tabla_tecnica(res): DataFrame<br/>+formatear_detalles(res): str<br/>+figura_factores(res): Figure<br/>+construir_interfaz(analizador, ejemplos): Blocks</font></td></tr></table>>];
+    anal [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>AnalizadorMalware</b></td></tr><tr><td align="left" balign="left"><font point-size="8">+nombre_modelo: str<br/>+columnas: list[str] (15, orden del contrato)<br/>+umbral: float = 0,5<br/>+scaler: StandardScaler<br/>+extractor: PEFeatureExtractor<br/>+modelo: RandomForestClassifier<br/>+explainer: TreeExplainer</font></td></tr><tr><td align="left" balign="left"><font point-size="8">+vector_desde_bytes(bytez): tuple<br/>+analizar_vector_reducido(x, extra): dict<br/>+analizar_bytes(bytez, nombre): dict<br/>+analizar_ruta(ruta): dict<br/>-_preparar_explicador()</font></td></tr></table>>];
+    trad [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>traducción (funciones)</b></td></tr><tr><td align="left" balign="left"><font point-size="8">+GLOSARIO: dict (9 términos)<br/>+CARACTERISTICAS: dict (15 fichas)<br/>+RECOMENDACIONES: dict (4 niveles)</font></td></tr><tr><td align="left" balign="left"><font point-size="8">+describir_caracteristica(nombre, grupo, valor)<br/>+traducir(..., top_n=5): list<br/>+glosario_para(factores): list<br/>+nivel_riesgo(p): str<br/>-_peso(aporte, maximo): str</font></td></tr></table>>];
+    ext [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td><font point-size="8">«thrember»</font></td></tr><tr><td bgcolor="#DCEBFA"><b>PEFeatureExtractor</b></td></tr><tr><td align="left" balign="left"><font point-size="8">+dim: int = 2568</font></td></tr><tr><td align="left" balign="left"><font point-size="8">+feature_vector(bytez): ndarray</font></td></tr></table>>];
+    rf [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td><font point-size="8">«scikit-learn 1.6.1»</font></td></tr><tr><td bgcolor="#DCEBFA"><b>RandomForestClassifier</b></td></tr><tr><td align="left" balign="left"><font point-size="8"> </font></td></tr><tr><td align="left" balign="left"><font point-size="8">+predict_proba(X): ndarray</font></td></tr></table>>];
+    shp [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td><font point-size="8">«shap»</font></td></tr><tr><td bgcolor="#DCEBFA"><b>TreeExplainer</b></td></tr><tr><td align="left" balign="left"><font point-size="8"> </font></td></tr><tr><td align="left" balign="left"><font point-size="8">+shap_values(X, approximate): ndarray</font></td></tr></table>>];
+    {rank=same; anal; trad;} {rank=same; ext; rf; shp;}
+    edge [arrowhead=vee, fontsize=8];
+    pres -> anal [style=dashed, label="  invoca el análisis"];
+    pres -> trad [style=dashed, label="  usa"];
+    anal -> trad [style=dashed, label="traducir(),\nnivel_riesgo()"];
+    anal -> ext [label="usa"]; anal -> rf [label="usa"]; anal -> shp [label="usa"];
+    nota [shape=note, style=filled, fillcolor="#F4F4F4", color="#999999", fontsize=8,
+          label="Leyenda: + público, - privado; «» biblioteca externa;\nflecha continua: asociación (atributo);\nflecha punteada: dependencia (llamada)."];
+    rf -> nota [style=invis];
+}

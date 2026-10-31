@@ -1,0 +1,28 @@
+// 03_modelo_dominio: fuente editable del diagrama (Graphviz). Renderizar: dot -Tpng -Gdpi=300 03_modelo_dominio.dot -o 03_modelo_dominio.png
+digraph dominio {
+    graph [fontname="Liberation Sans", fontsize=11, nodesep=0.25, ranksep=0.35, pad=0.15, newrank=true];
+    node  [fontname="Liberation Sans", fontsize=11, shape=box, style="filled,rounded", penwidth=1.2, margin="0.12,0.06"];
+    edge  [fontname="Liberation Sans", fontsize=9.5, color="#444444", arrowsize=0.7];
+    rankdir=TB; node [shape=plaintext, style="", fontsize=9]; ranksep=0.45; nodesep=0.6;
+    archivo [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Archivo</b></td></tr><tr><td align="left">nombre</td></tr><tr><td align="left">tamaño en bytes</td></tr><tr><td align="left">huella SHA-256</td></tr></table>>];
+    analisis [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Análisis</b></td></tr><tr><td align="left">estado</td></tr><tr><td align="left">causa de rechazo</td></tr><tr><td align="left">latencia en ms</td></tr></table>>];
+    vector [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Vector de características</b></td></tr><tr><td align="left">2.568 valores calculados por thrember</td></tr></table>>];
+    reducido [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Vector reducido</b></td></tr><tr><td align="left">15 valores en el orden del contrato</td></tr></table>>];
+    prediccion [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Predicción</b></td></tr><tr><td align="left">probabilidad de malware</td></tr><tr><td align="left">veredicto con umbral 0,5</td></tr></table>>];
+    riesgo [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Nivel de riesgo</b></td></tr><tr><td align="left">MUY BAJO, BAJO, MEDIO o ALTO</td></tr></table>>];
+    recomendacion [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Recomendación</b></td></tr><tr><td align="left">qué hacer con el archivo</td></tr></table>>];
+    factor [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Factor</b></td></tr><tr><td align="left">característica y nombre legible</td></tr><tr><td align="left">valor y aporte SHAP</td></tr><tr><td align="left">peso en palabras y frase</td></tr></table>>];
+    termino [label=<<table border="0" cellborder="1" cellspacing="0" cellpadding="3" bgcolor="white"><tr><td bgcolor="#DCEBFA"><b>Término del glosario</b></td></tr><tr><td align="left">término</td></tr><tr><td align="left">definición</td></tr></table>>];
+    edge [arrowhead=vee, fontsize=8];
+    archivo -> analisis [label="se somete a", taillabel="1", headlabel="1"];
+    analisis -> vector [label="  produce si es válido", taillabel="1", headlabel="0..1"];
+    vector -> reducido [label="selección", taillabel="1", headlabel="1"];
+    reducido -> prediccion [label="  clasifica", taillabel="1", headlabel="1"];
+    prediccion -> factor [label="se explica con", taillabel="1", headlabel="0..5"];
+    prediccion -> riesgo [label="  se expresa como", taillabel="1", headlabel="1"];
+    riesgo -> recomendacion [label="  define", taillabel="1", headlabel="1"];
+    factor -> termino [label="  remite a", taillabel="0..*", headlabel="0..1"];
+    nota [shape=note, style=filled, fillcolor="#F4F4F4", color="#999999", fontsize=8,
+          label="Leyenda: cada caja es un concepto del dominio\ncon sus atributos; la flecha es una asociación\ny los números, su multiplicidad."];
+    termino -> nota [style=invis];
+}
