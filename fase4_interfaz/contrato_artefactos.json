@@ -1,0 +1,57 @@
+{
+  "version_contrato": "1.0",
+  "extractor": {
+    "paquete": "thrember",
+    "version": "0.1.0",
+    "commit": "0ef753e81d98bf209f71b03cd331dfc190b5b54d",
+    "dimension_vector": 2568
+  },
+  "seleccion": {
+    "k": 15,
+    "columnas_en_orden": [
+      "f739",
+      "f2478",
+      "f2276",
+      "f2547",
+      "f2474",
+      "f2437",
+      "f743",
+      "f745",
+      "f993",
+      "f2477",
+      "f2546",
+      "f726",
+      "f728",
+      "f518",
+      "f752"
+    ],
+    "nombres_en_orden": [
+      "header.characteristics.DLL",
+      "authenticode.latest_signing_time",
+      "exports.has_exports",
+      "pefilewarnings.w67_Suspicious flags set for section",
+      "authenticode.empty_program_name",
+      "datadirectories.has_relocs",
+      "header.dll_characteristics.DYNAMIC_BASE",
+      "header.dll_characteristics.NX_COMPAT",
+      "section.overlay.entropy",
+      "authenticode.chain_max_depth",
+      "pefilewarnings.w66_SizeOfHeaders is smaller than AddressOfE",
+      "header.characteristics.RELOCS_STRIPPED",
+      "header.characteristics.LINE_NUMS_STRIPPED",
+      "byteentropy.entropia15_byte15",
+      "header.dll_characteristics.TERMINAL_SERVER_AWARE"
+    ]
+  },
+  "escalador": {
+    "archivo": "modelos/scaler.joblib",
+    "sha256": "618d50348314e26bc169e07ef1cb39a89ae72ca2995f4db62f227aa74d455057"
+  },
+  "modelo": {
+    "nombre": "Random Forest",
+    "archivo": "modelos/random_forest.joblib",
+    "sha256": "421e0377a3649b62a7935e7bcca1496b8fcea9cc91a54b2cf2cbc71b03f32641",
+    "scikit_learn": "1.6.1",
+    "umbral": 0.5
+  }
+}

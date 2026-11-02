@@ -28,7 +28,7 @@
       "codigo": "PF-05",
       "descripcion": "Archivo mayor al límite: rechazo controlado",
       "resultado": "PASA",
-      "detalle": "El archivo supera el límite de 50 MB permitido para el análisis."
+      "detalle": "El archivo supera el límite de 5 MB permitido para el análisis."
     },
     {
       "codigo": "PF-06",
@@ -38,14 +38,14 @@
     },
     {
       "codigo": "PF-07",
-      "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
+      "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB, el límite de la interfaz)",
       "resultado": "PASA",
-      "detalle": "2643.6 ms"
+      "detalle": "3772.8 ms"
     },
     {
       "codigo": "PF-08",
-      "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (informativa)",
-      "resultado": "PASA",
+      "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (exploratoria, sin umbral)",
+      "resultado": "INFORMATIVA",
       "detalle": "5/6 coinciden con la etiqueta real"
     },
     {
@@ -55,43 +55,45 @@
       "detalle": "Blocks"
     }
   ],
-  "n_pasan": 9,
-  "n_total": 9,
+  "n_pasan": 8,
+  "n_total": 8,
+  "n_exploratorias": 1,
+  "limite_interfaz_mb": 5.0,
   "rendimiento": [
     {
       "tamano": "0.1 MB",
-      "extraccion_ms_p50": 49.3,
-      "prediccion_ms_p50": 14.2,
-      "total_ms_p50": 63.4,
-      "total_ms_p95": 69.7,
-      "total_ms_max": 78.0,
+      "extraccion_ms_p50": 75.1,
+      "prediccion_ms_p50": 19.3,
+      "total_ms_p50": 93.6,
+      "total_ms_p95": 118.3,
+      "total_ms_max": 184.2,
       "cumple_meta": true
     },
     {
       "tamano": "1 MB",
-      "extraccion_ms_p50": 516.2,
-      "prediccion_ms_p50": 14.3,
-      "total_ms_p50": 530.9,
-      "total_ms_p95": 882.8,
-      "total_ms_max": 915.3,
+      "extraccion_ms_p50": 800.8,
+      "prediccion_ms_p50": 19.7,
+      "total_ms_p50": 819.9,
+      "total_ms_p95": 1474.5,
+      "total_ms_max": 1511.7,
       "cumple_meta": true
     },
     {
       "tamano": "5 MB",
-      "extraccion_ms_p50": 2535.6,
-      "prediccion_ms_p50": 14.0,
-      "total_ms_p50": 2549.5,
-      "total_ms_p95": 3482.3,
-      "total_ms_max": 3506.1,
+      "extraccion_ms_p50": 4097.8,
+      "prediccion_ms_p50": 18.7,
+      "total_ms_p50": 4121.4,
+      "total_ms_p95": 6201.4,
+      "total_ms_max": 6320.3,
       "cumple_meta": true
     },
     {
       "tamano": "20 MB",
-      "extraccion_ms_p50": 11121.6,
-      "prediccion_ms_p50": 14.0,
-      "total_ms_p50": 11135.3,
-      "total_ms_p95": 11404.6,
-      "total_ms_max": 14125.0,
+      "extraccion_ms_p50": 18100.9,
+      "prediccion_ms_p50": 18.8,
+      "total_ms_p50": 18122.6,
+      "total_ms_p95": 20041.2,
+      "total_ms_max": 20357.9,
       "cumple_meta": false
     }
   ],

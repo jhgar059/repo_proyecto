@@ -98,6 +98,6 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 18.5
+    "latencia_ms": 83.7
   }
 }

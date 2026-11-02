@@ -7,8 +7,8 @@
   "shap_aproximado": true,
   "cobertura_explicacion_pct": 100.0,
   "error_fidelidad_shap": 0.0,
-  "ms_por_explicacion_shap": 0.619,
-  "ms_por_explicacion_lime_mediana": 218.8,
+  "ms_por_explicacion_shap": 0.893,
+  "ms_por_explicacion_lime_mediana": 294.7,
   "acuerdo_shap_lime_jaccard_top5": 0.677,
   "n_instancias_acuerdo": 100,
   "top_10_global": [

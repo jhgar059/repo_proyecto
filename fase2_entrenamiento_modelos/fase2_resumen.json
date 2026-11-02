@@ -45,9 +45,9 @@
       "auc_challenge": 0.9069560384671747,
       "pr_auc_challenge": 0.2952440904532611,
       "tiempo_entrenamiento_s": 2788.4,
-      "inferencia_ms_por_archivo_lote": 0.029888386045839495,
-      "latencia_ms_un_archivo_mediana": 16.493558883666992,
-      "latencia_ms_un_archivo_p95": 23.40000867843628,
+      "inferencia_ms_por_archivo_lote": 0.0491922544709761,
+      "latencia_ms_un_archivo_mediana": 17.722129821777344,
+      "latencia_ms_un_archivo_p95": 21.529102325439453,
       "f1_cv": 0.928,
       "hiperparametros": {
         "n_estimators": 250,
@@ -101,9 +101,9 @@
       "auc_challenge": 0.8977179847750945,
       "pr_auc_challenge": 0.15124316882806577,
       "tiempo_entrenamiento_s": 316.8,
-      "inferencia_ms_por_archivo_lote": 0.005093288760752741,
-      "latencia_ms_un_archivo_mediana": 0.3587007522583008,
-      "latencia_ms_un_archivo_p95": 0.5491375923156735,
+      "inferencia_ms_por_archivo_lote": 0.009692958245812759,
+      "latencia_ms_un_archivo_mediana": 2.5491714477539062,
+      "latencia_ms_un_archivo_p95": 8.516323566436766,
       "f1_cv": 0.922,
       "hiperparametros": {
         "subsample": 1.0,
@@ -158,9 +158,9 @@
       "auc_challenge": 0.872801281839374,
       "pr_auc_challenge": 0.09809142031172605,
       "tiempo_entrenamiento_s": 145.6,
-      "inferencia_ms_por_archivo_lote": 0.0011938759347759017,
-      "latencia_ms_un_archivo_mediana": 53.45439910888672,
-      "latencia_ms_un_archivo_p95": 61.7214560508728,
+      "inferencia_ms_por_archivo_lote": 0.005193808372229935,
+      "latencia_ms_un_archivo_mediana": 75.15931129455566,
+      "latencia_ms_un_archivo_p95": 84.92615222930907,
       "f1_cv": null,
       "hiperparametros": {
         "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
@@ -210,5 +210,5 @@
     "fpr": false,
     "latencia": true
   },
-  "tiempo_fase_s": 50.0
+  "tiempo_fase_s": 95.0
 }

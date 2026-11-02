@@ -1,8 +1,8 @@
 # Manifiesto de evidencias — Trabajo de grado: detección de malware con ML y XAI (EMBER2024)
 
-Generado: 2026-10-18 21:43:11 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
+Generado: 2026-11-02 00:56:09 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
 
-Archivos presentes: **99** · pendientes: **0** · omitidos del zip por tamaño: **0**
+Archivos presentes: **93** · pendientes: **4** · omitidos del zip por tamaño: **0**
 
 Resumen de la corrida: {"K_seleccionado": 15, "pct_reduccion": 99.42, "modelo_seleccionado": "Random Forest", "f1_prueba_temporal": 0.9251361573513851, "fpr": 0.07414981106912648, "recall_challenge": 0.5729252259654889, "n_train": 548997, "n_test": 539940, "n_challenge": 4868}
 
@@ -12,9 +12,10 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 
 | Archivo | Estado | Tamaño (MB) | Descripción |
 |---|---|---|---|
-| `cuadro_cumplimiento_metas.csv` | presente | 0.000 | Actualizado el 28/10/2026 (posterior a la corrida): Cuadro de cumplimiento de las metas del anteproyecto (fila SUS con el resultado real: 86,0, cumple). |
-| `registro_memoria.csv` | presente | 0.017 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
-| `resultados_para_documento.json` | presente | 0.032 | Actualizado el 28/10/2026 (posterior a la corrida): Consolidado de los resúmenes de todas las fases + configuración usada; la sección fase4_sus ahora contiene el resultado SUS real. |
+| `cuadro_cumplimiento_metas.csv` | presente | 0.000 | Cuadro de cumplimiento de las metas del anteproyecto. |
+| `entorno_versiones.json` | presente | 0.001 | Versiones de Python y de las bibliotecas de la corrida (incluye el commit de thrember). |
+| `registro_memoria.csv` | presente | 0.018 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
+| `resultados_para_documento.json` | presente | 0.028 | Consolidado de los resúmenes de todas las fases + configuración usada. |
 
 ## 01_dataset
 
@@ -97,20 +98,19 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 |---|---|---|---|
 | `app_malware.py` | presente | 0.026 | Código fuente de la aplicación (motor AnalizadorMalware + interfaz Gradio). |
 | `archivos_de_prueba.csv` | presente | 0.000 | Identificación (tamaño y SHA-256) de los ejecutables sintéticos usados en las pruebas. |
+| `contrato_artefactos.json` | presente | 0.001 | Contrato de artefactos: versión y commit de thrember, dimensión del vector, columnas en orden, huellas SHA-256 del escalador y del modelo, umbral. |
 | `cuestionario_SUS.txt` | presente | 0.001 | Cuestionario SUS aplicado a los participantes. |
 | `ejemplo_resultado_analisis.json` | presente | 0.005 | Respuesta completa del motor de análisis para un ejemplo (veredicto, probabilidad, riesgo, factores y frases). |
 | `ejemplos_demo.parquet` | presente | 0.011 | Archivos de ejemplo cargados en la interfaz (vectores reducidos, etiqueta real, tipo y sha256). |
 | `fase4_pruebas.json` | presente | 0.003 | Resumen JSON de las pruebas funcionales y de rendimiento. |
-| `fase4_sus.json` | presente | 0.003 | Actualizado el 28/10/2026 (posterior a la corrida): Resumen SUS con las 10 respuestas reales: promedio, desviación, IC 95 % (t de Student), por perfil, t de Welch, comprensión, módulo técnico y observación del facilitador. |
-| `fig_interfaz_gradio.png` | presente | 0.573 | Agregado el 28/10/2026 (posterior a la corrida): Captura de la interfaz final analizando pythoncom311.dll (muestra_B.dll): Figura 18 del documento. |
-| `pruebas_funcionales.csv` | presente | 0.001 | Pruebas funcionales PF-01 a PF-09: descripción, resultado PASA/FALLA y detalle. |
+| `fase4_sus.json` | presente | 0.000 | Resumen SUS: promedio, desviación, IC 95 %, calificación y cumplimiento de la meta (o estado pendiente). |
+| `fig_interfaz_gradio.png` | PENDIENTE (aún no generado) |  | Captura de pantalla de la interfaz (la toma el usuario al lanzar la app). |
+| `pruebas_funcionales.csv` | presente | 0.001 | Pruebas funcionales PF-01 a PF-09: descripción, resultado PASA/FALLA (INFORMATIVA en la exploratoria PF-08) y detalle. |
 | `pruebas_funcionales_detalle.json` | presente | 0.020 | Respuesta completa del analizador en cada prueba funcional. |
 | `pruebas_rendimiento.csv` | presente | 0.000 | Latencia de extremo a extremo por tamaño de archivo: p50, p95, máximo, desglose extracción/predicción y cumplimiento de la meta. |
 | `pruebas_rendimiento_detalle.csv` | presente | 0.003 | Todas las mediciones individuales de las pruebas de rendimiento (una fila por repetición). |
-| `sus_puntajes_por_participante.csv` | presente | 0.001 | Agregado el 28/10/2026 (posterior a la corrida): Puntaje SUS calculado por participante. |
-| `sus_respuestas.csv` | presente | 0.005 | Actualizado el 28/10/2026 (posterior a la corrida): Respuestas SUS de los 10 participantes (formato F-SUS-02), identificados por código E1-E5 / P1-P5, sin nombres ni firmas. |
-| `fig_interfaz_falso_positivo.png` | presente | 0.619 | Agregado el 28/10/2026 (posterior a la corrida): Captura de la interfaz final con el falso positivo Pythonwin.exe (muestra_A.exe) y el panel de detalles técnicos abierto: Figura 19. |
-| `analisis_archivos_externos.json` | presente | 0.018 | Agregado el 28/10/2026 (posterior a la corrida): Respuesta completa del motor (versión final) para los cuatro archivos externos de la prueba a ciegas; reproduce la Tabla 16 (6,3 %, 73,4 %, 67,3 %, 73,4 %). |
+| `sus_puntajes_por_participante.csv` | PENDIENTE (aún no generado) |  | Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales). |
+| `sus_respuestas.csv` | presente | 0.000 | Respuestas SUS registradas (plantilla; se diligencia con participantes reales). |
 
 ## 06_figuras
 
@@ -126,8 +126,8 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_dnn_historia.png` | presente | 0.117 | Pérdida y AUC por época de la red neuronal (entrenamiento vs. validación). |
 | `fig_f1_por_semana.png` | presente | 0.141 | Deriva temporal: F1 por semana del conjunto de prueba. |
 | `fig_importancia_topk.png` | presente | 0.214 | Importancia (Extra Trees) de las K características seleccionadas, coloreadas por grupo. |
-| `fig_interfaz_gradio.png` | presente | 0.573 | Agregado el 28/10/2026 (posterior a la corrida): Captura de la interfaz final (Figura 18). |
-| `fig_latencia_por_tamano.png` | presente | 0.086 | Actualizado el 28/10/2026 (posterior a la corrida): Latencia de análisis por tamaño de archivo (Figura 20). REGENERADA con los mismos datos (pruebas_rendimiento.csv) y el eje inferior fijado en 10 ms: la versión de la corrida ocultaba la barra de extracción del archivo de 0,1 MB. |
+| `fig_interfaz_gradio.png` | PENDIENTE (aún no generada) |  | Captura de pantalla de la interfaz Gradio. |
+| `fig_latencia_por_tamano.png` | presente | 0.081 | Latencia de análisis por tamaño de archivo (desglose y p95 frente a la meta). |
 | `fig_lime_ejemplo.png` | presente | 0.124 | Explicación LIME del mismo archivo malicioso (contraste con SHAP). |
 | `fig_matrices_confusion.png` | presente | 0.116 | Matrices de confusión de los tres modelos sobre la prueba temporal. |
 | `fig_pr_modelos.png` | presente | 0.090 | Curvas precisión-recall de los tres modelos. |
@@ -137,21 +137,12 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_shap_local_benigno.png` | presente | 0.207 | Explicación local SHAP (waterfall) de un archivo benigno. |
 | `fig_shap_local_malicioso.png` | presente | 0.208 | Explicación local SHAP (waterfall) de un archivo malicioso. |
 | `fig_shap_por_grupo.png` | presente | 0.078 | Aporte de cada grupo de características a las decisiones (SHAP). |
-| `fig_sus_resultados.png` | presente | 0.160 | Agregado el 28/10/2026 (posterior a la corrida): Puntaje SUS por participante y promedio por ítem y perfil (Figura 21). |
-| `fig_tiempos_modelos.png` | presente | 0.048 | Tiempo de entrenamiento y latencia de predicción por modelo. |
-| `fig_interfaz_falso_positivo.png` | presente | 0.619 | Agregado el 28/10/2026 (posterior a la corrida): Captura de la interfaz final con un falso positivo y el panel técnico (Figura 19). |
-| `fig_arquitectura_sistema.png` | presente | 0.446 | Agregado el 28/10/2026 (posterior a la corrida): Arquitectura del sistema desplegado con la interfaz final (Figura 17; figura estática). |
+| `fig_sus_resultados.png` | PENDIENTE (aún no generada) |  | Puntajes SUS por participante y promedio por ítem (con respuestas reales). |
+| `fig_tiempos_modelos.png` | presente | 0.050 | Tiempo de entrenamiento y latencia de predicción por modelo. |
 
 ## Pendientes
 
-Ninguno.
-
-## Actualización posterior a la corrida (28 de octubre de 2026)
-
-La corrida de Colab del 18/10/2026 generó todo lo anterior salvo lo que depende de personas o de capturas de pantalla. Después se agregó o corrigió lo siguiente, sin cambiar ningún resultado de las Fases 1 a 4c:
-
-- **Prueba SUS** (`fase4_sus.json`, `sus_respuestas.csv`, `sus_puntajes_por_participante.csv`, `fig_sus_resultados.png`): 10 formatos F-SUS-02 diligenciados del 17 al 27 de octubre; se transcribieron a `sus_respuestas.csv` (con códigos, sin nombres) y se procesaron con el código de la celda Fase 4d del notebook. Para regenerarlos en Colab: subir `sus_respuestas.csv` a `ember2024/fase4/` y ejecutar la celda Fase 4d y la de exportación.
-- **Capturas de la interfaz** (`fig_interfaz_gradio.png`, `fig_interfaz_falso_positivo.png`): la versión final de `app_malware.py` de esta corrida, con `random_forest.joblib`, `scaler.joblib` y `xai_config.joblib` de esta corrida, analizando `muestra_B.dll` y `muestra_A.exe` de `muestras_prueba_interfaz.zip`. `analisis_archivos_externos.json` guarda la respuesta completa del motor para los cuatro archivos y reproduce la Tabla 16.
-- **Figura de latencia** (`fig_latencia_por_tamano.png`): regenerada con los mismos datos de `pruebas_rendimiento.csv`; solo se fijó el eje inferior en 10 ms (con escala logarítmica la barra de extracción del archivo de 0,1 MB quedaba fuera del eje). La corrección ya está en la celda Fase 4b del notebook.
-- **`resultados_para_documento.json` y `cuadro_cumplimiento_metas.csv`**: la parte SUS pasó de "pendiente" al resultado real (86,0; cumple), como los escribiría la celda de exportación.
-- **`fig_arquitectura_sistema.png`**: figura estática de la arquitectura (Figura 17) con la interfaz final.
+- `05_interfaz_y_pruebas/fig_interfaz_gradio.png`: Captura de pantalla de la interfaz (la toma el usuario al lanzar la app).
+- `05_interfaz_y_pruebas/sus_puntajes_por_participante.csv`: Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales).
+- `06_figuras/fig_interfaz_gradio.png`: Captura de pantalla de la interfaz Gradio.
+- `06_figuras/fig_sus_resultados.png`: Puntajes SUS por participante y promedio por ítem (con respuestas reales).

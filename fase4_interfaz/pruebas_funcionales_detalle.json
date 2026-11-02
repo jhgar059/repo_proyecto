@@ -99,13 +99,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 17.5,
+    "latencia_ms": 17.2,
     "nombre_archivo": "pe_minimo.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23",
     "advertencias": [],
-    "latencia_total_ms": 33.4
+    "latencia_total_ms": 35.8
   },
   "PF-02": {
     "probabilidad_malware": 0.673,
@@ -207,13 +207,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 13.1,
+    "latencia_ms": 17.0,
     "nombre_archivo": "pe_sospechoso.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
     "advertencias": [],
-    "latencia_total_ms": 16.4
+    "latencia_total_ms": 21.3
   },
   "PF-03": {
     "error": "No se admite el tipo de archivo '.txt'. El sistema solo analiza programas y bibliotecas de Windows (.exe, .dll y formatos similares), que es el tipo de archivo con el que se entrenó el modelo. Para documentos, imágenes, comprimidos u otros tipos de archivo use su antivirus."
@@ -225,7 +225,7 @@
     "error": "El archivo está vacío. Seleccione un archivo válido."
   },
   "PF-05": {
-    "error": "El archivo supera el límite de 50 MB permitido para el análisis."
+    "error": "El archivo supera el límite de 5 MB permitido para el análisis."
   },
   "PF-06": {
     "probabilidad_malware": 0.673,
@@ -327,13 +327,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 13.2,
+    "latencia_ms": 17.2,
     "nombre_archivo": "pe_sospechoso.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
     "advertencias": [],
-    "latencia_total_ms": 17.0
+    "latencia_total_ms": 20.9
   },
   "PF-07": {
     "probabilidad_malware": 0.8823,
@@ -359,7 +359,7 @@
         "caracteristica": "f518",
         "nombre": "byteentropy.entropia15_byte15",
         "grupo": "byteentropy",
-        "valor": 0.0625811442732811,
+        "valor": 0.06258556246757507,
         "aporte_shap": 0.1752,
         "efecto": "aumenta la sospecha",
         "nombre_amigable": "Contenido que parece comprimido o cifrado",
@@ -435,12 +435,12 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 25.3,
+    "latencia_ms": 17.6,
     "nombre_archivo": "pe_5mb.exe",
-    "tamano_bytes": 5244928,
+    "tamano_bytes": 5242880,
     "es_pe": true,
-    "sha256": "daa6b0538dbd4f30ee5a841a38d18224af7c3d4dc8bfce935aebd74e9f8b0dd3",
+    "sha256": "b7dece06b638375317b24887217fefc4b5620877eaf27d3f7eeda7e3c9f2b240",
     "advertencias": [],
-    "latencia_total_ms": 2643.6
+    "latencia_total_ms": 3772.8
   }
 }

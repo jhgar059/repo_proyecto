@@ -1,5 +1,5 @@
 {
-  "generado": "2026-10-18 21:42:39",
+  "generado": "2026-11-02 00:55:22",
   "dataset": {
     "por_split_y_tipo": [
       {
@@ -247,7 +247,7 @@
       }
     },
     "tiempo_ranking_s": 963.9,
-    "tiempo_fase_s": 51.8
+    "tiempo_fase_s": 62.3
   },
   "fase2": {
     "K": 15,
@@ -296,9 +296,9 @@
         "auc_challenge": 0.9069560384671747,
         "pr_auc_challenge": 0.2952440904532611,
         "tiempo_entrenamiento_s": 2788.4,
-        "inferencia_ms_por_archivo_lote": 0.029888386045839495,
-        "latencia_ms_un_archivo_mediana": 16.493558883666992,
-        "latencia_ms_un_archivo_p95": 23.40000867843628,
+        "inferencia_ms_por_archivo_lote": 0.0491922544709761,
+        "latencia_ms_un_archivo_mediana": 17.722129821777344,
+        "latencia_ms_un_archivo_p95": 21.529102325439453,
         "f1_cv": 0.928,
         "hiperparametros": {
           "n_estimators": 250,
@@ -352,9 +352,9 @@
         "auc_challenge": 0.8977179847750945,
         "pr_auc_challenge": 0.15124316882806577,
         "tiempo_entrenamiento_s": 316.8,
-        "inferencia_ms_por_archivo_lote": 0.005093288760752741,
-        "latencia_ms_un_archivo_mediana": 0.3587007522583008,
-        "latencia_ms_un_archivo_p95": 0.5491375923156735,
+        "inferencia_ms_por_archivo_lote": 0.009692958245812759,
+        "latencia_ms_un_archivo_mediana": 2.5491714477539062,
+        "latencia_ms_un_archivo_p95": 8.516323566436766,
         "f1_cv": 0.922,
         "hiperparametros": {
           "subsample": 1.0,
@@ -409,9 +409,9 @@
         "auc_challenge": 0.872801281839374,
         "pr_auc_challenge": 0.09809142031172605,
         "tiempo_entrenamiento_s": 145.6,
-        "inferencia_ms_por_archivo_lote": 0.0011938759347759017,
-        "latencia_ms_un_archivo_mediana": 53.45439910888672,
-        "latencia_ms_un_archivo_p95": 61.7214560508728,
+        "inferencia_ms_por_archivo_lote": 0.005193808372229935,
+        "latencia_ms_un_archivo_mediana": 75.15931129455566,
+        "latencia_ms_un_archivo_p95": 84.92615222930907,
         "f1_cv": null,
         "hiperparametros": {
           "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
@@ -461,7 +461,7 @@
       "fpr": false,
       "latencia": true
     },
-    "tiempo_fase_s": 50.0
+    "tiempo_fase_s": 95.0
   },
   "fase3": {
     "modelo_explicado": "Random Forest",
@@ -472,8 +472,8 @@
     "shap_aproximado": true,
     "cobertura_explicacion_pct": 100.0,
     "error_fidelidad_shap": 0.0,
-    "ms_por_explicacion_shap": 0.619,
-    "ms_por_explicacion_lime_mediana": 218.8,
+    "ms_por_explicacion_shap": 0.893,
+    "ms_por_explicacion_lime_mediana": 294.7,
     "acuerdo_shap_lime_jaccard_top5": 0.677,
     "n_instancias_acuerdo": 100,
     "top_10_global": [
@@ -761,7 +761,7 @@
         "codigo": "PF-05",
         "descripcion": "Archivo mayor al límite: rechazo controlado",
         "resultado": "PASA",
-        "detalle": "El archivo supera el límite de 50 MB permitido para el análisis."
+        "detalle": "El archivo supera el límite de 5 MB permitido para el análisis."
       },
       {
         "codigo": "PF-06",
@@ -771,14 +771,14 @@
       },
       {
         "codigo": "PF-07",
-        "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB)",
+        "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB, el límite de la interfaz)",
         "resultado": "PASA",
-        "detalle": "2643.6 ms"
+        "detalle": "3772.8 ms"
       },
       {
         "codigo": "PF-08",
-        "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (informativa)",
-        "resultado": "PASA",
+        "descripcion": "Coherencia con ejemplos etiquetados de EMBER2024 (exploratoria, sin umbral)",
+        "resultado": "INFORMATIVA",
         "detalle": "5/6 coinciden con la etiqueta real"
       },
       {
@@ -788,43 +788,45 @@
         "detalle": "Blocks"
       }
     ],
-    "n_pasan": 9,
-    "n_total": 9,
+    "n_pasan": 8,
+    "n_total": 8,
+    "n_exploratorias": 1,
+    "limite_interfaz_mb": 5.0,
     "rendimiento": [
       {
         "tamano": "0.1 MB",
-        "extraccion_ms_p50": 49.3,
-        "prediccion_ms_p50": 14.2,
-        "total_ms_p50": 63.4,
-        "total_ms_p95": 69.7,
-        "total_ms_max": 78.0,
+        "extraccion_ms_p50": 75.1,
+        "prediccion_ms_p50": 19.3,
+        "total_ms_p50": 93.6,
+        "total_ms_p95": 118.3,
+        "total_ms_max": 184.2,
         "cumple_meta": true
       },
       {
         "tamano": "1 MB",
-        "extraccion_ms_p50": 516.2,
-        "prediccion_ms_p50": 14.3,
-        "total_ms_p50": 530.9,
-        "total_ms_p95": 882.8,
-        "total_ms_max": 915.3,
+        "extraccion_ms_p50": 800.8,
+        "prediccion_ms_p50": 19.7,
+        "total_ms_p50": 819.9,
+        "total_ms_p95": 1474.5,
+        "total_ms_max": 1511.7,
         "cumple_meta": true
       },
       {
         "tamano": "5 MB",
-        "extraccion_ms_p50": 2535.6,
-        "prediccion_ms_p50": 14.0,
-        "total_ms_p50": 2549.5,
-        "total_ms_p95": 3482.3,
-        "total_ms_max": 3506.1,
+        "extraccion_ms_p50": 4097.8,
+        "prediccion_ms_p50": 18.7,
+        "total_ms_p50": 4121.4,
+        "total_ms_p95": 6201.4,
+        "total_ms_max": 6320.3,
         "cumple_meta": true
       },
       {
         "tamano": "20 MB",
-        "extraccion_ms_p50": 11121.6,
-        "prediccion_ms_p50": 14.0,
-        "total_ms_p50": 11135.3,
-        "total_ms_p95": 11404.6,
-        "total_ms_max": 14125.0,
+        "extraccion_ms_p50": 18100.9,
+        "prediccion_ms_p50": 18.8,
+        "total_ms_p50": 18122.6,
+        "total_ms_p95": 20041.2,
+        "total_ms_max": 20357.9,
         "cumple_meta": false
       }
     ],
@@ -835,141 +837,9 @@
     "n_caracteristicas": 15
   },
   "fase4_sus": {
-    "n_participantes": 10,
+    "n_participantes": 0,
     "version_sus": "positiva",
-    "sus_promedio": 86.0,
-    "sus_desviacion": 4.7,
-    "ic95": 3.4,
-    "ic95_metodo": "t de Student, n-1 grados de libertad",
-    "ic95_limites": [
-      82.6,
-      89.4
-    ],
-    "sus_mediana": 85.0,
-    "sus_minimo": 77.5,
-    "sus_maximo": 92.5,
-    "adjetivo": "Excelente",
-    "cumple_meta": true,
-    "cumple_meta_limite_inferior_ic": true,
-    "por_perfil": [
-      {
-        "perfil_tecnico": "no",
-        "perfil": "Sin formación técnica",
-        "n": 5,
-        "sus_promedio": 84.5,
-        "sus_desviacion": 4.5,
-        "ic95": 5.6,
-        "sus_minimo": 77.5,
-        "sus_maximo": 90.0,
-        "promedio_por_item": {
-          "D1": 4.2,
-          "D2": 4.6,
-          "D3": 4.6,
-          "D4": 4.2,
-          "D5": 4.4,
-          "D6": 4.6,
-          "D7": 4.4,
-          "D8": 4.4,
-          "D9": 4.4,
-          "D10": 4.0
-        }
-      },
-      {
-        "perfil_tecnico": "si",
-        "perfil": "Con formación técnica",
-        "n": 5,
-        "sus_promedio": 87.5,
-        "sus_desviacion": 5.0,
-        "ic95": 6.2,
-        "sus_minimo": 82.5,
-        "sus_maximo": 92.5,
-        "promedio_por_item": {
-          "D1": 4.4,
-          "D2": 4.4,
-          "D3": 4.8,
-          "D4": 4.8,
-          "D5": 4.4,
-          "D6": 4.2,
-          "D7": 5.0,
-          "D8": 4.4,
-          "D9": 4.6,
-          "D10": 4.0
-        }
-      }
-    ],
-    "comparacion_perfiles": {
-      "prueba": "t de Welch (dos colas)",
-      "diferencia_si_menos_no": 3.0,
-      "t": 1.0,
-      "p_valor": 0.347
-    },
-    "promedio_por_item": {
-      "D1": 4.3,
-      "D2": 4.5,
-      "D3": 4.7,
-      "D4": 4.5,
-      "D5": 4.4,
-      "D6": 4.4,
-      "D7": 4.7,
-      "D8": 4.4,
-      "D9": 4.5,
-      "D10": 4.0
-    },
-    "entendio_explicacion": {
-      "Si": 9,
-      "Parcialmente": 1
-    },
-    "comprension_por_perfil": {
-      "no": {
-        "Si": 4,
-        "Parcialmente": 1
-      },
-      "si": {
-        "Si": 5
-      }
-    },
-    "uso_computador": {
-      "Todos los días": 7,
-      "Varias veces por semana": 2,
-      "Ocasionalmente": 1
-    },
-    "nivel_educativo": {
-      "Pregrado": 7,
-      "Técnico o tecnológico": 2,
-      "Bachillerato": 1
-    },
-    "edad_rango": [
-      21,
-      59
-    ],
-    "periodo_aplicacion": [
-      "2026-10-17",
-      "2026-10-27"
-    ],
-    "modulo_tecnico": {
-      "n": 5,
-      "F1": 4.2,
-      "F2": 4.4,
-      "F3": 4.6
-    },
-    "observacion_facilitador": {
-      "no": {
-        "n": 5,
-        "tarea1_sin_ayuda": "0/5",
-        "tarea1_min_promedio": 5.0,
-        "tarea2_sin_ayuda": "0/5",
-        "tarea2_min_promedio": 3.0,
-        "duracion_min_promedio": 11.6
-      },
-      "si": {
-        "n": 5,
-        "tarea1_sin_ayuda": "5/5",
-        "tarea1_min_promedio": 2.4,
-        "tarea2_sin_ayuda": "5/5",
-        "tarea2_min_promedio": 1.8,
-        "duracion_min_promedio": 8.4
-      }
-    }
+    "estado": "pendiente: sin respuestas reales"
   },
   "configuracion": {
     "RANDOM_STATE": 42,

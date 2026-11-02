@@ -271,3 +271,31 @@ fecha_hora,punto,ram_proceso_gb,ram_disponible_gb,ram_total_gb
 2026-10-18 21:37:41,fase4a analizador listo,2.724,9.019,12.671
 2026-10-18 21:42:37,fase4b pruebas fin,2.807,8.951,12.671
 2026-10-18 21:43:27,exportación fin,2.674,9.090,12.671
+2026-10-30 03:20:32,inicio,0.427,10.748,12.671
+2026-10-30 03:21:25,fase1a tras Win32_train.zip,0.421,10.849,12.671
+2026-10-30 03:21:25,fase1a tras Win32_test.zip,0.421,10.849,12.671
+2026-10-30 03:21:25,fase1a tras Win64_train.zip,0.421,10.849,12.671
+2026-10-30 03:21:26,fase1a tras Win64_test.zip,0.421,10.848,12.671
+2026-10-30 03:21:26,fase1a tras Dot_Net_train.zip,0.421,10.848,12.671
+2026-10-30 03:21:26,fase1a tras Dot_Net_test.zip,0.421,10.848,12.671
+2026-10-30 03:21:27,fase1a tras challenge.zip,0.421,10.849,12.671
+2026-10-30 03:23:47,fase1a fin,0.684,10.340,12.671
+2026-10-30 03:24:16,fase1b inicio,0.684,10.362,12.671
+2026-10-30 03:25:03,fase1b muestra cargada,1.917,9.090,12.671
+2026-10-30 03:25:11,fase1b tras partición (matriz original liberada),1.884,9.126,12.671
+2026-10-30 03:25:16,fase1b tras datasets reducidos,1.938,9.117,12.671
+2026-10-30 03:25:19,fase1b fin,0.497,10.535,12.671
+2026-10-30 03:27:15,fase2 inicio,0.508,10.561,12.671
+2026-10-30 03:27:23,fase2 matrices listas (DataFrames liberados),0.862,10.192,12.671
+2026-10-30 03:27:31,fase2 tras Random Forest,1.763,9.301,12.671
+2026-10-30 03:27:32,fase2 tras XGBoost,1.767,9.287,12.671
+2026-10-30 03:27:42,fase2 tras red neuronal,2.277,9.205,12.671
+2026-10-30 03:28:51,fase2 fin (modelos liberados),1.169,10.238,12.671
+2026-10-30 03:29:19,fase3 modelo cargado,2.125,9.344,12.671
+2026-10-30 03:30:07,fase3 fin (modelo y explicadores liberados),1.229,10.170,12.671
+2026-10-30 03:32:01,fase4a analizador listo,2.687,8.779,12.671
+2026-10-30 03:40:17,fase4b pruebas fin,2.765,8.724,12.671
+2026-11-02 00:52:10,inicio,0.428,10.777,12.671
+2026-11-02 00:55:02,fase4a analizador listo,1.886,9.076,12.671
+2026-11-02 00:55:16,fase4b pruebas fin,1.904,8.991,12.671
+2026-11-02 00:56:38,exportación fin,1.915,9.026,12.671

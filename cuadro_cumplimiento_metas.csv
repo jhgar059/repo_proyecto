@@ -4,5 +4,5 @@ F1 conservado tras la selección,>= 95.0 %,95.45 %,True
 F1-score (prueba temporal),>= 0.95,0.9251361573513851,False
 Tasa de falsos positivos,<= 5 %,7.41 %,False
 Cobertura de explicaciones,100 %,100.0 %,True
-"Latencia por archivo (p95, 20 MB)",< 10 s,11.40 s,False
-Usabilidad SUS,>= 70,86.0,True
+"Latencia por archivo (p95, 20 MB)",< 10 s,20.04 s,False
+Usabilidad SUS,>= 70,pendiente,
