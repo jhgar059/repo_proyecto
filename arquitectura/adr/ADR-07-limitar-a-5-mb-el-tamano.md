@@ -24,7 +24,7 @@ La interfaz aceptaba 50 MB, pero la meta de latencia (p95 < 10 s) solo se cumpli
 
 ## Resultado de la decisión
 
-Opción elegida: 5 MB, el mayor tamaño medido que cumple, con margen (3,48 s).
+Opción elegida: 5 MB, el mayor tamaño medido que cumple, con margen: p95 de 3,48 s, y de 6,20 s en una sesión más lenta de Colab.
 
 ### Consecuencias
 
@@ -33,7 +33,7 @@ Opción elegida: 5 MB, el mayor tamaño medido que cumple, con margen (3,48 s).
 
 ### Confirmación
 
-PF-05 y PF-07 en la corrida de verificación.
+PF-05 y PF-07 en la corrida de verificación del 2 de noviembre de 2026: PASA (PF-07: 3,77 s con 5 MB).
 
 ## Más información
 

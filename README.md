@@ -28,13 +28,13 @@ cambian los tiempos medidos, que dependen de la máquina que asigna Colab.
 | Comparación | XGBoost F1 0,9222 · red neuronal densa F1 0,9085 |
 | Malware evasivo (conjunto de desafío) | recall 57,3 % · AUC-ROC 0,907 · PR-AUC 0,295 |
 | Explicabilidad | cobertura 100 % · fidelidad SHAP exacta · acuerdo SHAP-LIME (Jaccard top-5) 0,677 · 0,6 ms por explicación SHAP |
-| Interfaz y pruebas | 9/9 pruebas funcionales (versión con límite de 50 MB; ver la nota) · latencia p95: 0,88 s (1 MB), 3,48 s (5 MB), 11,40 s (20 MB) |
+| Interfaz y pruebas | 8/8 pruebas funcionales con criterio de aprobación y PF-08 exploratoria (corrida de verificación del 2 de noviembre, límite de 5 MB) · latencia p95 del 18 de octubre: 0,88 s (1 MB), 3,48 s (5 MB), 11,40 s (20 MB); en una segunda sesión: 1,47 s, 6,20 s y 20,04 s |
 | Usabilidad (SUS, 10 participantes) | 86,0 (IC 95 %: 82,6 a 89,4), "Excelente" · 9 de 10 entendieron la explicación · los 5 participantes sin formación técnica necesitaron ayuda en su primer uso |
-| Metas del anteproyecto | cumplidas: reducción ≥ 90 %, F1 conservado ≥ 95 %, cobertura 100 %, SUS ≥ 70; **no cumplidas:** F1 ≥ 0,95 (0,925), FPR ≤ 5 % (7,4 %), latencia < 10 s para 20 MB (11,4 s) |
+| Metas del anteproyecto | cumplidas: reducción ≥ 90 %, F1 conservado ≥ 95 %, cobertura 100 %, SUS ≥ 70; **no cumplidas:** F1 ≥ 0,95 (0,925), FPR ≤ 5 % (7,4 %), latencia < 10 s para 20 MB (11,4 s el 18 de octubre; 20,0 s en la segunda sesión) |
 
 El cuadro completo está en `cuadro_cumplimiento_metas.csv` y todos los resúmenes en `resultados_para_documento.json`.
 
-**Nota (observaciones del 31 de octubre de 2026).** Como la meta de 10 s solo se cumplió hasta 5 MB, la interfaz ahora admite archivos de hasta 5 MB (decisión ADR-07 en `arquitectura/adr/`) y la prueba PF-08 pasó a ser exploratoria (con seis ejemplos no permite concluir nada sobre el desempeño). Con esa versión quedan 8 pruebas con criterio de aprobación; sus resultados se registran en `fase4_interfaz/pruebas_funcionales.csv` al ejecutar la Fase 4b.
+**Nota (observaciones del 31 de octubre de 2026).** Como la meta de 10 s solo se cumplió hasta 5 MB, la interfaz ahora admite archivos de hasta 5 MB (decisión ADR-07 en `arquitectura/adr/`) y la prueba PF-08 pasó a ser exploratoria (con seis ejemplos no permite concluir nada sobre el desempeño). Con esa versión quedan 8 pruebas con criterio de aprobación, y en la corrida de verificación del 2 de noviembre de 2026 pasaron las 8 (`fase4_interfaz/pruebas_funcionales.csv`); el contrato de artefactos coincide con el modelo entrenado. Esa corrida reutilizó los tiempos que había en Drive, medidos en una sesión de Colab posterior al 18 de octubre en la que todo fue más lento: son los archivos de tiempos que hoy tiene el repositorio. Los del 18 de octubre, que reporta el documento, están en el commit `dd82966`. En las dos mediciones la meta se cumple hasta 5 MB y no con 20 MB.
 
 ## Estructura del repositorio
 
@@ -113,7 +113,9 @@ y dio los mismos resultados (`fase4_interfaz/analisis_archivos_externos.json`).
 presencial, con el formato F-SUS-02 (versión de ítems positivos del SUS; `documentos/prueba_SUS/`). Resultados
 agregados en `fase4_interfaz/fase4_sus.json` y puntaje por participante (con código) en
 `fase4_interfaz/sus_puntajes_por_participante.csv`. Las respuestas individuales completas y los formatos firmados no
-se publican porque contienen datos personales.
+se publican porque contienen datos personales. Como esas respuestas no están en Drive, la sincronización desde Colab no
+regenera los resultados SUS: al volver a sincronizar hay que conservar `fase4_interfaz/fase4_sus.json` y la sección SUS de
+`cuadro_cumplimiento_metas.csv` y `resultados_para_documento.json`.
 
 ## Estado del proyecto
 
@@ -125,7 +127,7 @@ se publican porque contienen datos personales.
 | Fase 4 — Interfaz, pruebas funcionales y de rendimiento (OE3) | ✅ Completa |
 | Prueba de usabilidad SUS con usuarios | ✅ Completa (10 participantes; SUS 86,0) |
 | Documento final del trabajo de grado | ✅ `documentos/Trabajo_de_Grado_EMBER2024_FINAL.docx` |
-| Correcciones por las observaciones del 31-oct-2026 (límite de 5 MB, PF-08 exploratoria, capítulo de arquitectura) | 🔄 Pendiente la corrida de verificación de la Fase 4b |
+| Correcciones por las observaciones del 31-oct-2026 (límite de 5 MB, PF-08 exploratoria, capítulo de arquitectura) | ✅ Verificadas en la corrida del 2 de noviembre de 2026 (8 de 8) |
 
 ## Licencia
 
