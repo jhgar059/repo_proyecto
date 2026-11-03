@@ -40,7 +40,7 @@
       "codigo": "PF-07",
       "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB, el límite de la interfaz)",
       "resultado": "PASA",
-      "detalle": "3772.8 ms"
+      "detalle": "5503.5 ms"
     },
     {
       "codigo": "PF-08",

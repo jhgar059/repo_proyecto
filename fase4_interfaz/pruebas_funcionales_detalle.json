@@ -99,13 +99,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 17.2,
+    "latencia_ms": 34.3,
     "nombre_archivo": "pe_minimo.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "e257e1fbddfae96ea739d6ba920f23473650b431ed21fedd81853973871a1f23",
     "advertencias": [],
-    "latencia_total_ms": 35.8
+    "latencia_total_ms": 49.8
   },
   "PF-02": {
     "probabilidad_malware": 0.673,
@@ -207,13 +207,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 17.0,
+    "latencia_ms": 32.5,
     "nombre_archivo": "pe_sospechoso.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
     "advertencias": [],
-    "latencia_total_ms": 21.3
+    "latencia_total_ms": 38.9
   },
   "PF-03": {
     "error": "No se admite el tipo de archivo '.txt'. El sistema solo analiza programas y bibliotecas de Windows (.exe, .dll y formatos similares), que es el tipo de archivo con el que se entrenó el modelo. Para documentos, imágenes, comprimidos u otros tipos de archivo use su antivirus."
@@ -327,13 +327,13 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 17.2,
+    "latencia_ms": 31.7,
     "nombre_archivo": "pe_sospechoso.exe",
     "tamano_bytes": 2048,
     "es_pe": true,
     "sha256": "07dfc27b71d12c1e669513d2277c1aecfafe7b3e8503df8c621a1a4144d2da23",
     "advertencias": [],
-    "latencia_total_ms": 20.9
+    "latencia_total_ms": 37.5
   },
   "PF-07": {
     "probabilidad_malware": 0.8823,
@@ -435,12 +435,12 @@
       }
     ],
     "modelo": "Random Forest",
-    "latencia_ms": 17.6,
+    "latencia_ms": 19.6,
     "nombre_archivo": "pe_5mb.exe",
     "tamano_bytes": 5242880,
     "es_pe": true,
     "sha256": "b7dece06b638375317b24887217fefc4b5620877eaf27d3f7eeda7e3c9f2b240",
     "advertencias": [],
-    "latencia_total_ms": 3772.8
+    "latencia_total_ms": 5503.5
   }
 }

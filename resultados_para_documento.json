@@ -1,5 +1,5 @@
 {
-  "generado": "2026-11-02 00:55:22",
+  "generado": "2026-11-03 17:41:45",
   "dataset": {
     "por_split_y_tipo": [
       {
@@ -247,7 +247,7 @@
       }
     },
     "tiempo_ranking_s": 963.9,
-    "tiempo_fase_s": 62.3
+    "tiempo_fase_s": 64.6
   },
   "fase2": {
     "K": 15,
@@ -283,7 +283,7 @@
         "recall": 0.9245074074074074,
         "f1": 0.9251361573513851,
         "auc_roc": 0.9780891902933162,
-        "pr_auc": 0.9781791757805747,
+        "pr_auc": 0.9781791757805748,
         "fpr": 0.07414981106912648,
         "fnr": 0.0754925925925926,
         "tpr_al_1pct_fpr": 0.6985111111111111,
@@ -293,12 +293,12 @@
         "fn": 20383,
         "tp": 249617,
         "recall_challenge": 0.5729252259654889,
-        "auc_challenge": 0.9069560384671747,
-        "pr_auc_challenge": 0.2952440904532611,
+        "auc_challenge": 0.9069560384671745,
+        "pr_auc_challenge": 0.29524409045326105,
         "tiempo_entrenamiento_s": 2788.4,
-        "inferencia_ms_por_archivo_lote": 0.0491922544709761,
-        "latencia_ms_un_archivo_mediana": 17.722129821777344,
-        "latencia_ms_un_archivo_p95": 21.529102325439453,
+        "inferencia_ms_por_archivo_lote": 0.04582989324917373,
+        "latencia_ms_un_archivo_mediana": 25.98583698272705,
+        "latencia_ms_un_archivo_p95": 70.28623819351186,
         "f1_cv": 0.928,
         "hiperparametros": {
           "n_estimators": 250,
@@ -338,8 +338,8 @@
         "precision": 0.9186693961857788,
         "recall": 0.9257703703703704,
         "f1": 0.92220621413168,
-        "auc_roc": 0.9772084563785095,
-        "pr_auc": 0.9770280792858845,
+        "auc_roc": 0.9772084563785094,
+        "pr_auc": 0.9770280792858844,
         "fpr": 0.08197747647625399,
         "fnr": 0.07422962962962963,
         "tpr_al_1pct_fpr": 0.6732444444444444,
@@ -350,11 +350,11 @@
         "tp": 249958,
         "recall_challenge": 0.5184880854560394,
         "auc_challenge": 0.8977179847750945,
-        "pr_auc_challenge": 0.15124316882806577,
+        "pr_auc_challenge": 0.15124316882806574,
         "tiempo_entrenamiento_s": 316.8,
-        "inferencia_ms_por_archivo_lote": 0.009692958245812759,
-        "latencia_ms_un_archivo_mediana": 2.5491714477539062,
-        "latencia_ms_un_archivo_p95": 8.516323566436766,
+        "inferencia_ms_por_archivo_lote": 0.008000084774253164,
+        "latencia_ms_un_archivo_mediana": 0.5843639373779297,
+        "latencia_ms_un_archivo_p95": 0.8737802505493156,
         "f1_cv": 0.922,
         "hiperparametros": {
           "subsample": 1.0,
@@ -395,8 +395,8 @@
         "precision": 0.918577443244635,
         "recall": 0.8985592592592593,
         "f1": 0.9084580877562177,
-        "auc_roc": 0.97147820248807,
-        "pr_auc": 0.9716881817387133,
+        "auc_roc": 0.9714782024880702,
+        "pr_auc": 0.9716881817387134,
         "fpr": 0.07966585167074165,
         "fnr": 0.10144074074074073,
         "tpr_al_1pct_fpr": 0.6240407407407408,
@@ -409,9 +409,9 @@
         "auc_challenge": 0.872801281839374,
         "pr_auc_challenge": 0.09809142031172605,
         "tiempo_entrenamiento_s": 145.6,
-        "inferencia_ms_por_archivo_lote": 0.005193808372229935,
-        "latencia_ms_un_archivo_mediana": 75.15931129455566,
-        "latencia_ms_un_archivo_p95": 84.92615222930907,
+        "inferencia_ms_por_archivo_lote": 0.001602664843229787,
+        "latencia_ms_un_archivo_mediana": 100.53122043609619,
+        "latencia_ms_un_archivo_p95": 144.35158967971802,
         "f1_cv": null,
         "hiperparametros": {
           "arquitectura": "128-64-32-1 (ReLU, dropout 0.3/0.2)",
@@ -461,7 +461,7 @@
       "fpr": false,
       "latencia": true
     },
-    "tiempo_fase_s": 95.0
+    "tiempo_fase_s": 112.3
   },
   "fase3": {
     "modelo_explicado": "Random Forest",
@@ -472,9 +472,9 @@
     "shap_aproximado": true,
     "cobertura_explicacion_pct": 100.0,
     "error_fidelidad_shap": 0.0,
-    "ms_por_explicacion_shap": 0.893,
-    "ms_por_explicacion_lime_mediana": 294.7,
-    "acuerdo_shap_lime_jaccard_top5": 0.677,
+    "ms_por_explicacion_shap": 0.885,
+    "ms_por_explicacion_lime_mediana": 244.4,
+    "acuerdo_shap_lime_jaccard_top5": 0.4532,
     "n_instancias_acuerdo": 100,
     "top_10_global": [
       {
@@ -773,7 +773,7 @@
         "codigo": "PF-07",
         "descripcion": "Latencia extremo a extremo < 10 s (archivo de 5 MB, el límite de la interfaz)",
         "resultado": "PASA",
-        "detalle": "3772.8 ms"
+        "detalle": "5503.5 ms"
       },
       {
         "codigo": "PF-08",

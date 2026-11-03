@@ -1,8 +1,8 @@
 # Manifiesto de evidencias — Trabajo de grado: detección de malware con ML y XAI (EMBER2024)
 
-Generado: 2026-11-02 00:56:09 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
+Generado: 2026-11-03 17:42:10 · Entorno: Google Colab · Carpeta base: `/content/drive/MyDrive/trabajo_grado_malware/ember2024`
 
-Archivos presentes: **93** · pendientes: **4** · omitidos del zip por tamaño: **0**
+Archivos presentes: **95** · pendientes: **2** · omitidos del zip por tamaño: **0**
 
 Resumen de la corrida: {"K_seleccionado": 15, "pct_reduccion": 99.42, "modelo_seleccionado": "Random Forest", "f1_prueba_temporal": 0.9251361573513851, "fpr": 0.07414981106912648, "recall_challenge": 0.5729252259654889, "n_train": 548997, "n_test": 539940, "n_challenge": 4868}
 
@@ -14,8 +14,8 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 |---|---|---|---|
 | `cuadro_cumplimiento_metas.csv` | presente | 0.000 | Cuadro de cumplimiento de las metas del anteproyecto. |
 | `entorno_versiones.json` | presente | 0.001 | Versiones de Python y de las bibliotecas de la corrida (incluye el commit de thrember). |
-| `registro_memoria.csv` | presente | 0.018 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
-| `resultados_para_documento.json` | presente | 0.028 | Consolidado de los resúmenes de todas las fases + configuración usada. |
+| `registro_memoria.csv` | presente | 0.022 | Registro del uso de RAM del proceso en cada punto de control (evidencia de que la corrida cabe en Colab). |
+| `resultados_para_documento.json` | presente | 0.030 | Consolidado de los resúmenes de todas las fases + configuración usada. |
 
 ## 01_dataset
 
@@ -33,7 +33,7 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 |---|---|---|---|
 | `caracteristicas_seleccionadas.csv` | presente | 0.001 | Tabla de las K características seleccionadas: posición, columna, nombre legible, grupo, importancia y puesto en el ranking. |
 | `challenge_reducido.parquet` | presente | 0.403 | BASE DE DATOS REDUCIDA del conjunto de desafío (malware evasivo): mismas columnas. |
-| `challenge_reducido_muestra_5000filas.csv` | presente | 0.832 | Primeras 4868 filas de challenge_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 4,868 filas. |
+| `challenge_reducido_muestra_5000filas.csv` | presente | 0.834 | Primeras 4868 filas de challenge_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 4,868 filas. |
 | `columnas_constantes.csv` | presente | 0.002 | Variables eliminadas por ser constantes en la muestra. |
 | `correlacion_seleccionadas.csv` | presente | 0.002 | Matriz de correlación de Pearson entre las K características seleccionadas. |
 | `curva_k_vs_f1.csv` | presente | 0.000 | Curva K vs. F1: F1, % de reducción y % del F1 de referencia conservado para cada K probado. |
@@ -45,9 +45,9 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `redundantes_descartadas.csv` | presente | 0.002 | Variables descartadas por redundancia (|r| > umbral): con cuál estaban correlacionadas y el valor de |r|. |
 | `seleccion_final.json` | presente | 0.001 | Regla aplicada y lista de las K columnas seleccionadas (con nombres y grupos). |
 | `test_reducido.parquet` | presente | 42.038 | BASE DE DATOS REDUCIDA de prueba temporal (semanas 53-64): mismas columnas. |
-| `test_reducido_muestra_5000filas.csv` | presente | 0.816 | Primeras 5000 filas de test_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 539,940 filas. |
+| `test_reducido_muestra_5000filas.csv` | presente | 0.818 | Primeras 5000 filas de test_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 539,940 filas. |
 | `train_reducido.parquet` | presente | 43.428 | BASE DE DATOS REDUCIDA de entrenamiento: K características seleccionadas + metadatos (sha256, label, tipo, fecha, semana, familia, comportamiento). |
-| `train_reducido_muestra_5000filas.csv` | presente | 0.820 | Primeras 5000 filas de train_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 548,997 filas. |
+| `train_reducido_muestra_5000filas.csv` | presente | 0.821 | Primeras 5000 filas de train_reducido.parquet en CSV (para abrir en Excel); el parquet tiene 548,997 filas. |
 
 ## 03_modelos
 
@@ -103,20 +103,20 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `ejemplo_resultado_analisis.json` | presente | 0.005 | Respuesta completa del motor de análisis para un ejemplo (veredicto, probabilidad, riesgo, factores y frases). |
 | `ejemplos_demo.parquet` | presente | 0.011 | Archivos de ejemplo cargados en la interfaz (vectores reducidos, etiqueta real, tipo y sha256). |
 | `fase4_pruebas.json` | presente | 0.003 | Resumen JSON de las pruebas funcionales y de rendimiento. |
-| `fase4_sus.json` | presente | 0.000 | Resumen SUS: promedio, desviación, IC 95 %, calificación y cumplimiento de la meta (o estado pendiente). |
+| `fase4_sus.json` | presente | 0.003 | Resumen SUS: promedio, desviación, IC 95 %, calificación y cumplimiento de la meta (o estado pendiente). |
 | `fig_interfaz_gradio.png` | PENDIENTE (aún no generado) |  | Captura de pantalla de la interfaz (la toma el usuario al lanzar la app). |
 | `pruebas_funcionales.csv` | presente | 0.001 | Pruebas funcionales PF-01 a PF-09: descripción, resultado PASA/FALLA (INFORMATIVA en la exploratoria PF-08) y detalle. |
 | `pruebas_funcionales_detalle.json` | presente | 0.020 | Respuesta completa del analizador en cada prueba funcional. |
 | `pruebas_rendimiento.csv` | presente | 0.000 | Latencia de extremo a extremo por tamaño de archivo: p50, p95, máximo, desglose extracción/predicción y cumplimiento de la meta. |
 | `pruebas_rendimiento_detalle.csv` | presente | 0.003 | Todas las mediciones individuales de las pruebas de rendimiento (una fila por repetición). |
-| `sus_puntajes_por_participante.csv` | PENDIENTE (aún no generado) |  | Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales). |
-| `sus_respuestas.csv` | presente | 0.000 | Respuestas SUS registradas (plantilla; se diligencia con participantes reales). |
+| `sus_puntajes_por_participante.csv` | presente | 0.001 | Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales). |
+| `sus_respuestas.csv` | presente | 0.005 | Respuestas SUS registradas (plantilla; se diligencia con participantes reales). |
 
 ## 06_figuras
 
 | Archivo | Estado | Tamaño (MB) | Descripción |
 |---|---|---|---|
-| `fig_acuerdo_shap_lime.png` | presente | 0.057 | Distribución del índice de Jaccard entre los top-5 de SHAP y LIME. |
+| `fig_acuerdo_shap_lime.png` | presente | 0.055 | Distribución del índice de Jaccard entre los top-5 de SHAP y LIME. |
 | `fig_busqueda_hiperparametros.png` | presente | 0.121 | F1 de validación cruzada de cada combinación probada en la búsqueda de hiperparámetros. |
 | `fig_comparacion_modelos.png` | presente | 0.080 | Comparación de F1, recall, precisión, AUC-ROC y recall en el desafío de los tres modelos. |
 | `fig_composicion_dataset.png` | presente | 0.090 | Composición del subconjunto PE de EMBER2024 por split, tipo y clase. |
@@ -128,7 +128,7 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_importancia_topk.png` | presente | 0.214 | Importancia (Extra Trees) de las K características seleccionadas, coloreadas por grupo. |
 | `fig_interfaz_gradio.png` | PENDIENTE (aún no generada) |  | Captura de pantalla de la interfaz Gradio. |
 | `fig_latencia_por_tamano.png` | presente | 0.081 | Latencia de análisis por tamaño de archivo (desglose y p95 frente a la meta). |
-| `fig_lime_ejemplo.png` | presente | 0.124 | Explicación LIME del mismo archivo malicioso (contraste con SHAP). |
+| `fig_lime_ejemplo.png` | presente | 0.128 | Explicación LIME del mismo archivo malicioso (contraste con SHAP). |
 | `fig_matrices_confusion.png` | presente | 0.116 | Matrices de confusión de los tres modelos sobre la prueba temporal. |
 | `fig_pr_modelos.png` | presente | 0.090 | Curvas precisión-recall de los tres modelos. |
 | `fig_roc_modelos.png` | presente | 0.172 | Curvas ROC (escala lineal y logarítmica) de los tres modelos. |
@@ -137,12 +137,10 @@ Cómo abrir los `.parquet`: `import pandas as pd; df = pd.read_parquet('archivo.
 | `fig_shap_local_benigno.png` | presente | 0.207 | Explicación local SHAP (waterfall) de un archivo benigno. |
 | `fig_shap_local_malicioso.png` | presente | 0.208 | Explicación local SHAP (waterfall) de un archivo malicioso. |
 | `fig_shap_por_grupo.png` | presente | 0.078 | Aporte de cada grupo de características a las decisiones (SHAP). |
-| `fig_sus_resultados.png` | PENDIENTE (aún no generada) |  | Puntajes SUS por participante y promedio por ítem (con respuestas reales). |
-| `fig_tiempos_modelos.png` | presente | 0.050 | Tiempo de entrenamiento y latencia de predicción por modelo. |
+| `fig_sus_resultados.png` | presente | 0.141 | Puntajes SUS por participante y promedio por ítem (con respuestas reales). |
+| `fig_tiempos_modelos.png` | presente | 0.049 | Tiempo de entrenamiento y latencia de predicción por modelo. |
 
 ## Pendientes
 
 - `05_interfaz_y_pruebas/fig_interfaz_gradio.png`: Captura de pantalla de la interfaz (la toma el usuario al lanzar la app).
-- `05_interfaz_y_pruebas/sus_puntajes_por_participante.csv`: Puntaje SUS calculado por participante (solo existe cuando hay respuestas reales).
 - `06_figuras/fig_interfaz_gradio.png`: Captura de pantalla de la interfaz Gradio.
-- `06_figuras/fig_sus_resultados.png`: Puntajes SUS por participante y promedio por ítem (con respuestas reales).

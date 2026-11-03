@@ -45,7 +45,7 @@
   },
   "escalador": {
     "archivo": "modelos/scaler.joblib",
-    "sha256": "618d50348314e26bc169e07ef1cb39a89ae72ca2995f4db62f227aa74d455057"
+    "sha256": "b979b398b8c26fa0adce0638ea44946c3bbb88d8aaa715271232e782ccd93430"
   },
   "modelo": {
     "nombre": "Random Forest",
